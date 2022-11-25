@@ -10,7 +10,7 @@ public class DungeonRunController : MonoBehaviour
     void Start()
     {
         AdventurerCount = 5;
-        AdventurerSurviveProb = [0.8f, 0.2f, 0.5f, 0.5f, 0.5f];
+        AdventurerSurviveProb = new float[]{0.8f, 0.2f, 0.5f, 0.5f, 0.5f};
     }
 
     // Update is called once per frame
