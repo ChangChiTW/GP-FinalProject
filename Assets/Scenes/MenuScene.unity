@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 475146892}
   - component: {fileID: 475146891}
   m_Layer: 5
-  m_Name: BackgroudStory
+  m_Name: BackgroundStory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

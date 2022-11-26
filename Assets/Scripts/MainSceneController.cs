@@ -5,25 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainSceneController : MonoBehaviour
 {
-    private Canvas _main;
-    private Canvas _npc1;
+    [SerializeField]
+    private GameObject _main;
 
-    void Start()
-    {
-        _main = GameObject.Find("Main").GetComponent<Canvas>();
-        _npc1 = GameObject.Find("Npc1").GetComponent<Canvas>();
-    }
+    [SerializeField]
+    private GameObject _npc1;
 
-    public void OnNPC()
+    public void OnNpcInfo()
     {
-        _npc1.enabled = true;
-        _main.enabled = false;
+        _npc1.SetActive(true);
+        _main.SetActive(false);
     }
 
     public void OnBackToMainScene()
     {
-        _npc1.enabled = false;
-        _main.enabled = true;
+        _npc1.SetActive(false);
+        _main.SetActive(true);
     }
 
     public void OnGoShop()

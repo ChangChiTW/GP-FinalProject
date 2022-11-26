@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ShopSceneController : MonoBehaviour
 {
-    private Canvas _shop;
+    Canvas Shop;
 
     void Start()
     {
-        _shop = GameObject.Find("Shop").GetComponent<Canvas>();
+        Shop = GameObject.Find("Shop").GetComponent<Canvas>();
     }
 }
