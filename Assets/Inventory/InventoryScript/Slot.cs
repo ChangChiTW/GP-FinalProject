@@ -13,23 +13,13 @@ public class Slot : MonoBehaviour
 
     public void ItemOnClicked()
     {   
-        //itemDescription.SetActive(false);
-        //InventoryManager.UpdateItemInfo(slotItem.itemInfo);
-        if(!playerInventory.itemList.Contains(slotItem))
-        {
-            playerInventory.itemList.Add(slotItem);
-            //InventoryManager.CreateNewItem(slotItem);
-        }
-        else
-        {
-            slotItem.itemHeld += 1;
-        }
-
-        InventoryManager.RefreshItem();
+        InventoryManager.ShowDes();
+        InventoryManager.UpdateItemInfo(slotItem.itemInfo);
+        InventoryManager.ChooseItem(slotItem);
     }
 
-    public void AddNewItem()
+    public void BuyItem()
     {
-        
+        InventoryManager.AddNewItem();
     }
 }

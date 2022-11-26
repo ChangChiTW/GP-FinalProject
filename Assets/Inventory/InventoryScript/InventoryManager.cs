@@ -16,7 +16,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject shopGrid;
     public Slot shopPrefab;
 
-    //public GameObject itemDes;
+    public GameObject itemDes;
+    public Item chosenItem;
 
     void Awake()
     {
@@ -37,6 +38,31 @@ public class InventoryManager : MonoBehaviour
     {
         RefreshItem();
     }*/
+
+    public static void ShowDes()
+    {
+        instance.itemDes.SetActive(true);
+    }
+
+    public static void ChooseItem(Item pointedItem)
+    {
+        instance.chosenItem = pointedItem;
+    }
+
+    public static void AddNewItem()
+    {
+        if(!instance.myBag.itemList.Contains(instance.chosenItem))
+        {
+            instance.myBag.itemList.Add(instance.chosenItem);
+            //InventoryManager.CreateNewItem(chosenItem);
+        }
+        else
+        {
+            instance.chosenItem.itemHeld += 1;
+        }
+
+        RefreshItem();
+    }
 
     public static void UpdateItemInfo(string itemDescription)
     {
