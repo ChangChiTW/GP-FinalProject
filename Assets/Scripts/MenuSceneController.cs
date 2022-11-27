@@ -28,8 +28,8 @@ public class MenuSceneController : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
-    public void OnOption()
+    public void OnSetting()
     {
-        Debug.Log("OnOption");
+        Debug.Log("OnSetting");
     }
 }
