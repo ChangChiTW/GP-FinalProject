@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 349539936}
   - component: {fileID: 349539935}
   m_Layer: 0
-  m_Name: AdvanturerManager
+  m_Name: AdventurerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -40,8 +40,15 @@ public class IntroBookSceneController : MonoBehaviour
     {
         _book.GetComponent<BookAnimator>().OpenBook();
         yield return new WaitForSeconds(0.8f);
-        _rightBtn.SetActive(true);
-        _pages[0].SetActive(true);
+        _pages[_currentPage].SetActive(true);
+        if (_currentPage > 0)
+        {
+            _leftBtn.SetActive(true);
+        }
+        if (_currentPage < _pages.Count - 1)
+        {
+            _rightBtn.SetActive(true);
+        }
     }
 
     protected IEnumerator closeBook()
@@ -80,7 +87,7 @@ public class IntroBookSceneController : MonoBehaviour
         }
     }
 
-    public void OnCloseBook()
+    public virtual void OnCloseBook()
     {
         StartCoroutine(closeBook());
     }
