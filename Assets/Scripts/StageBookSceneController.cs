@@ -21,6 +21,22 @@ public class StageBookSceneController : IntroBookSceneController
     override protected void init()
     {
         _currentPage = _stateManager.GetStageBookPage();
+        int goldRatio = _stateManager.GetGoldRatio();
+        _pages[0].transform.Find("GoldRatio").GetComponent<TMP_Text>().text =
+            "Gold Ratio: " + goldRatio.ToString() + "%";
+        List<string> specialConditions = _stateManager.GetSpecialConditions();
+        if (specialConditions.Count > 0)
+        {
+            for (int i = 0; i < specialConditions.Count; i++)
+            {
+                _pages[0].transform.Find("SpecialConditionList").GetComponent<TMP_Text>().text +=
+                    specialConditions[i] + "\n";
+            }
+        }
+        else
+        {
+            _pages[0].transform.Find("SpecialConditionList").GetComponent<TMP_Text>().text = "None";
+        }
         AdventurerInfo[] adventurerList = _adventurerManager.GetAdventurerList();
         for (int i = 0; i < adventurerList.Length; i++)
         {
