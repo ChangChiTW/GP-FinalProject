@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
+    private int _stageBookPage = 0;
     private int _goldRatio = 100;
     private List<string> _specialConditions = new List<string>();
 
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void SetStageBookPage(int page)
+    {
+        _stageBookPage = page;
+    }
+
+    public int GetStageBookPage()
+    {
+        return _stageBookPage;
     }
 
     public void SetGoldRatio(int ratio)

@@ -6,62 +6,77 @@ using UnityEngine.SceneManagement;
 public class IntroBookSceneController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _introBook;
+    protected GameObject _book;
 
     [SerializeField]
-    private GameObject _inPageUI;
+    protected GameObject _leftBtn;
 
     [SerializeField]
-    private GameObject[] _pageContents = new GameObject[2];
-    private int _currentPage = 0;
+    protected GameObject _rightBtn;
+
+    [SerializeField]
+    protected List<GameObject> _pages;
+    protected int _currentPage;
 
     void Start()
     {
+        init();
         StartCoroutine(openBook());
     }
 
-    private IEnumerator openBook()
+    protected virtual void init()
     {
-        _introBook.GetComponent<BookAnimator>().OpenBook();
-        yield return new WaitForSeconds(0.8f);
-        _inPageUI.SetActive(true);
-        _pageContents[0].SetActive(true);
+        _currentPage = 0;
     }
 
-    private IEnumerator closeBook()
+    protected void disActivateAllContents()
     {
-        _pageContents[_currentPage].SetActive(false);
-        _inPageUI.SetActive(false);
-        _introBook.GetComponent<BookAnimator>().CloseBook();
+        _pages[_currentPage].SetActive(false);
+        _leftBtn.SetActive(false);
+        _rightBtn.SetActive(false);
+    }
+
+    protected IEnumerator openBook()
+    {
+        _book.GetComponent<BookAnimator>().OpenBook();
+        yield return new WaitForSeconds(0.8f);
+        _rightBtn.SetActive(true);
+        _pages[0].SetActive(true);
+    }
+
+    protected IEnumerator closeBook()
+    {
+        disActivateAllContents();
+        _book.GetComponent<BookAnimator>().CloseBook();
         yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("MainScene");
     }
 
-    private IEnumerator flipRight()
+    protected IEnumerator flipRight()
     {
+        disActivateAllContents();
+        _book.GetComponent<BookAnimator>().FlipRight();
+        yield return new WaitForSeconds(0.6f);
+        _currentPage--;
+        _pages[_currentPage].SetActive(true);
+        _rightBtn.SetActive(true);
         if (_currentPage != 0)
         {
-            _pageContents[_currentPage].SetActive(false);
-            _inPageUI.SetActive(false);
-            _introBook.GetComponent<BookAnimator>().FlipRight();
-            yield return new WaitForSeconds(0.6f);
-            _currentPage--;
-            _pageContents[_currentPage].SetActive(true);
-            _inPageUI.SetActive(true);
+            _leftBtn.SetActive(true);
         }
     }
 
-    private IEnumerator flipLeft()
+    protected IEnumerator flipLeft()
     {
-        if (_currentPage != _pageContents.Length - 1)
+        disActivateAllContents();
+        _book.GetComponent<BookAnimator>().FlipLeft();
+        yield return new WaitForSeconds(0.6f);
+        _currentPage++;
+        _pages[_currentPage].SetActive(true);
+        _leftBtn.SetActive(true);
+        if (_currentPage != _pages.Count - 1)
         {
-            _pageContents[_currentPage].SetActive(false);
-            _inPageUI.SetActive(false);
-            _introBook.GetComponent<BookAnimator>().FlipLeft();
-            yield return new WaitForSeconds(0.6f);
-            _currentPage++;
-            _pageContents[_currentPage].SetActive(true);
-            _inPageUI.SetActive(true);
+            _rightBtn.SetActive(true);
         }
     }
 

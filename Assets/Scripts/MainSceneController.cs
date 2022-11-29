@@ -61,4 +61,8 @@ public class MainSceneController : MonoBehaviour
     public void OnOpenIntroBook() { 
         SceneManager.LoadScene("IntroBookScene");
     }
+
+    public void OnOpenStageBook() { 
+        SceneManager.LoadScene("StageBookScene");
+    }
 }
