@@ -14,7 +14,7 @@ public class AdventurerInfo
     public string name;
 
     public string job;
-    public int hp;
+    public float hp;
     public int atk;
     public int def;
     public ItemInfo[] items;

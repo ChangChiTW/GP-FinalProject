@@ -8,7 +8,8 @@ public class MonsterRoomScript : MonoBehaviour
 
     [SerializeField] private float Attack = 10;
     [SerializeField] private int Lives = 2;
-    [SerializeField] private int Money = 2;
+
+    public bool IsEnd = false;
 
     void Start()
     {
@@ -28,8 +29,10 @@ public class MonsterRoomScript : MonoBehaviour
             if(Lives<=0){
                 transform.Find("RoomActive").gameObject.SetActive(false);
                 transform.Find("RoomDead").gameObject.SetActive(true);
-
             }
+        }
+        if(IsEnd && transform.Find("RoomDead").gameObject.activeSelf && other.gameObject.tag == "Adventurer"){
+            //TODO: End and return surviving adventurers
         }
     }
 }

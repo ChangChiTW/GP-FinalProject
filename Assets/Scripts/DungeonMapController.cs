@@ -44,7 +44,6 @@ public class DungeonMapController : MonoBehaviour
         }
 
         Temp = gameObject.GetComponent<AdventurerManager>().GetAdventurerList();
-       
         float LevelLength = 4; //How long (x) is one dungeon Level
 
         for (int i=0; i<=CurrentLayout.Length; i++){ // i is current dungeon Level
@@ -99,8 +98,12 @@ public class DungeonMapController : MonoBehaviour
             g[CurrentLayout.Length] = new Vector2(FloorCoords[CurrentLayout.Length, 0, 0], FloorCoords[CurrentLayout.Length, 0, 1]);
             spawned.GetComponent<AdventurerBehavior>().SetWalkGoals(g, CurrentLayout.Length+1);
             spawned.GetComponent<AdventurerBehavior>().SetSpeed(adv.atk*0.024f);
-            spawned.GetComponent<AdventurerBehavior>().HP = adv.hp;
-
+            spawned.GetComponent<AdventurerBehavior>().hp = adv.hp;
+            spawned.GetComponent<AdventurerBehavior>().job = adv.job;
+            spawned.GetComponent<AdventurerBehavior>().atk = adv.atk;
+            spawned.GetComponent<AdventurerBehavior>().def = adv.def;
+            spawned.GetComponent<AdventurerBehavior>().items = adv.items;
+            
         }
 
         
@@ -110,6 +113,10 @@ public class DungeonMapController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateEnd(){
+        Debug.Log("end1");
     }
 
 }
