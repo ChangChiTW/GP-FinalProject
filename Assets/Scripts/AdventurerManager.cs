@@ -24,10 +24,6 @@ public class AdventurerManager : MonoBehaviour
 
     void Start()
     {
-        if (GameObject.Find("AdventurerManager") != null)
-        {
-            Destroy(this.gameObject);
-        }
         DontDestroyOnLoad(this.gameObject);
         randomAdventurerList();
     }

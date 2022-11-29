@@ -17,17 +17,28 @@ public class MainSceneController : MonoBehaviour
     [SerializeField]
     private GameObject _stageBookmark;
 
+    private StateManager _stateManager;
     private float _openBookmarkX;
     private float _closeBookmarkX;
+
+    void Awake()
+    {
+        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
+    }
 
     void Start()
     {
         _openBookmarkX = _introBookmark.GetComponent<Transform>().position.x;
         _closeBookmarkX = _stageBookmark.GetComponent<Transform>().position.x;
+        if (_stateManager.GetLastSelectStage())
+        {
+            OnSelectStageBook();
+        }
     }
 
     public void OnSelectIntroBook()
     {
+        _stateManager.SetLastSelectStage(false);
         _introBook.SetActive(true);
         _introBookmark.GetComponent<Transform>().position = new Vector3(
             _openBookmarkX,
@@ -44,6 +55,7 @@ public class MainSceneController : MonoBehaviour
 
     public void OnSelectStageBook()
     {
+        _stateManager.SetLastSelectStage(true);
         _introBook.SetActive(false);
         _introBookmark.GetComponent<Transform>().position = new Vector3(
             _closeBookmarkX,
@@ -58,11 +70,13 @@ public class MainSceneController : MonoBehaviour
         );
     }
 
-    public void OnOpenIntroBook() { 
+    public void OnOpenIntroBook()
+    {
         SceneManager.LoadScene("IntroBookScene");
     }
 
-    public void OnOpenStageBook() { 
+    public void OnOpenStageBook()
+    {
         SceneManager.LoadScene("StageBookScene");
     }
 }
