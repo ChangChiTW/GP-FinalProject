@@ -155,15 +155,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapDot: {fileID: 7381579004831415487, guid: 8e35ffa536227f54883a2c464622ca6e, type: 3}
   StartPoint: {fileID: 1283784854}
-  MonsterEncounter: {fileID: 5555805658514818142, guid: 049adb81af4db574fb9dc4ecf89be2aa, type: 3}
-  SmallChestEncounter: {fileID: 2079366502110612505, guid: b3c2d34246c8bc546826859d9fe21ddc, type: 3}
-  BossEncounter: {fileID: 7040121784259839415, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
-  LargeChestEncounter: {fileID: 3525608644447500415, guid: 091efaf0ec65c9b4989ef0e6627749dd, type: 3}
+  MonsterEncounter: {fileID: 6118488047264765226, guid: 87df63490f26ae24ca0e06486e236b2e, type: 3}
+  SmallChestEncounter: {fileID: 1229643146335667107, guid: dd7291e8d455fdc4699541507b7f6418, type: 3}
+  BossEncounter: {fileID: 4406108602203724230, guid: b10041d93f797304dbc1cd5146aeb5e0, type: 3}
+  LargeChestEncounter: {fileID: 3916815832211670837, guid: ff63f47019be22c46b30a42f45d49b74, type: 3}
   MapParent: {fileID: 1394472888}
   AdventurerParent: {fileID: 613741984}
-  Wizard: {fileID: 1060851758113222923, guid: 5e08b573a3155774a85385b15cb49018, type: 3}
-  Warrior: {fileID: 8816316644648633, guid: a7090e1791b1b8e43bd9f1a80a98b581, type: 3}
-  Warlock: {fileID: 4592881582663462083, guid: 979d29e2fe6318249b0a166506316beb, type: 3}
+  Wizard: {fileID: 2264193013458716066, guid: 5e08b573a3155774a85385b15cb49018, type: 3}
+  Warrior: {fileID: 386434134749588405, guid: a7090e1791b1b8e43bd9f1a80a98b581, type: 3}
+  Warlock: {fileID: 4997551030001934454, guid: 979d29e2fe6318249b0a166506316beb, type: 3}
   King: {fileID: 2366699469450832479, guid: b125b7b88cd438545ba65582885a20eb, type: 3}
 --- !u!4 &421356935
 Transform:

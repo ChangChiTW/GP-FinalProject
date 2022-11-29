@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AdventurerBehavior : MonoBehaviour
 {
-    public float HP;
+    public float HP = 100f;
     public float maxHP = 100f;
     public AdventurerHPBar HealthBar;
     // Start is called before the first frame update
@@ -19,7 +19,6 @@ public class AdventurerBehavior : MonoBehaviour
 
     void Start()
     {
-        HP = maxHP;
         HealthBar.SetHP(HP, maxHP);
     }
 
@@ -29,7 +28,7 @@ public class AdventurerBehavior : MonoBehaviour
         if(Walking && Vector2.Distance(WalkGoals[CurrFloor], gameObject.transform.position)<0.01f){ //Next Floor
             CurrFloor++;
         }
-        
+
         if(CurrFloor>=WalkGoals.Length){
             Arrived = true;
         }
@@ -52,6 +51,8 @@ public class AdventurerBehavior : MonoBehaviour
     public void TakeHit(float dmg){
         HP -= dmg;
         HealthBar.SetHP(HP, maxHP);
+
+        transform.position = new Vector3(transform.position.x-1, transform.position.y, transform.position.z);
 
         if(HP<=0){
             Destroy(gameObject);

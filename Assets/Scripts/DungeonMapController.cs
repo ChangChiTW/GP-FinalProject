@@ -99,6 +99,8 @@ public class DungeonMapController : MonoBehaviour
             g[CurrentLayout.Length] = new Vector2(FloorCoords[CurrentLayout.Length, 0, 0], FloorCoords[CurrentLayout.Length, 0, 1]);
             spawned.GetComponent<AdventurerBehavior>().SetWalkGoals(g, CurrentLayout.Length+1);
             spawned.GetComponent<AdventurerBehavior>().SetSpeed(adv.atk*0.024f);
+            spawned.GetComponent<AdventurerBehavior>().HP = adv.hp;
+
         }
 
         

@@ -9,6 +9,7 @@ public class DungeonRunCamera : MonoBehaviour
     [SerializeField]
     private GameObject AllCharacters;
     private float AvgX = 0;
+    private float prevX = -3;
     void Start()
     {
         transform.position = InitPos;
@@ -24,9 +25,11 @@ public class DungeonRunCamera : MonoBehaviour
                 AvgX+=c.position.x;
             }
             AvgX/=AllCharacters.transform.childCount;
-        
-            if(AvgX>-3 && AvgX<6)
+
+            if(AvgX>-3 && AvgX<6 && prevX<AvgX)
                 transform.position = Vector3.Lerp(transform.position, new Vector3(AvgX, transform.position.y, -10), 0.06f);
+            prevX = transform.position.x;
         }
+        
     }
 }
