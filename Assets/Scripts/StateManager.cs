@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
+    private string _lastSceneToStageBookScene;
     private bool _lastSelectStage = false;
     private int _stageBookPage = 0;
     private int _goldRatio = 100;
@@ -12,6 +13,16 @@ public class StateManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void SetLastSceneToStageBookScene(string sceneName)
+    {
+        _lastSceneToStageBookScene = sceneName;
+    }
+
+    public string GetLastSceneToStageBookScene()
+    {
+        return _lastSceneToStageBookScene;
     }
 
     public void SetLastSelectStage(bool lastSelectStage)

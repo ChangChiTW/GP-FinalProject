@@ -16,7 +16,15 @@ public class IntroBookSceneController : MonoBehaviour
 
     [SerializeField]
     protected List<GameObject> _pages;
+    protected StateManager _stateManager;
+    protected AdventurerManager _adventurerManager;
     protected int _currentPage;
+
+    void Awake()
+    {
+        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
+        _adventurerManager = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>();
+    }
 
     void Start()
     {
@@ -56,7 +64,14 @@ public class IntroBookSceneController : MonoBehaviour
         disActivateAllContents();
         _book.GetComponent<BookAnimator>().CloseBook();
         yield return new WaitForSeconds(0.8f);
-        SceneManager.LoadScene("MainScene");
+        if (SceneManager.GetActiveScene().name == "IntroBookScene")
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+        else
+        {
+            SceneManager.LoadScene(_stateManager.GetLastSceneToStageBookScene());
+        }
     }
 
     protected IEnumerator flipRight()

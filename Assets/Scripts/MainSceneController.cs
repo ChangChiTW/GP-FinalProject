@@ -72,11 +72,13 @@ public class MainSceneController : MonoBehaviour
 
     public void OnOpenIntroBook()
     {
+        _stateManager.SetLastSceneToStageBookScene("MainScene");
         SceneManager.LoadScene("IntroBookScene");
     }
 
     public void OnOpenStageBook()
     {
+        _stateManager.SetLastSceneToStageBookScene("MainScene");
         SceneManager.LoadScene("StageBookScene");
     }
 }

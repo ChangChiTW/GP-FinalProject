@@ -9,18 +9,16 @@ public class StageBookSceneController : IntroBookSceneController
 {
     [SerializeField]
     private GameObject _rangerPagePrefab;
-    private StateManager _stateManager;
-    private AdventurerManager _adventurerManager;
 
-    void Awake()
-    {
-        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
-        _adventurerManager = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>();
-    }
+    [SerializeField]
+    private GameObject _backgroundImg;
 
     override protected void init()
     {
         _currentPage = _stateManager.GetStageBookPage();
+        string backgroundImgPath =
+            "StageBook/" + _stateManager.GetLastSceneToStageBookScene() + "BG";
+        _backgroundImg.GetComponent<Image>().sprite = Resources.Load<Sprite>(backgroundImgPath);
         int goldRatio = _stateManager.GetGoldRatio();
         _pages[0].transform.Find("GoldRatio").GetComponent<TMP_Text>().text =
             "Gold Ratio: " + goldRatio.ToString() + "%";
