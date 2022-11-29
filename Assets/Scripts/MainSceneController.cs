@@ -26,7 +26,7 @@ public class MainSceneController : MonoBehaviour
         _closeBookmarkX = _stageBookmark.GetComponent<Transform>().position.x;
     }
 
-    public void OnOpenIntroBook()
+    public void OnSelectIntroBook()
     {
         _introBook.SetActive(true);
         _introBookmark.GetComponent<Transform>().position = new Vector3(
@@ -42,7 +42,7 @@ public class MainSceneController : MonoBehaviour
         );
     }
 
-    public void OnOpenStageBook()
+    public void OnSelectStageBook()
     {
         _introBook.SetActive(false);
         _introBookmark.GetComponent<Transform>().position = new Vector3(
@@ -58,8 +58,7 @@ public class MainSceneController : MonoBehaviour
         );
     }
 
-    public void OnGoShop()
-    {
-        SceneManager.LoadScene("ShopScene");
+    public void OnOpenIntroBook() { 
+        SceneManager.LoadScene("IntroBookScene");
     }
 }

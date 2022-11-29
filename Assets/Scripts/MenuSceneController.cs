@@ -7,7 +7,7 @@ public class MenuSceneController : MonoBehaviour
 {
     public void OnStart()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("IntroBookScene");
     }
 
     public void OnSetting()
