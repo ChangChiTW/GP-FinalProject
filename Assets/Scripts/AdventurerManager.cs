@@ -12,7 +12,9 @@ public class ItemInfo
 public class AdventurerInfo
 {
     public string name;
-    public int hp;
+
+    public string job;
+    public float hp;
     public int atk;
     public int def;
     public ItemInfo[] items;
@@ -30,12 +32,15 @@ public class AdventurerManager : MonoBehaviour
 
     private void randomAdventurerList()
     {
+        string[] jobList = {"King", "Warrior", "Warlock", "Wizard"};
         for (int i = 0; i < 3; i++)
         {
             _adventurerList[i] = new AdventurerInfo();
             _adventurerList[i].name = "Adventurer " + i;
+            _adventurerList[i].job = jobList[Random.Range(0, jobList.Length)];
+
             _adventurerList[i].hp = Random.Range(1, 100);
-            _adventurerList[i].atk = Random.Range(1, 100);
+            _adventurerList[i].atk = Random.Range(70, 100);
             _adventurerList[i].def = Random.Range(1, 100);
             _adventurerList[i].items = new ItemInfo[3];
             for (int j = 0; j < 3; j++)
