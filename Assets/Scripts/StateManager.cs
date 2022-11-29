@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    private int _stageBookPage = 0;
+    private private int _stageBookPage = 0;
     private int _goldRatio = 100;
     private List<string> _specialConditions = new List<string>();
 
     void Start()
     {
+        if (GameObject.Find("StateManager") != null)
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
     }
 
