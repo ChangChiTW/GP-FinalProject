@@ -11,6 +11,12 @@ public class InventoryManager : MonoBehaviour
     public GameObject slotGrid;
     public Slot slotPrefab;
     public Text itemInformation;
+    public Text itemName;
+    public Text itemStrength;
+    public Text itemWisdom;
+    public Text itemLuck;
+    public Image itemPic;
+    public Text itemPrice;
 
     public Inventory myShop;
     public GameObject shopGrid;
@@ -44,6 +50,11 @@ public class InventoryManager : MonoBehaviour
         instance.itemDes.SetActive(true);
     }
 
+    public static void CloseDes()
+    {
+        instance.itemDes.SetActive(false);
+    }
+
     public static void ChooseItem(Item pointedItem)
     {
         instance.chosenItem = pointedItem;
@@ -64,10 +75,16 @@ public class InventoryManager : MonoBehaviour
         RefreshItem();
     }
 
-    public static void UpdateItemInfo(string itemDescription)
+    public static void UpdateItemInfo(string itemName, string itemDescription, string strength, string wisdom, string luck, Sprite itemImage,string price)
     {
         //itemDes.SetActive(true);
+        instance.itemName.text = itemName;
         instance.itemInformation.text = itemDescription;
+        instance.itemStrength.text = strength;
+        instance.itemWisdom.text = wisdom;
+        instance.itemLuck.text = luck;
+        instance.itemPic.sprite = itemImage;
+        instance.itemPrice.text = price;
     }
 
     public static void CreateNewItem(Item item)

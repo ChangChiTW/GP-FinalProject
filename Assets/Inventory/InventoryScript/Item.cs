@@ -11,4 +11,8 @@ public class Item : ScriptableObject
     [TextArea]
     public string itemInfo;
     public bool equip;
+    public string strength;
+    public string wisdom;
+    public string luck;
+    public string price;
 }
