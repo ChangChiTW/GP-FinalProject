@@ -22,6 +22,12 @@ public class InventoryManager : MonoBehaviour
     public GameObject shopGrid;
     public Slot shopPrefab;
 
+    //private PlayerManager _playerManager;
+    private int currentMoney;
+    private int currentDebt;
+    public Text OwnDebt;
+    public Text OwnMoney;
+
     public GameObject itemDes;
     public Item chosenItem;
 
@@ -30,6 +36,7 @@ public class InventoryManager : MonoBehaviour
         if(instance != null)
             Destroy(this);
         instance = this;
+        //instance._playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
     }
 
 
@@ -38,6 +45,14 @@ public class InventoryManager : MonoBehaviour
         RefreshItem();
         ShopItem();
         instance.itemInformation.text = "";
+        instance.currentMoney = 1000;
+        instance.currentDebt = 2000;
+    }
+
+    void Update()
+    {
+        instance.OwnMoney.text = "$" + instance.currentMoney;
+        instance.OwnDebt.text = "Debt: " + instance.currentDebt;
     }
 
     /*private void OnEnabled()
@@ -62,6 +77,8 @@ public class InventoryManager : MonoBehaviour
 
     public static void AddNewItem()
     {
+        if(instance.currentMoney + instance.chosenItem.price<0)
+            return;
         if(!instance.myBag.itemList.Contains(instance.chosenItem))
         {
             instance.myBag.itemList.Add(instance.chosenItem);
@@ -72,10 +89,28 @@ public class InventoryManager : MonoBehaviour
             instance.chosenItem.itemHeld += 1;
         }
 
+        //instance._playerManager.AddBalance(-1*price);
+        instance.currentMoney += instance.chosenItem.price;
+
         RefreshItem();
     }
 
-    public static void UpdateItemInfo(string itemName, string itemDescription, string strength, string wisdom, string luck, Sprite itemImage,string price)
+    public static int GetCurrentMoney()
+    {
+        return instance.currentMoney;
+    }
+
+    public static void AddDebt(int newDebt)
+    {
+        instance.currentDebt+=newDebt;
+    }
+
+    public static int GetCurrentDebt()
+    {
+        return instance.currentDebt;
+    }
+
+    public static void UpdateItemInfo(string itemName, string itemDescription, string strength, string wisdom, string luck, Sprite itemImage,int price)
     {
         //itemDes.SetActive(true);
         instance.itemName.text = itemName;
@@ -84,7 +119,7 @@ public class InventoryManager : MonoBehaviour
         instance.itemWisdom.text = wisdom;
         instance.itemLuck.text = luck;
         instance.itemPic.sprite = itemImage;
-        instance.itemPrice.text = price;
+        instance.itemPrice.text = price.ToString();
     }
 
     public static void CreateNewItem(Item item)

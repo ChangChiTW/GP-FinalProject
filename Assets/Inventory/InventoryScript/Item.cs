@@ -14,5 +14,5 @@ public class Item : ScriptableObject
     public string strength;
     public string wisdom;
     public string luck;
-    public string price;
+    public int price;
 }
