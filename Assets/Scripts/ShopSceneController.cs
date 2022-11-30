@@ -8,6 +8,6 @@ public class ShopSceneController : MonoBehaviour
 
     void Start()
     {
-        Shop = GameObject.Find("Shop").GetComponent<Canvas>();
+        Shop = GameObject.Find("Trade").GetComponent<Canvas>();
     }
 }

@@ -266,6 +266,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239476085}
   m_CullTransparentMesh: 1
+--- !u!1 &366454730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8270090211918105452, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+  m_PrefabInstance: {fileID: 8360518106788001471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &366454733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366454730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 96df80d8d1117463cba0dffd09c18d7d, type: 3}
+    m_FontSize: 55
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 55
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Buy
 --- !u!1 &392391693
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +445,7 @@ MonoBehaviour:
   itemLuck: {fileID: 1918726499551266870}
   itemPic: {fileID: 4328615018802980020}
   itemPrice: {fileID: 4889552697675120595}
+  BuySell: {fileID: 366454733}
   myShop: {fileID: 11400000, guid: 2b3ec5aeaf5916c458c1d89c96b8b9c4, type: 2}
   shopGrid: {fileID: 2084957781}
   shopPrefab: {fileID: -691590101799860167, guid: 1abfdcdb1ddc28b4b9cb0a8db908b6ec, type: 3}
@@ -1643,8 +1683,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: $9999
 --- !u!222 &1216337655
@@ -1875,8 +1915,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Debt: 9999'
 --- !u!222 &1697656950
@@ -3076,9 +3116,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3077217396270243949, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077217396270243949, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4025559089268099436, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
       propertyPath: m_Text
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025559089268099436, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025559089268099436, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5140010453678367271, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3087,6 +3143,14 @@ PrefabInstance:
     - target: {fileID: 5140010453678367271, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 42.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173102045421082056, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173102045421082056, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6641311288676355851, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
       propertyPath: m_Name
@@ -3104,15 +3168,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -332.50012
       objectReference: {fileID: 0}
+    - target: {fileID: 7234809166800727829, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234809166800727829, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234809166800727829, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234809166800727829, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 7277783210291861244, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -123.999756
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270090211918105452, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+      propertyPath: m_Name
+      value: Buy/Sell
       objectReference: {fileID: 0}
     - target: {fileID: 8554429958588663500, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
       propertyPath: m_Name
       value: luck(4 space)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7234809166800727829, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
 --- !u!114 &8944858429629640536
 MonoBehaviour:
