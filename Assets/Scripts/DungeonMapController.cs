@@ -114,9 +114,44 @@ public class DungeonMapController : MonoBehaviour
     }
 
     // Update is called once per frame
+    private bool flag = false;
     void Update()
     {
+        if(!flag){
+            if(CheckAdventurers.transform.childCount>0){
+                foreach( Transform c in CheckAdventurers.transform){
+                    flag = true;
+                    if(c.gameObject.GetComponent<AdventurerBehavior>().Alive && !c.gameObject.GetComponent<AdventurerBehavior>().Arrived){
+                        flag = false;
+                    }//Alive and not arrived
+                }
+                if(flag){
+                    EndScene();
+                }
+            }
+        }
         
+    }
+
+    private void EndScene(){
+        MonoBehaviour.print(OutputAdventurers());
+    }
+
+    public AdventurerInfo[] OutputAdventurers(){
+        AdventurerInfo[] r = new AdventurerInfo[CheckAdventurers.transform.childCount];
+        int count = 0;
+        foreach( Transform c in CheckAdventurers.transform){
+            r[count] = new AdventurerInfo();
+            r[count].name = c.gameObject.GetComponent<AdventurerBehavior>().name;
+            r[count].job = c.gameObject.GetComponent<AdventurerBehavior>().job;
+
+            r[count].hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
+            r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
+            r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
+            r[count].items = c.gameObject.GetComponent<AdventurerBehavior>().items;
+            count++;
+        }
+        return r;
     }
 
 
