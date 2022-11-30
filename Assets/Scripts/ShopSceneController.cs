@@ -9,7 +9,6 @@ public class ShopSceneController : MonoBehaviour
 
     void Start()
     {
-        Shop = GameObject.Find("Trade").GetComponent<Canvas>();
         _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
     }
 
