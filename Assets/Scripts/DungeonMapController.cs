@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class DungeonMapController : MonoBehaviour
 {
@@ -43,8 +45,11 @@ public class DungeonMapController : MonoBehaviour
         } else if(seed == 2){
             CurrentLayout = DungeonLayout2;
         }
-
-        Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
+        if(GameObject.Find("AdventurerManager")!= null){
+            Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
+        }else{
+            Temp = gameObject.GetComponent<AdventurerManager>().GetAdventurerList();
+        }
         float LevelLength = 4; //How long (x) is one dungeon Level
 
         for (int i=0; i<=CurrentLayout.Length; i++){ // i is current dungeon Level
@@ -111,9 +116,51 @@ public class DungeonMapController : MonoBehaviour
     }
 
     // Update is called once per frame
+    private bool flag = false;
     void Update()
     {
+        if(!flag){
+            if(CheckAdventurers.transform.childCount>0){
+                foreach( Transform c in CheckAdventurers.transform){
+                    flag = true;
+                    if(c.gameObject.GetComponent<AdventurerBehavior>().Alive && !c.gameObject.GetComponent<AdventurerBehavior>().Arrived){
+                        flag = false;
+                    }//Alive and not arrived
+                }
+                if(flag){
+                    EndScene();
+                }
+            }
+        }
         
+    }
+
+    private void EndScene(){
+        if(GameObject.Find("AdventurerManager")!= null){
+            GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().SetAdventurerList(OutputAdventurers());
+        }else{
+            Debug.Log("can't find adv manager");
+        }
+        SceneManager.LoadScene("StageBookScene");
+    }
+
+    public AdventurerInfo[] OutputAdventurers(){
+        AdventurerInfo[] r = new AdventurerInfo[CheckAdventurers.transform.childCount];
+        int count = 0;
+        foreach( Transform c in CheckAdventurers.transform){
+            if(c.gameObject.GetComponent<AdventurerBehavior>().Alive){
+                r[count] = new AdventurerInfo();
+                r[count].name = c.gameObject.GetComponent<AdventurerBehavior>().name;
+                r[count].job = c.gameObject.GetComponent<AdventurerBehavior>().job;
+
+                r[count].hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
+                r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
+                r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
+                r[count].items = c.gameObject.GetComponent<AdventurerBehavior>().items;
+                count++;
+            }
+        }
+        return r;
     }
 
 
