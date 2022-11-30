@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Golden Bow
   itemImage: {fileID: 21300000, guid: 46bc8798cd14742ddbdd4fbd456b7fb2, type: 3}
-  itemHeld: 4
+  itemHeld: 12
   itemInfo: This is Arrow
   equip: 0
-  strength: 
-  wisdom: 
-  luck: 
+  strength: 'Streng:  +2'
+  wisdom: 'Wisdom: +5'
+  luck: 'Luck:    +2'
+  price: -100

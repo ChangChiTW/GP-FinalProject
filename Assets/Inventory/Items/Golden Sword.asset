@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Golden Sword
   itemImage: {fileID: 21300000, guid: 7117cc79c4776cd49ab3e7a50d4732e1, type: 3}
-  itemHeld: 14
-  itemInfo: This is Sword
+  itemHeld: 24
+  itemInfo: A sword is an edged, bladed weapon intended for manual cutting or thrusting.
+    Its blade, longer than a knife or dagger, is attached to a hilt and can be straight
+    or curved. A thrusting sword tends to have a straighter blade with a pointed
+    tip.
   equip: 0
-  strength: 
-  wisdom: 
-  luck: 
+  strength: 'Streng:  +7'
+  wisdom: 'Widsom: +3'
+  luck: 'Luck:    +1'
+  price: -200
