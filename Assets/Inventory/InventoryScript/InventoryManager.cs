@@ -17,14 +17,16 @@ public class InventoryManager : MonoBehaviour
     public Text itemLuck;
     public Image itemPic;
     public Text itemPrice;
+    public Text BuySell;
+    private bool Buy = true;
 
     public Inventory myShop;
     public GameObject shopGrid;
     public Slot shopPrefab;
 
     //private PlayerManager _playerManager;
-    private int currentMoney;
-    private int currentDebt;
+    private int currentMoney = 1000;
+    private int currentDebt = 2000;
     public Text OwnDebt;
     public Text OwnMoney;
 
@@ -45,8 +47,8 @@ public class InventoryManager : MonoBehaviour
         RefreshItem();
         ShopItem();
         instance.itemInformation.text = "";
-        instance.currentMoney = 1000;
-        instance.currentDebt = 2000;
+        //instance.currentMoney = 1000;
+        //instance.currentDebt = 2000;
     }
 
     void Update()
@@ -77,22 +79,41 @@ public class InventoryManager : MonoBehaviour
 
     public static void AddNewItem()
     {
-        if(instance.currentMoney + instance.chosenItem.price<0)
-            return;
-        if(!instance.myBag.itemList.Contains(instance.chosenItem))
-        {
-            instance.myBag.itemList.Add(instance.chosenItem);
-            //InventoryManager.CreateNewItem(chosenItem);
-        }
-        else
-        {
-            instance.chosenItem.itemHeld += 1;
-        }
+        if(instance.Buy){
+            if(instance.currentMoney + instance.chosenItem.price<0)
+                return;
+            if(!instance.myBag.itemList.Contains(instance.chosenItem))
+            {
+                instance.myBag.itemList.Add(instance.chosenItem);
+                //InventoryManager.CreateNewItem(chosenItem);
+            }
+            else
+            {
+                instance.chosenItem.itemHeld += 1;
+            }
 
-        //instance._playerManager.AddBalance(-1*price);
-        instance.currentMoney += instance.chosenItem.price;
+            //instance._playerManager.AddBalance(-1*price);
+            
+            AddMoney(instance.chosenItem.price);
 
+            //RefreshItem();
+        }
+        else{
+            AddMoney(-1*instance.chosenItem.price);
+            if(instance.chosenItem.itemHeld - 1 == 0 ){
+                instance.itemDes.SetActive(false);
+                instance.myBag.itemList.Remove(instance.chosenItem);
+            }
+            else{
+                instance.chosenItem.itemHeld -= 1;
+            }
+        }
         RefreshItem();
+    }
+
+    public static void AddMoney(int amount)
+    {
+        instance.currentMoney += amount;
     }
 
     public static int GetCurrentMoney()
@@ -102,7 +123,7 @@ public class InventoryManager : MonoBehaviour
 
     public static void AddDebt(int newDebt)
     {
-        instance.currentDebt+=newDebt;
+        instance.currentDebt += newDebt;
     }
 
     public static int GetCurrentDebt()
@@ -110,16 +131,31 @@ public class InventoryManager : MonoBehaviour
         return instance.currentDebt;
     }
 
-    public static void UpdateItemInfo(string itemName, string itemDescription, string strength, string wisdom, string luck, Sprite itemImage,int price)
+    public static void UpdateItemInfo(string itemName, string itemDescription, int HP, int ATK, int DEF, Sprite itemImage,int price)
     {
         //itemDes.SetActive(true);
         instance.itemName.text = itemName;
         instance.itemInformation.text = itemDescription;
-        instance.itemStrength.text = strength;
-        instance.itemWisdom.text = wisdom;
-        instance.itemLuck.text = luck;
+        instance.itemStrength.text = "HP:    "+HP.ToString();
+        instance.itemWisdom.text = "ATK:  " + ATK.ToString();
+        instance.itemLuck.text = "DEF:   "+DEF.ToString();
         instance.itemPic.sprite = itemImage;
         instance.itemPrice.text = price.ToString();
+    }
+
+    public static void ChangeBuySell(string input, int price)
+    {
+        instance.BuySell.text = input;
+        if(input=="Buy"){
+            instance.Buy = true;
+            instance.itemPrice.text = price.ToString();
+            instance.itemPrice.color = Color.red;
+        }
+        else{
+            instance.Buy = false;
+            instance.itemPrice.text = (-1*price).ToString();
+            instance.itemPrice.color = Color.black;
+        }
     }
 
     public static void CreateNewItem(Item item)

@@ -14,8 +14,18 @@ public class Slot : MonoBehaviour
     public void ItemOnClicked()
     {   
         InventoryManager.ShowDes();
-        InventoryManager.UpdateItemInfo(slotItem.itemName, slotItem.itemInfo, slotItem.strength, slotItem.wisdom, slotItem.luck, slotItem.itemImage, slotItem.price);
+        InventoryManager.UpdateItemInfo(slotItem.itemName, slotItem.itemInfo, slotItem.HP, slotItem.ATK, slotItem.DEF, slotItem.itemImage, slotItem.price);
         InventoryManager.ChooseItem(slotItem);
+    }
+
+    public void StoreItemClicked()
+    {
+        InventoryManager.ChangeBuySell("Buy", slotItem.price);
+    }
+
+    public void BagItemClicked()
+    {
+        InventoryManager.ChangeBuySell("Sell", slotItem.price);
     }
 
     public void BuyItem()
