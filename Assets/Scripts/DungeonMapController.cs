@@ -17,6 +17,7 @@ public class DungeonMapController : MonoBehaviour
 
     [SerializeField] private Transform MapParent;
     [SerializeField] private Transform AdventurerParent;
+    [SerializeField] private GameObject CheckAdventurers;
 
     [SerializeField] private GameObject Wizard;
     [SerializeField] private GameObject Warrior;
@@ -43,7 +44,7 @@ public class DungeonMapController : MonoBehaviour
             CurrentLayout = DungeonLayout2;
         }
 
-        Temp = gameObject.GetComponent<AdventurerManager>().GetAdventurerList();
+        Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
         float LevelLength = 4; //How long (x) is one dungeon Level
 
         for (int i=0; i<=CurrentLayout.Length; i++){ // i is current dungeon Level
@@ -115,8 +116,5 @@ public class DungeonMapController : MonoBehaviour
         
     }
 
-    public void UpdateEnd(){
-        Debug.Log("end1");
-    }
 
 }

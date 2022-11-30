@@ -10,46 +10,70 @@ public class AdventurerBehavior : MonoBehaviour
     // Start is called before the first frame update
     public bool Walking = false;
     public bool Arrived = false;
-
     private float speed = 1f;
+
+    public GameObject WalkingDot;
 
     private Vector2[] WalkGoals = new Vector2[100];
     private int CurrFloor = 0;
     private int maxFloor = 4;
+    public bool Alive = true;
 
     public string job;
     public int atk;
     public int def;
     public ItemInfo[] items;
-
+    private int Steps = 0;
     void Start()
     {
         HealthBar.SetHP(hp, maxHP);
     }
 
     // Update is called once per frame
+    
     void Update()
     {
-        if(Walking && Vector2.Distance(WalkGoals[CurrFloor], gameObject.transform.position)<0.01f){ //Next Floor
-            CurrFloor++;
-        }
+        if(Alive){
+            if(Walking && Vector2.Distance(WalkGoals[CurrFloor], gameObject.transform.position)<0.01f){ //Next Floor
+                CurrFloor++;
+            }
 
-        if(CurrFloor>=WalkGoals.Length){
-            Arrived = true;
-        }
+            if(CurrFloor>=WalkGoals.Length){
+                Arrived = true;
+            }
 
-        if(CurrFloor<WalkGoals.Length && (WalkGoals[CurrFloor].x!=0 || WalkGoals[CurrFloor].y!=0)){
-            Walking = true;
-        }else{
-            Walking = false;
+            if(CurrFloor<WalkGoals.Length && (WalkGoals[CurrFloor].x!=0 || WalkGoals[CurrFloor].y!=0)){
+                Walking = true;
+            }else{
+                Walking = false;
+            }
+
+            HealthBar.SetHP(hp, maxHP);
+            if(Walking){
+                var step =  speed * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, WalkGoals[CurrFloor], step);
+                Steps++;
+                if(Steps>150){
+                    Steps = 0;
+                    Instantiate(WalkingDot, transform.position, Quaternion.identity, GameObject.Find("DotCollection").transform);
+
+                }
+            }
+
+        }else{ //dead
+            Color a = transform.Find("Circle").gameObject.GetComponent<SpriteRenderer>().color;
+            if(a.a>0.01f){
+                a.a = a.a*0.995f;
+            }else{
+                a.a = 0;
+            }
+            transform.Find("Circle").gameObject.GetComponent<SpriteRenderer>().color = a;
+
         }
+        
 
         
-        HealthBar.SetHP(hp, maxHP);
-        if(Walking){
-            var step =  speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, WalkGoals[CurrFloor], step);
-        }
+        
         
     }
 
@@ -60,7 +84,12 @@ public class AdventurerBehavior : MonoBehaviour
         transform.position = new Vector3(transform.position.x-1, transform.position.y, transform.position.z);
 
         if(hp<=0){
-            Destroy(gameObject);
+            transform.Find("Grave").gameObject.SetActive(true);
+            transform.Find("Sprite").gameObject.SetActive(false);
+            transform.Find("Canvas").gameObject.SetActive(false);
+
+            gameObject.GetComponent<BoxCollider>().size = new Vector3(0, 0, 0);
+            Alive = false;
         }
     }
 

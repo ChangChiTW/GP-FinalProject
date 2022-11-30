@@ -90,6 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2737f7f1e0ad24c4b9c4c2d0472d7a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attack: 1
+  Attack: 20
   Lives: 2
   IsEnd: 0
