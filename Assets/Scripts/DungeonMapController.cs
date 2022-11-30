@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class DungeonMapController : MonoBehaviour
 {
@@ -139,21 +141,24 @@ public class DungeonMapController : MonoBehaviour
         }else{
             Debug.Log("can't find adv manager");
         }
+        SceneManager.LoadScene("StageBookScene");
     }
 
     public AdventurerInfo[] OutputAdventurers(){
         AdventurerInfo[] r = new AdventurerInfo[CheckAdventurers.transform.childCount];
         int count = 0;
         foreach( Transform c in CheckAdventurers.transform){
-            r[count] = new AdventurerInfo();
-            r[count].name = c.gameObject.GetComponent<AdventurerBehavior>().name;
-            r[count].job = c.gameObject.GetComponent<AdventurerBehavior>().job;
+            if(c.gameObject.GetComponent<AdventurerBehavior>().Alive){
+                r[count] = new AdventurerInfo();
+                r[count].name = c.gameObject.GetComponent<AdventurerBehavior>().name;
+                r[count].job = c.gameObject.GetComponent<AdventurerBehavior>().job;
 
-            r[count].hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
-            r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
-            r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
-            r[count].items = c.gameObject.GetComponent<AdventurerBehavior>().items;
-            count++;
+                r[count].hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
+                r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
+                r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
+                r[count].items = c.gameObject.GetComponent<AdventurerBehavior>().items;
+                count++;
+            }
         }
         return r;
     }
