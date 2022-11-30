@@ -43,8 +43,11 @@ public class DungeonMapController : MonoBehaviour
         } else if(seed == 2){
             CurrentLayout = DungeonLayout2;
         }
-
-        Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
+        if(GameObject.Find("AdventurerManager")!= null){
+            Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
+        }else{
+            Temp = gameObject.GetComponent<AdventurerManager>().GetAdventurerList();
+        }
         float LevelLength = 4; //How long (x) is one dungeon Level
 
         for (int i=0; i<=CurrentLayout.Length; i++){ // i is current dungeon Level
