@@ -9,6 +9,7 @@ public class ItemInfo
     public int basePrice;
 }
 
+
 public class AdventurerInfo
 {
     public string name;
@@ -57,4 +58,9 @@ public class AdventurerManager : MonoBehaviour
     {
         return _adventurerList;
     }
+
+    public void SetAdventurerList(AdventurerInfo[] a){
+        _adventurerList = a;
+    }
 }
+
