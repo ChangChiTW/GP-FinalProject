@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8853029064010994088}
   - component: {fileID: 7786174031633949197}
+  - component: {fileID: 239386299205100242}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -168,6 +169,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &239386299205100242
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527383788784927425}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 9.313226e-10}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7040121784259839415
 GameObject:
   m_ObjectHideFlags: 0

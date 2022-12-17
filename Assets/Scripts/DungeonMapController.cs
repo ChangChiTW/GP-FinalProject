@@ -29,22 +29,27 @@ public class DungeonMapController : MonoBehaviour
 
 
 
-    private int[] DungeonLayout1 = {2, 3, 4, 3};
-    private int[] DungeonLayout2 = {3, 4, 3, 2};
+    private int[] DungeonLayout1 = {2, 3, 1, 2, 2, 1, 1};
+    private int[] DungeonLayout2 = {3, 4, 3, 2, 1, 1};
+
+    private string[] Dungeonpaths1 = {"12", "12a3", "1a1a1", "12", "1a2", "1a1", "1"};
+    private string[] DungeonRooms1 = {"mm", "mtm", "m", "mm", "tt", "b", "t"};
 
     private int[] CurrentLayout;
+    private string[] CurrentPaths;
+    private string[] CurrentRooms;
+
 
     private AdventurerInfo[] Temp;
 
     private float[,,] FloorCoords = new float[10, 5, 2]; //[floor, which one, x/y]
     void Start()
     {
-        int seed = Random.Range(1, 1+2);
-        if(seed == 1){
-            CurrentLayout = DungeonLayout1;
-        } else if(seed == 2){
-            CurrentLayout = DungeonLayout2;
-        }
+        
+        CurrentLayout = DungeonLayout1;
+        CurrentPaths = Dungeonpaths1;
+        CurrentRooms = DungeonRooms1;
+        
         if(GameObject.Find("AdventurerManager")!= null){
             Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
         }else{
@@ -64,11 +69,24 @@ public class DungeonMapController : MonoBehaviour
                 for(int a = 0; a< BranchCount; a++){ //each line same X
                     float CurrStartX = StartPoint.position.x + LevelLength*i;
                     float CurrEndX = StartPoint.position.x + LevelLength*(i+1);
-                    float CurrAngle = Mathf.PI/2 - angle*(a+1) + Random.Range(-100, 100)*0.002f;
+                    float CurrAngle = Mathf.PI/2 - angle*(a+1);
                     float CurrEndY = LevelLength*Mathf.Sin(CurrAngle);
                     FloorCoords[i, a, 0] = CurrEndX;
                     FloorCoords[i, a, 1] = CurrEndY;
-                    Instantiate(Random.Range(0, 10)>1 ? MonsterEncounter : SmallChestEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                    switch(CurrentRooms[i][a]){
+                        case 'm':
+                            Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            break;
+                        case 't':
+                            Instantiate(SmallChestEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            break;
+                        case 'b':
+                            Instantiate(BossEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            break;
+                        default:
+                            Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            break;
+                    }
                 }
             }
         }
@@ -98,7 +116,7 @@ public class DungeonMapController : MonoBehaviour
             Vector2[] g = new Vector2[CurrentLayout.Length+1]; //Determine Path
 
             for(int f=0; f<CurrentLayout.Length; f++){
-                int r = Random.Range(0, CurrentLayout[f]);
+                int r = Random.Range(int.Parse(CurrentPaths[f].Split('a')[0][0].ToString())-1 , int.Parse(CurrentPaths[f].Split('a')[0][CurrentPaths[f].Split('a')[0].Length-1].ToString()));
                 g[f] = new Vector2(FloorCoords[f, r, 0], FloorCoords[f, r, 1]);
             }
             g[CurrentLayout.Length] = new Vector2(FloorCoords[CurrentLayout.Length, 0, 0], FloorCoords[CurrentLayout.Length, 0, 1]);
@@ -109,8 +127,16 @@ public class DungeonMapController : MonoBehaviour
             spawned.GetComponent<AdventurerBehavior>().atk = adv.atk;
             spawned.GetComponent<AdventurerBehavior>().def = adv.def;
             spawned.GetComponent<AdventurerBehavior>().items = adv.items;
-            
         }
+        for(int f=0; f<CurrentLayout.Length; f++){
+                for(int r=int.Parse(CurrentPaths[f].Split('a')[0][0].ToString())-1; 
+                    r< int.Parse(CurrentPaths[f].Split('a')[0][CurrentPaths[f].Split('a')[0].Length-1].ToString());
+                     r++)
+                     {
+                        
+                     }
+            }
+    
 
         
     }

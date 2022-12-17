@@ -16,7 +16,7 @@ public class AdventurerBehavior : MonoBehaviour
 
     private Vector2[] WalkGoals = new Vector2[100];
     private int CurrFloor = 0;
-    private int maxFloor = 4;
+    private int maxFloor = 10;
     public bool Alive = true;
 
     public string job;
@@ -70,11 +70,6 @@ public class AdventurerBehavior : MonoBehaviour
             transform.Find("Circle").gameObject.GetComponent<SpriteRenderer>().color = a;
 
         }
-        
-
-        
-        
-        
     }
 
     public void TakeHit(float dmg){
@@ -100,5 +95,9 @@ public class AdventurerBehavior : MonoBehaviour
 
     public void SetSpeed(float s){
         speed = s;
+    }
+
+    public void EnterBattle(){
+
     }
 }
