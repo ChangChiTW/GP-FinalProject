@@ -9,14 +9,15 @@ public class TradeManager : MonoBehaviour
 
     public Inventory myBag;
     public GameObject slotGrid;
-    public Slot slotPrefab;
-    public Text itemInformation;
+    public TradeSlot slotPrefab;
+    //public Text itemInformation;
     public Text itemName;
     public Text itemStrength;
     public Text itemWisdom;
     public Text itemLuck;
     public Image itemPic;
     public Text itemPrice;
+    public Text originalPrice;
     public Text BuySell;
     //private bool Buy = false;
 
@@ -46,7 +47,7 @@ public class TradeManager : MonoBehaviour
     {
         RefreshItem();
         //ShopItem();
-        instance.itemInformation.text = "";
+        //instance.itemInformation.text = "";
         //instance.currentMoney = 1000;
         //instance.currentDebt = 2000;
     }
@@ -135,11 +136,12 @@ public class TradeManager : MonoBehaviour
     {
         //itemDes.SetActive(true);
         instance.itemName.text = itemName;
-        instance.itemInformation.text = itemDescription;
+        //instance.itemInformation.text = itemDescription;
         instance.itemStrength.text = "HP:    "+HP.ToString();
         instance.itemWisdom.text = "ATK:  " + ATK.ToString();
         instance.itemLuck.text = "DEF:   "+DEF.ToString();
         instance.itemPic.sprite = itemImage;
+        instance.originalPrice.text = (-1*price).ToString();
         instance.itemPrice.text = price.ToString();
     }
 
@@ -160,7 +162,7 @@ public class TradeManager : MonoBehaviour
 
     public static void CreateNewItem(Item item)
     {
-        Slot newItem = Instantiate(instance.slotPrefab,instance.slotGrid.transform.position, Quaternion.identity);
+        TradeSlot newItem = Instantiate(instance.slotPrefab,instance.slotGrid.transform.position, Quaternion.identity);
         newItem.gameObject.transform.SetParent(instance.slotGrid.transform);
         newItem.slotItem = item;
         newItem.slotImage.sprite = item.itemImage;
