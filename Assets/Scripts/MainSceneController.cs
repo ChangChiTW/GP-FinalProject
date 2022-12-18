@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainSceneController : MonoBehaviour
@@ -34,6 +36,13 @@ public class MainSceneController : MonoBehaviour
         {
             OnSelectStageBook();
         }
+        string day = "Day " + _stateManager.GetDay();
+        _stageBook.transform.Find("Title").GetComponent<TMP_Text>().text = day;
+        _stageBookmark.transform
+            .Find("StageBook")
+            .transform.Find("Title")
+            .GetComponent<TMP_Text>()
+            .text = day;
     }
 
     public void OnSelectIntroBook()

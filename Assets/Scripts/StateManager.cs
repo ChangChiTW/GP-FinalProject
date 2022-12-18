@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
+    private int _day = 1;
     private string _lastSceneToStageBookScene;
     private bool _lastSelectStage = false;
     private int _stageBookPage = 0;
@@ -13,6 +14,21 @@ public class StateManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void SetDay(int day)
+    {
+        _day = day;
+    }
+
+    public void AddDay()
+    {
+        _day++;
+    }
+
+    public int GetDay()
+    {
+        return _day;
     }
 
     public void SetLastSceneToStageBookScene(string sceneName)
