@@ -9,11 +9,9 @@ public class ItemInfo
     public int basePrice;
 }
 
-
 public class AdventurerInfo
 {
     public string name;
-
     public string job;
     public float hp;
     public int atk;
@@ -33,7 +31,7 @@ public class AdventurerManager : MonoBehaviour
 
     private void randomAdventurerList()
     {
-        string[] jobList = {"King", "Warrior", "Warlock", "Wizard"};
+        string[] jobList = { "King", "Warrior", "Warlock", "Wizard" };
         for (int i = 0; i < 3; i++)
         {
             _adventurerList[i] = new AdventurerInfo();
@@ -59,8 +57,8 @@ public class AdventurerManager : MonoBehaviour
         return _adventurerList;
     }
 
-    public void SetAdventurerList(AdventurerInfo[] a){
+    public void SetAdventurerList(AdventurerInfo[] a)
+    {
         _adventurerList = a;
     }
 }
-

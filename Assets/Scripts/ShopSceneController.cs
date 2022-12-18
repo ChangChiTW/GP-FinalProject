@@ -14,9 +14,7 @@ public class ShopSceneController : MonoBehaviour
 
     public void OnCheckAdventure()
     {
-        _stateManager.SetLastSceneToStageBookScene("ShopScene");
-        _stateManager.SetStageBookPage(2);
-        SceneManager.LoadScene("StageBookScene");
+        SceneManager.LoadScene("TradeScene");
     }
 
     public void OnCheckFloorInfo()
