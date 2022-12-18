@@ -10,8 +10,9 @@ public class MenuSceneController : MonoBehaviour
         SceneManager.LoadScene("IntroBookScene");
     }
 
-    public void OnSetting()
+    public void OnLoad()
     {
-        Debug.Log("OnSetting");
+        // TODO: load game feature
+        Debug.Log("LoadNewGame");
     }
 }
