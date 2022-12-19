@@ -6,12 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TradeSceneController : MonoBehaviour
 {
-    private StateManager _stateManager;
-    private AdventurerManager _adventurerManager;
-
-    private AdventurerInfo[] _adventurerList;
-    private int _adventurerIndex = 0;
-
     [SerializeField]
     private Image _adventurerImg;
 
@@ -32,6 +26,12 @@ public class TradeSceneController : MonoBehaviour
 
     [SerializeField]
     private GameObject _shopPanel;
+
+    private StateManager _stateManager;
+    private AdventurerManager _adventurerManager;
+
+    private AdventurerInfo[] _adventurerList;
+    private int _adventurerIndex = 0;
 
     void Awake()
     {

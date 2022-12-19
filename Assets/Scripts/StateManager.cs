@@ -12,6 +12,7 @@ public class StateManager : MonoBehaviour
     private bool _lastSelectStage = false;
     private int _stageBookPage = 0;
     private int[] _goldRatio = { 100, 125, 150, 200 };
+    private int[] _settlement = { 0, 0, 0, 0 };
     private List<string> _specialConditions = new List<string>();
 
     void Start()
@@ -56,6 +57,7 @@ public class StateManager : MonoBehaviour
 
     public void AddBalance(int balance)
     {
+        _settlement[_layer] += balance;
         _balance += balance;
     }
 
@@ -107,6 +109,24 @@ public class StateManager : MonoBehaviour
     public int GetNextGoldRatio()
     {
         return _goldRatio[_layer + 1];
+    }
+
+    public void ResetSettlement()
+    {
+        for (int i = 0; i < _settlement.Length; i++)
+        {
+            _settlement[i] = 0;
+        }
+    }
+
+    public int GetSettlement(int index)
+    {
+        return _settlement[index];
+    }
+
+    public int[] GetSettlement()
+    {
+        return _settlement;
     }
 
     public void AddSpecialCondition(string condition)

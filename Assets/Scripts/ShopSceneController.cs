@@ -23,10 +23,4 @@ public class ShopSceneController : MonoBehaviour
         _stateManager.SetStageBookPage(0);
         SceneManager.LoadScene("StageBookScene");
     }
-
-    public void OnGoDungeon()
-    {
-        _stateManager.AddLayer();
-        SceneManager.LoadScene("DungeonRunScene");
-    }
 }
