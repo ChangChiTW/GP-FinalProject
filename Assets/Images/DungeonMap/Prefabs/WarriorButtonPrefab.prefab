@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1780546901234239161, guid: be795fea250aa594f874c65614facb4e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 44404ba1367c69c4eb3b2f9a3dc67394, type: 3}
+      objectReference: {fileID: 21300000, guid: b15a6b534bbc14f449d7df8fda7cf910, type: 3}
     - target: {fileID: 1780546901234239162, guid: be795fea250aa594f874c65614facb4e, type: 3}
       propertyPath: m_Name
       value: WarriorButtonPrefab
@@ -99,5 +99,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6842675410867177229, guid: be795fea250aa594f874c65614facb4e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 44404ba1367c69c4eb3b2f9a3dc67394, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be795fea250aa594f874c65614facb4e, type: 3}

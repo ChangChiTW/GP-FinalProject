@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class AdventurerBehavior : MonoBehaviour
 {
     public float hp = 100f;
@@ -10,7 +10,7 @@ public class AdventurerBehavior : MonoBehaviour
     // Start is called before the first frame update
     public bool Walking = false;
     public bool Arrived = false;
-    private float speed = 1f;
+    public int speed = 1;
 
     public GameObject WalkingDot;
 
@@ -21,21 +21,38 @@ public class AdventurerBehavior : MonoBehaviour
 
     public string job;
     public int atk;
-    public int def;
     public ItemInfo[] items;
     private int Steps = 0;
     void Start()
     {
         HealthBar.SetHP(hp, maxHP);
+        oriY = txt.transform.position.y;
     }
 
     // Update is called once per frame
-    
+    private int roomwait = 0;
+    private int dmgAnimationFrame = 0;
+    private float maxFrames = 700;
+    private float oriY;
+    [SerializeField] TextMeshProUGUI txt;
     void Update()
     {
+        
         if(Alive){
             if(Walking && Vector2.Distance(WalkGoals[CurrFloor], gameObject.transform.position)<0.01f){ //Next Floor
-                CurrFloor++;
+                if(roomwait>50){
+                    roomwait = 0;
+                    CurrFloor++;
+                }
+                roomwait++;
+            }
+
+            if(dmgAnimationFrame>0){
+                dmgAnimationFrame--;
+                txt.alpha = Mathf.Min(dmgAnimationFrame, maxFrames)/maxFrames;
+                if(dmgAnimationFrame <= 0){
+                    txt.gameObject.SetActive(false);
+                }
             }
 
             if(CurrFloor>=WalkGoals.Length){
@@ -50,7 +67,7 @@ public class AdventurerBehavior : MonoBehaviour
 
             HealthBar.SetHP(hp, maxHP);
             if(Walking){
-                var step =  speed * Time.deltaTime;
+                var step =  speed/8f * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, WalkGoals[CurrFloor], step);
                 Steps++;
                 if(Steps>150){
@@ -68,11 +85,16 @@ public class AdventurerBehavior : MonoBehaviour
                 a.a = 0;
             }
             transform.Find("Circle").gameObject.GetComponent<SpriteRenderer>().color = a;
-
+            GameObject.Find("Canvas").gameObject.transform.Find(gameObject.name).Find("isDead").gameObject.SetActive(true);
         }
     }
 
     public void TakeHit(float dmg){
+        Debug.Log(dmg.ToString());
+        txt.text = "-"+dmg.ToString();
+        txt.gameObject.SetActive(true);
+        
+        dmgAnimationFrame = Mathf.FloorToInt(maxFrames)+10;
         hp -= dmg;
         HealthBar.SetHP(hp, maxHP);
 
@@ -91,10 +113,6 @@ public class AdventurerBehavior : MonoBehaviour
     public void SetWalkGoals(Vector2[] goals, int m){
         WalkGoals = goals;
         maxFloor = m;
-    }
-
-    public void SetSpeed(float s){
-        speed = s;
     }
 
     public void EnterBattle(){

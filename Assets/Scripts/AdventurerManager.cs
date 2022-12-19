@@ -17,7 +17,7 @@ public class AdventurerInfo
     public string job;
     public float hp;
     public int atk;
-    public int def;
+    public int speed;
     public ItemInfo[] items;
 }
 
@@ -42,7 +42,7 @@ public class AdventurerManager : MonoBehaviour
 
             _adventurerList[i].hp = Random.Range(1, 100);
             _adventurerList[i].atk = Random.Range(70, 100);
-            _adventurerList[i].def = Random.Range(1, 100);
+            _adventurerList[i].speed = Random.Range(10, 20);
             _adventurerList[i].items = new ItemInfo[3];
             for (int j = 0; j < 3; j++)
             {

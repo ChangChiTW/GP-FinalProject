@@ -121,13 +121,13 @@ public class DungeonMapController : MonoBehaviour
             }
             g[CurrentLayout.Length] = new Vector2(FloorCoords[CurrentLayout.Length, 0, 0], FloorCoords[CurrentLayout.Length, 0, 1]);
             spawned.GetComponent<AdventurerBehavior>().SetWalkGoals(g, CurrentLayout.Length+1);
-            spawned.GetComponent<AdventurerBehavior>().SetSpeed(adv.atk*0.024f);
             spawned.GetComponent<AdventurerBehavior>().hp = adv.hp;
             spawned.GetComponent<AdventurerBehavior>().job = adv.job;
             spawned.GetComponent<AdventurerBehavior>().atk = adv.atk;
-            spawned.GetComponent<AdventurerBehavior>().def = adv.def;
+            spawned.GetComponent<AdventurerBehavior>().speed = adv.speed;
             spawned.GetComponent<AdventurerBehavior>().items = adv.items;
         }
+        
         for(int f=0; f<CurrentLayout.Length; f++){
                 for(int r=int.Parse(CurrentPaths[f].Split('a')[0][0].ToString())-1; 
                     r< int.Parse(CurrentPaths[f].Split('a')[0][CurrentPaths[f].Split('a')[0].Length-1].ToString());
@@ -182,7 +182,7 @@ public class DungeonMapController : MonoBehaviour
 
                 r[count].hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
                 r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
-                r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
+                r[count].speed = c.gameObject.GetComponent<AdventurerBehavior>().speed;
                 r[count].items = c.gameObject.GetComponent<AdventurerBehavior>().items;
                 count++;
             }

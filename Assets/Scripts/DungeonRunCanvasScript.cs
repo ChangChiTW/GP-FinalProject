@@ -15,6 +15,7 @@ public class DungeonRunCanvasScript : MonoBehaviour
     
     void Start()
     {
+        
         if(GameObject.Find("AdventurerManager")!= null){
             Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
         }else{
@@ -27,25 +28,25 @@ public class DungeonRunCanvasScript : MonoBehaviour
             GameObject spawned;
             switch(adv.job){
                 case "King":
-                    spawned = Instantiate(KingButton, new Vector2(StartPoint.x+200*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                    spawned = Instantiate(KingButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
                 case "Wizard":
-                    spawned = Instantiate(WizardButton, new Vector2(StartPoint.x+200*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                    spawned = Instantiate(WizardButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
                 case "Warlock":
-                    spawned = Instantiate(WarlockButton, new Vector2(StartPoint.x+200*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                    spawned = Instantiate(WarlockButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
                 case "Warrior":
-                    spawned = Instantiate(WarriorButton, new Vector2(StartPoint.x+200*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                    spawned = Instantiate(WarriorButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
                 default:
-                    spawned = Instantiate(WarriorButton, new Vector2(StartPoint.x+200*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                    spawned = Instantiate(WarriorButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
             }
             spawned.name = adv.name;
             ButtNum++;
         }
-
+        
     }
 
     // Update is called once per frame

@@ -21,6 +21,10 @@ public class DungeonRunHeadButtonScript : MonoBehaviour
 
     }
 
+    public void ToggleHighLight(){
+       
+    }
+
     // Update is called once per frame
     void Update()
     {
