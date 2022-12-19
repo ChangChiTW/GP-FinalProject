@@ -17,6 +17,7 @@ public class AdventurerInfo
     public int atk;
     public int def;
     public ItemInfo[] items;
+    public List<Sprite> itemImgs;
 }
 
 public class AdventurerManager : MonoBehaviour
@@ -49,6 +50,7 @@ public class AdventurerManager : MonoBehaviour
                 _adventurerList[i].items[j].cost = Random.Range(1, 100);
                 _adventurerList[i].items[j].basePrice = Random.Range(1, 100);
             }
+            _adventurerList[i].itemImgs = new List<Sprite>();
         }
     }
 

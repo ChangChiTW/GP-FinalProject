@@ -28,6 +28,9 @@ public class TradeSceneController : MonoBehaviour
     private Text _adventurerDef;
 
     [SerializeField]
+    private List<Image> _adventurerImages;
+
+    [SerializeField]
     private GameObject _shopPanel;
 
     void Awake()
@@ -38,7 +41,8 @@ public class TradeSceneController : MonoBehaviour
 
     void Start()
     {
-        if (_stateManager.GetInDungeon()) {
+        if (_stateManager.GetInDungeon())
+        {
             _shopPanel.SetActive(false);
         }
         _adventurerList = _adventurerManager.GetAdventurerList();
@@ -53,6 +57,19 @@ public class TradeSceneController : MonoBehaviour
         _adventurerHp.text = "HP:    " + _adventurerList[index].hp.ToString();
         _adventurerAtk.text = "ATK:  	" + _adventurerList[index].atk.ToString();
         _adventurerDef.text = "DEF:   " + _adventurerList[index].def.ToString();
+        for (int i = 0; i < _adventurerImages.Count; i++)
+        {
+            if (i < _adventurerList[index].itemImgs.Count)
+            {
+                _adventurerImages[i].sprite = _adventurerList[index].itemImgs[i];
+                _adventurerImages[i].enabled = true;
+            }
+            else
+            {
+                _adventurerImages[i].sprite = null;
+                _adventurerImages[i].enabled = false;
+            }
+        }
     }
 
     public void OnNextAdventure()
@@ -90,5 +107,26 @@ public class TradeSceneController : MonoBehaviour
     public void OnGoDungeon()
     {
         SceneManager.LoadScene("DungeonRunScene");
+    }
+
+    private void AdjustAdventurerInfo(float hp, int atk, int def, Sprite img)
+    {
+        if (_adventurerList[_adventurerIndex].itemImgs.Count < 6)
+        {
+            _adventurerList[_adventurerIndex].hp += hp;
+            _adventurerList[_adventurerIndex].atk += atk;
+            _adventurerList[_adventurerIndex].def += def;
+            _adventurerList[_adventurerIndex].itemImgs.Add(img);
+            _adventurerManager.SetAdventurerList(_adventurerList);
+            ShowAdventurerInfo(_adventurerIndex);
+        }
+    }
+
+    public void SellToAdventurer()
+    {
+        Item item = TradeManager.GetChosenItem();
+        AdjustAdventurerInfo(item.HP, item.ATK, item.DEF, item.itemImage);
+        TradeManager.AddNewItem();
+        TradeManager.CloseDes();
     }
 }

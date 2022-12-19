@@ -206,4 +206,9 @@ public class TradeManager : MonoBehaviour
             CreateShopItem(instance.myShop.itemList[i]);
         }
     }*/
+
+    public static Item GetChosenItem()
+    {
+        return instance.chosenItem;
+    }
 }
