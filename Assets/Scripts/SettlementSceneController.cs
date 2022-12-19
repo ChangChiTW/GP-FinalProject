@@ -31,11 +31,13 @@ public class SettlementSceneController : MonoBehaviour
     [SerializeField]
     private GameObject _totalBalanceText;
     private StateManager _stateManager;
+    private AdventurerManager _adventurerManager;
     private int _currentLayer = 0;
 
     void Awake()
     {
         _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
+        _adventurerManager = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>();
     }
 
     void Start()
@@ -125,6 +127,8 @@ public class SettlementSceneController : MonoBehaviour
 
     public void OnDoneBtnClick()
     {
+        _adventurerManager.initAdventurerList();
+        _stateManager.SetStageBookPage(0);
         _stateManager.ResetSettlement();
         _stateManager.SetLayer(0);
         _stateManager.AddDay();

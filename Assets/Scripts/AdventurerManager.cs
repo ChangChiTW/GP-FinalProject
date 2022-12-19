@@ -25,8 +25,9 @@ public class AdventurerManager : MonoBehaviour
         initAdventurerList();
     }
 
-    private void initAdventurerList()
+    public void initAdventurerList()
     {
+        _adventurerList = new AdventurerInfo[3];
         _adventurerList[0] = new AdventurerInfo();
         _adventurerList[0].name = "Knight";
         _adventurerList[0].job = "Knight";
