@@ -41,7 +41,7 @@ public class TradeSceneController : MonoBehaviour
 
     void Start()
     {
-        if (_stateManager.GetInDungeon())
+        if (_stateManager.GetLayer() != 0)
         {
             _shopPanel.SetActive(false);
         }
@@ -105,7 +105,7 @@ public class TradeSceneController : MonoBehaviour
 
     public void OnGoDungeon()
     {
-        _stateManager.SetInDungeon(true);
+        _stateManager.AddLayer();
         SceneManager.LoadScene("DungeonRunScene");
     }
 

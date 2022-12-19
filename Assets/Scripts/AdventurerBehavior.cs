@@ -21,8 +21,10 @@ public class AdventurerBehavior : MonoBehaviour
 
     public string job;
     public int atk;
-    public ItemInfo[] items;
     private int Steps = 0;
+    public int def;
+    public Sprite img;
+    public List<Sprite> itemImgs = new List<Sprite>();
     void Start()
     {
         HealthBar.SetHP(hp, maxHP);

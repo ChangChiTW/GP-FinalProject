@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TradeScene.unity
     guid: 14bb626098050ba46a1cce2d8f91229a
+  - enabled: 1
+    path: Assets/Scenes/SettlementScene.unity
+    guid: 42d158a4c0d3a4aa4b153b65591b4404
   m_configObjects: {}

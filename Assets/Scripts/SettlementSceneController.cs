@@ -65,7 +65,7 @@ public class SettlementSceneController : MonoBehaviour
 
     public void OnDoneBtnClick()
     {
-        _stateManager.SetInDungeon(false);
+        _stateManager.SetLayer(0);
         _stateManager.AddDay();
         SceneManager.LoadScene("MainScene");
     }

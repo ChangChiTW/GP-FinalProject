@@ -48,14 +48,14 @@ public class StageBookSceneController : IntroBookSceneController
             page.transform.Find("HP").GetComponent<TMP_Text>().text = "HP: " + adventurer.hp;
             page.transform.Find("ATK").GetComponent<TMP_Text>().text = "ATK: " + adventurer.atk;
             page.transform.Find("DEF").GetComponent<TMP_Text>().text = "SPD: " + adventurer.speed;
-            for (int j = 0; j < adventurer.items.Length; j++)
-            {
-                ItemInfo item = adventurer.items[j];
-                page.transform.Find("Cost" + j).GetComponent<TMP_Text>().text =
-                    item.cost.ToString();
-                page.transform.Find("BasePrice" + j).GetComponent<TMP_Text>().text =
-                    item.basePrice.ToString();
-            }
+            // for (int j = 0; j < adventurer.items.Length; j++)
+            // {
+            //     ItemInfo item = adventurer.items[j];
+            //     page.transform.Find("Cost" + j).GetComponent<TMP_Text>().text =
+            //         item.cost.ToString();
+            //     page.transform.Find("BasePrice" + j).GetComponent<TMP_Text>().text =
+            //         item.basePrice.ToString();
+            // }
             page.transform
                 .Find("ShopBtn")
                 .GetComponent<Button>()

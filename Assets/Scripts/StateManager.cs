@@ -5,9 +5,9 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     private int _day = 1;
+    private int _layer = 0;
     private int _balance = 1000;
     private int _debt = 2000;
-    private bool _inDungeon = false;
     private string _lastSceneToStageBookScene;
     private bool _lastSelectStage = false;
     private int _stageBookPage = 0;
@@ -32,6 +32,21 @@ public class StateManager : MonoBehaviour
     public int GetDay()
     {
         return _day;
+    }
+
+    public void SetLayer(int layer)
+    {
+        _layer = layer;
+    }
+
+    public void AddLayer()
+    {
+        _layer++;
+    }
+
+    public int GetLayer()
+    {
+        return _layer;
     }
 
     public void SetBalance(int balance)
@@ -63,17 +78,6 @@ public class StateManager : MonoBehaviour
     {
         return _debt;
     }
-
-    public void SetInDungeon(bool inDungeon)
-    {
-        _inDungeon = inDungeon;
-    }
-
-    public bool GetInDungeon()
-    {
-        return _inDungeon;
-    }
-
     public void SetLastSceneToStageBookScene(string sceneName)
     {
         _lastSceneToStageBookScene = sceneName;

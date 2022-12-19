@@ -26,7 +26,7 @@ public class ShopSceneController : MonoBehaviour
 
     public void OnGoDungeon()
     {
-        _stateManager.SetInDungeon(true);
+        _stateManager.AddLayer();
         SceneManager.LoadScene("DungeonRunScene");
     }
 }

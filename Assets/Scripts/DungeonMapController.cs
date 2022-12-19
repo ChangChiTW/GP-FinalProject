@@ -121,11 +121,14 @@ public class DungeonMapController : MonoBehaviour
             }
             g[CurrentLayout.Length] = new Vector2(FloorCoords[CurrentLayout.Length, 0, 0], FloorCoords[CurrentLayout.Length, 0, 1]);
             spawned.GetComponent<AdventurerBehavior>().SetWalkGoals(g, CurrentLayout.Length+1);
-            spawned.GetComponent<AdventurerBehavior>().hp = adv.hp;
+            spawned.GetComponent<AdventurerBehavior>().name = adv.name;
             spawned.GetComponent<AdventurerBehavior>().job = adv.job;
+            spawned.GetComponent<AdventurerBehavior>().img = adv.img;
+            spawned.GetComponent<AdventurerBehavior>().hp = adv.hp;
             spawned.GetComponent<AdventurerBehavior>().atk = adv.atk;
+            spawned.GetComponent<AdventurerBehavior>().def = adv.def;
             spawned.GetComponent<AdventurerBehavior>().speed = adv.speed;
-            spawned.GetComponent<AdventurerBehavior>().items = adv.items;
+            spawned.GetComponent<AdventurerBehavior>().itemImgs = new List<Sprite>(adv.itemImgs);
         }
         
         for(int f=0; f<CurrentLayout.Length; f++){
@@ -164,7 +167,11 @@ public class DungeonMapController : MonoBehaviour
     private void EndScene(){
         if(GameObject.Find("AdventurerManager")!= null){
             GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().SetAdventurerList(OutputAdventurers());
-            SceneManager.LoadScene("StageBookScene");
+            if (GameObject.Find("StateManager").GetComponent<StateManager>().GetLayer() < 3) {
+                SceneManager.LoadScene("ShopScene");
+            } else {
+                SceneManager.LoadScene("SettlementScene");
+            }
         }else{
             Debug.Log("can't find adv manager");
         }
@@ -179,11 +186,12 @@ public class DungeonMapController : MonoBehaviour
                 r[count] = new AdventurerInfo();
                 r[count].name = c.gameObject.GetComponent<AdventurerBehavior>().name;
                 r[count].job = c.gameObject.GetComponent<AdventurerBehavior>().job;
-
+                r[count].img = c.gameObject.GetComponent<AdventurerBehavior>().img;
                 r[count].hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
                 r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
+                r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
                 r[count].speed = c.gameObject.GetComponent<AdventurerBehavior>().speed;
-                r[count].items = c.gameObject.GetComponent<AdventurerBehavior>().items;
+                r[count].itemImgs = new List<Sprite>(c.gameObject.GetComponent<AdventurerBehavior>().itemImgs);
                 count++;
             }
         }
