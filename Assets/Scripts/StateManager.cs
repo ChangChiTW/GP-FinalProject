@@ -5,6 +5,8 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     private int _day = 1;
+    private int _balance = 1000;
+    private int _debt = 2000;
     private bool _inDungeon = false;
     private string _lastSceneToStageBookScene;
     private bool _lastSelectStage = false;
@@ -30,6 +32,36 @@ public class StateManager : MonoBehaviour
     public int GetDay()
     {
         return _day;
+    }
+
+    public void SetBalance(int balance)
+    {
+        _balance = balance;
+    }
+
+    public void AddBalance(int balance)
+    {
+        _balance += balance;
+    }
+
+    public int GetBalance()
+    {
+        return _balance;
+    }
+
+    public void SetDebt(int debt)
+    {
+        _debt = debt;
+    }
+
+    public void AddDebt(int debt)
+    {
+        _debt += debt;
+    }
+
+    public int GetDebt()
+    {
+        return _debt;
     }
 
     public void SetInDungeon(bool inDungeon)
