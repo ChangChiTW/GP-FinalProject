@@ -106,6 +106,7 @@ public class TradeSceneController : MonoBehaviour
 
     public void OnGoDungeon()
     {
+        _stateManager.SetInDungeon(true);
         SceneManager.LoadScene("DungeonRunScene");
     }
 
