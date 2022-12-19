@@ -43,6 +43,8 @@ public class StageBookSceneController : IntroBookSceneController
             page.transform.SetParent(_book.transform);
             page.transform.position = _pages[0].transform.position;
             page.transform.localScale = new Vector3(1, 1, 1);
+            page.transform.Find("Ranger").GetComponent<TMP_Text>().text = adventurer.name;
+            page.transform.Find("RangerImg").GetComponent<Image>().sprite = adventurer.img;
             page.transform.Find("HP").GetComponent<TMP_Text>().text = "HP: " + adventurer.hp;
             page.transform.Find("ATK").GetComponent<TMP_Text>().text = "ATK: " + adventurer.atk;
             page.transform.Find("DEF").GetComponent<TMP_Text>().text = "SPD: " + adventurer.speed;

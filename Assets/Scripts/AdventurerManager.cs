@@ -34,6 +34,7 @@ public class AdventurerManager : MonoBehaviour
 
     private void initAdventurerList()
     {
+        _adventurerList[0] = new AdventurerInfo();
         _adventurerList[0].name = "Knight";
         _adventurerList[0].job = "Knight";
         _adventurerList[0].img = Resources.Load<Sprite>("Adventurer/Knight");
@@ -42,16 +43,20 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[0].def = 3;
         _adventurerList[0].speed = 10;
         _adventurerList[0].items = new ItemInfo[3];
+        _adventurerList[0].items[0] = new ItemInfo();
         _adventurerList[0].items[0].name = "Sword";
         _adventurerList[0].items[0].cost = 100;
         _adventurerList[0].items[0].basePrice = 100;
+        _adventurerList[0].items[1] = new ItemInfo();
         _adventurerList[0].items[1].name = "Shield";
         _adventurerList[0].items[1].cost = 100;
         _adventurerList[0].items[1].basePrice = 100;
+        _adventurerList[0].items[2] = new ItemInfo();
         _adventurerList[0].items[2].name = "Armor";
         _adventurerList[0].items[2].cost = 100;
         _adventurerList[0].items[2].basePrice = 100;
         _adventurerList[0].itemImgs = new List<Sprite>();
+        _adventurerList[1] = new AdventurerInfo();
         _adventurerList[1].name = "Archer";
         _adventurerList[1].job = "Archer";
         _adventurerList[1].img = Resources.Load<Sprite>("Adventurer/Archer");
@@ -60,16 +65,20 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[1].def = 2;
         _adventurerList[1].speed = 20;
         _adventurerList[1].items = new ItemInfo[3];
+        _adventurerList[1].items[0] = new ItemInfo();
         _adventurerList[1].items[0].name = "Bow";
         _adventurerList[1].items[0].cost = 100;
         _adventurerList[1].items[0].basePrice = 100;
+        _adventurerList[1].items[1] = new ItemInfo();
         _adventurerList[1].items[1].name = "Arrow";
         _adventurerList[1].items[1].cost = 100;
         _adventurerList[1].items[1].basePrice = 100;
+        _adventurerList[1].items[2] = new ItemInfo();
         _adventurerList[1].items[2].name = "Armor";
         _adventurerList[1].items[2].cost = 100;
         _adventurerList[1].items[2].basePrice = 100;
         _adventurerList[1].itemImgs = new List<Sprite>();
+        _adventurerList[2] = new AdventurerInfo();
         _adventurerList[2].name = "Mage";
         _adventurerList[2].job = "Mage";
         _adventurerList[2].img = Resources.Load<Sprite>("Adventurer/Mage");
@@ -78,12 +87,15 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[2].def = 1;
         _adventurerList[2].speed = 15;
         _adventurerList[2].items = new ItemInfo[3];
+        _adventurerList[2].items[0] = new ItemInfo();
         _adventurerList[2].items[0].name = "Staff";
         _adventurerList[2].items[0].cost = 100;
         _adventurerList[2].items[0].basePrice = 100;
+        _adventurerList[2].items[1] = new ItemInfo();
         _adventurerList[2].items[1].name = "Book";
         _adventurerList[2].items[1].cost = 100;
         _adventurerList[2].items[1].basePrice = 100;
+        _adventurerList[2].items[2] = new ItemInfo();
         _adventurerList[2].items[2].name = "Armor";
         _adventurerList[2].items[2].cost = 100;
         _adventurerList[2].items[2].basePrice = 100;

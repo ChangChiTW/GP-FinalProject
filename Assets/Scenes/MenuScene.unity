@@ -839,6 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079950f49b3214b95940a2193cc1c92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myBag: {fileID: 11400000, guid: 9acf119365c028341a763a4dd4402dd0, type: 2}
 --- !u!4 &1126829911
 Transform:
   m_ObjectHideFlags: 0

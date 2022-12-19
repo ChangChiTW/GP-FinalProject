@@ -51,9 +51,8 @@ public class TradeSceneController : MonoBehaviour
 
     private void ShowAdventurerInfo(int index)
     {
-        // string imgPath = "Adventurer/" + _adventurerList[index].job;
-        // _adventurerImg.GetComponent<Image>().sprite = Resources.Load<Sprite>(imgPath);
         _adventurerName.text = _adventurerList[index].name;
+        _adventurerImg.GetComponent<Image>().sprite = _adventurerList[index].img;
         _adventurerHp.text = "HP:    " + _adventurerList[index].hp.ToString();
         _adventurerAtk.text = "ATK:  	" + _adventurerList[index].atk.ToString();
         _adventurerDef.text = "DEF:   " + _adventurerList[index].def.ToString();
