@@ -31,6 +31,7 @@ public class Slot : MonoBehaviour
     public void BuyItem()
     {
         InventoryManager.AddNewItem();
+        InventoryManager.CloseDes();
     }
 
     public void CloseDes()

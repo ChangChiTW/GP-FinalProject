@@ -6,11 +6,9 @@ using UnityEngine.UI;
 public class TradeManager : MonoBehaviour
 {
     static TradeManager instance;
-
     public Inventory myBag;
     public GameObject slotGrid;
     public TradeSlot slotPrefab;
-    //public Text itemInformation;
     public Text itemName;
     public Text itemStrength;
     public Text itemWisdom;
@@ -18,17 +16,8 @@ public class TradeManager : MonoBehaviour
     public Image itemPic;
     public Text itemPrice;
     public Text originalPrice;
-    public Text BuySell;
-    //private bool Buy = false;
-
-    //public Inventory myShop;
-    //public GameObject shopGrid;
-    //public Slot shopPrefab;
-
-    //private PlayerManager _playerManager;
-    private int currentMoney = 1000;
-    //private int currentDebt = 2000;
-    //public Text OwnDebt;
+    public Text goldRatio;
+    private StateManager _stateManager;
     public Text OwnMoney;
 
     public GameObject itemDes;
@@ -36,32 +25,21 @@ public class TradeManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance != null)
+        if (instance != null)
             Destroy(this);
         instance = this;
-        //instance._playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        instance._stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
     }
-
 
     void Start()
     {
         RefreshItem();
-        //ShopItem();
-        //instance.itemInformation.text = "";
-        //instance.currentMoney = 1000;
-        //instance.currentDebt = 2000;
     }
 
     void Update()
     {
-        instance.OwnMoney.text = "$" + instance.currentMoney;
-        //instance.OwnDebt.text = "Debt: " + instance.currentDebt;
+        instance.OwnMoney.text = "$" + instance._stateManager.GetBalance();
     }
-
-    /*private void OnEnabled()
-    {
-        RefreshItem();
-    }*/
 
     public static void ShowDes()
     {
@@ -80,132 +58,67 @@ public class TradeManager : MonoBehaviour
 
     public static void AddNewItem()
     {
-        /*if(instance.Buy){
-            if(instance.currentMoney + instance.chosenItem.price<0)
-                return;
-            if(!instance.myBag.itemList.Contains(instance.chosenItem))
-            {
-                instance.myBag.itemList.Add(instance.chosenItem);
-                //InventoryManager.CreateNewItem(chosenItem);
-            }
-            else
-            {
-                instance.chosenItem.itemHeld += 1;
-            }
-
-            //instance._playerManager.AddBalance(-1*price);
-            
-            AddMoney(instance.chosenItem.price);
-
-            //RefreshItem();
+        instance._stateManager.AddBalance(-1 * instance.chosenItem.price);
+        if (instance.chosenItem.itemHeld - 1 == 0)
+        {
+            instance.itemDes.SetActive(false);
+            instance.myBag.itemList.Remove(instance.chosenItem);
         }
-        else{*/
-            AddMoney(-1*instance.chosenItem.price);
-            if(instance.chosenItem.itemHeld - 1 == 0 ){
-                instance.itemDes.SetActive(false);
-                instance.myBag.itemList.Remove(instance.chosenItem);
-            }
-            else{
-                instance.chosenItem.itemHeld -= 1;
-            }
-        //}
+        else
+        {
+            instance.chosenItem.itemHeld -= 1;
+        }
         RefreshItem();
     }
 
-    public static void AddMoney(int amount)
+    public static void UpdateItemInfo(
+        string itemName,
+        string itemDescription,
+        int HP,
+        int ATK,
+        int DEF,
+        Sprite itemImage,
+        int price
+    )
     {
-        instance.currentMoney += amount;
-    }
-
-    public static int GetCurrentMoney()
-    {
-        return instance.currentMoney;
-    }
-
-    /*public static void AddDebt(int newDebt)
-    {
-        instance.currentDebt += newDebt;
-    }
-
-    public static int GetCurrentDebt()
-    {
-        return instance.currentDebt;
-    }*/
-
-    public static void UpdateItemInfo(string itemName, string itemDescription, int HP, int ATK, int DEF, Sprite itemImage,int price)
-    {
-        //itemDes.SetActive(true);
         instance.itemName.text = itemName;
-        //instance.itemInformation.text = itemDescription;
-        instance.itemStrength.text = "HP:    "+HP.ToString();
+        instance.itemStrength.text = "HP:    " + HP.ToString();
         instance.itemWisdom.text = "ATK:  " + ATK.ToString();
-        instance.itemLuck.text = "DEF:   "+DEF.ToString();
+        instance.itemLuck.text = "DEF:   " + DEF.ToString();
         instance.itemPic.sprite = itemImage;
-        instance.originalPrice.text = (-1*price).ToString();
-        instance.itemPrice.text = price.ToString();
+        instance.originalPrice.text = (-1 * price).ToString();
+        int ratio = instance._stateManager.GetGoldRatio();
+        instance.goldRatio.text = ratio.ToString() + "%";
+        instance.itemPrice.text = "+" + (-1 * ratio * 0.01 * price).ToString();
     }
-
-    /*public static void ChangeBuySell(string input, int price)
-    {
-        instance.BuySell.text = input;
-        if(input=="Buy"){
-            instance.Buy = true;
-            instance.itemPrice.text = price.ToString();
-            instance.itemPrice.color = Color.red;
-        }
-        else{
-            instance.Buy = false;
-            instance.itemPrice.text = (-1*price).ToString();
-            instance.itemPrice.color = Color.black;
-        }
-    }*/
 
     public static void CreateNewItem(Item item)
     {
-        TradeSlot newItem = Instantiate(instance.slotPrefab,instance.slotGrid.transform.position, Quaternion.identity);
+        TradeSlot newItem = Instantiate(
+            instance.slotPrefab,
+            instance.slotGrid.transform.position,
+            Quaternion.identity
+        );
         newItem.gameObject.transform.SetParent(instance.slotGrid.transform);
         newItem.slotItem = item;
         newItem.slotImage.sprite = item.itemImage;
         newItem.slotNum.text = item.itemHeld.ToString();
     }
 
-    /*public static void CreateShopItem(Item item)
-    {
-        Slot newItem = Instantiate(instance.shopPrefab,instance.shopGrid.transform.position, Quaternion.identity);
-        newItem.gameObject.transform.SetParent(instance.shopGrid.transform);
-        newItem.slotItem = item;
-        newItem.slotImage.sprite = item.itemImage;
-    }*/
-
     public static void RefreshItem()
     {
         //Debug.Log("RefreshItem");
-        for(int i = 0; i < instance.slotGrid.transform.childCount; i++)
+        for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
         {
-            if(instance.slotGrid.transform.childCount == 0)
+            if (instance.slotGrid.transform.childCount == 0)
                 break;
             Destroy(instance.slotGrid.transform.GetChild(i).gameObject);
         }
-        for(int i = 0; i < instance.myBag.itemList.Count; i++)
+        for (int i = 0; i < instance.myBag.itemList.Count; i++)
         {
             CreateNewItem(instance.myBag.itemList[i]);
         }
     }
-
-    /*public static void ShopItem()
-    {
-        //Debug.Log("RefreshItem");
-        for(int i = 0; i < instance.shopGrid.transform.childCount; i++)
-        {
-            if(instance.shopGrid.transform.childCount == 0)
-                break;
-            Destroy(instance.shopGrid.transform.GetChild(i).gameObject);
-        }
-        for(int i = 0; i < instance.myShop.itemList.Count; i++)
-        {
-            CreateShopItem(instance.myShop.itemList[i]);
-        }
-    }*/
 
     public static Item GetChosenItem()
     {
