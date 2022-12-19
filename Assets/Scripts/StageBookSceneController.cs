@@ -45,7 +45,7 @@ public class StageBookSceneController : IntroBookSceneController
             page.transform.localScale = new Vector3(1, 1, 1);
             page.transform.Find("HP").GetComponent<TMP_Text>().text = "HP: " + adventurer.hp;
             page.transform.Find("ATK").GetComponent<TMP_Text>().text = "ATK: " + adventurer.atk;
-            page.transform.Find("DEF").GetComponent<TMP_Text>().text = "DEF: " + adventurer.def;
+            page.transform.Find("DEF").GetComponent<TMP_Text>().text = "SPD: " + adventurer.speed;
             for (int j = 0; j < adventurer.items.Length; j++)
             {
                 ItemInfo item = adventurer.items[j];

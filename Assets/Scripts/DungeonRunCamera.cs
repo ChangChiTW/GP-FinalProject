@@ -32,7 +32,7 @@ public class DungeonRunCamera : MonoBehaviour
             }
             if(AliveCharCount>0){
                 AvgX/=AliveCharCount;
-                if(AvgX>-3 && AvgX<6 && prevX<AvgX)
+                if(AvgX>-3 && prevX<AvgX)
                     transform.position = Vector3.Lerp(transform.position, new Vector3(AvgX, transform.position.y, -10), 0.06f);
                 prevX = transform.position.x;
             }

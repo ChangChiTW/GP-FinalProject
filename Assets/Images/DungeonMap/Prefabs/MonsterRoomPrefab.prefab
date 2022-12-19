@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bdfa3af5a1e092c4da916cc001040a7d, type: 3}
+    - target: {fileID: 1751042018837984829, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2324656737963274122, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -71,8 +75,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterRoomPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7786174031633949197, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 59af72ade0563dd458d1b56593a0820d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
+--- !u!1 &407995632096367196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3527383788784927425, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
+  m_PrefabInstance: {fileID: 3844584244961382557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3386335825013247665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407995632096367196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b47576d0ea92dd4eb3164e3bd389476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Battling: []
 --- !u!1 &6118488047264765226 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7040121784259839415, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
@@ -91,5 +117,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attack: 1
-  Lives: 2
+  Lives: 3
   IsEnd: 0

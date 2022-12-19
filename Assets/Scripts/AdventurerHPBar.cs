@@ -9,6 +9,7 @@ public class AdventurerHPBar : MonoBehaviour
     // Start is called before the first frame update
     public Slider Slider;
     public Vector3 Offset;
+    public bool stay = false;
     void Start()
     {
 
@@ -24,7 +25,8 @@ public class AdventurerHPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
+        if(!stay)
+            Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
 
     }
 }
