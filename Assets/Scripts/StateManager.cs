@@ -7,11 +7,11 @@ public class StateManager : MonoBehaviour
     private int _day = 1;
     private int _layer = 0;
     private int _balance = 1000;
-    private int _debt = 2000;
+    private int[] _debt = { 100, 300, 600, 1000, 1500, 2000, 10000 };
     private string _lastSceneToStageBookScene;
     private bool _lastSelectStage = false;
     private int _stageBookPage = 0;
-    private int _goldRatio = 100;
+    private int[] _goldRatio = { 100, 125, 150, 200 };
     private List<string> _specialConditions = new List<string>();
 
     void Start()
@@ -64,20 +64,11 @@ public class StateManager : MonoBehaviour
         return _balance;
     }
 
-    public void SetDebt(int debt)
-    {
-        _debt = debt;
-    }
-
-    public void AddDebt(int debt)
-    {
-        _debt += debt;
-    }
-
     public int GetDebt()
     {
-        return _debt;
+        return _debt[_day - 1];
     }
+
     public void SetLastSceneToStageBookScene(string sceneName)
     {
         _lastSceneToStageBookScene = sceneName;
@@ -108,14 +99,14 @@ public class StateManager : MonoBehaviour
         return _stageBookPage;
     }
 
-    public void SetGoldRatio(int ratio)
-    {
-        _goldRatio = ratio;
-    }
-
     public int GetGoldRatio()
     {
-        return _goldRatio;
+        return _goldRatio[_layer];
+    }
+
+    public int GetNextGoldRatio()
+    {
+        return _goldRatio[_layer + 1];
     }
 
     public void AddSpecialCondition(string condition)

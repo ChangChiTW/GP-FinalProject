@@ -19,9 +19,10 @@ public class StageBookSceneController : IntroBookSceneController
         string backgroundImgPath =
             "StageBook/" + _stateManager.GetLastSceneToStageBookScene() + "BG";
         _backgroundImg.GetComponent<Image>().sprite = Resources.Load<Sprite>(backgroundImgPath);
-        int goldRatio = _stateManager.GetGoldRatio();
+        _pages[0].transform.Find("Floor").GetComponent<TMP_Text>().text =
+            (_stateManager.GetLayer() + 1).ToString() + "F";
         _pages[0].transform.Find("GoldRatio").GetComponent<TMP_Text>().text =
-            "Gold Ratio: " + goldRatio.ToString() + "%";
+            "Gold Ratio: " + _stateManager.GetNextGoldRatio().ToString() + "%";
         List<string> specialConditions = _stateManager.GetSpecialConditions();
         if (specialConditions.Count > 0)
         {
