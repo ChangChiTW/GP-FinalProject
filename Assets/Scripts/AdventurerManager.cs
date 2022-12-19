@@ -13,6 +13,7 @@ public class AdventurerInfo
 {
     public string name;
     public string job;
+    public Sprite img;
     public float hp;
     public int atk;
     public int def;
@@ -28,32 +29,65 @@ public class AdventurerManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        randomAdventurerList();
+        initAdventurerList();
     }
 
-    private void randomAdventurerList()
+    private void initAdventurerList()
     {
-        string[] jobList = { "King", "Warrior", "Warlock", "Wizard" };
-        for (int i = 0; i < 3; i++)
-        {
-            _adventurerList[i] = new AdventurerInfo();
-            _adventurerList[i].name = "Adventurer " + i;
-            _adventurerList[i].job = jobList[Random.Range(0, jobList.Length)];
-
-            _adventurerList[i].hp = Random.Range(1, 100);
-            _adventurerList[i].atk = Random.Range(70, 100);
-            _adventurerList[i].def = Random.Range(20, 100);
-            _adventurerList[i].speed = Random.Range(10, 20);
-            _adventurerList[i].items = new ItemInfo[3];
-            for (int j = 0; j < 3; j++)
-            {
-                _adventurerList[i].items[j] = new ItemInfo();
-                _adventurerList[i].items[j].name = "Item " + j;
-                _adventurerList[i].items[j].cost = Random.Range(1, 100);
-                _adventurerList[i].items[j].basePrice = Random.Range(1, 100);
-            }
-            _adventurerList[i].itemImgs = new List<Sprite>();
-        }
+        _adventurerList[0].name = "Knight";
+        _adventurerList[0].job = "Knight";
+        _adventurerList[0].img = Resources.Load<Sprite>("Adventurer/Knight");
+        _adventurerList[0].hp = 90;
+        _adventurerList[0].atk = 13;
+        _adventurerList[0].def = 3;
+        _adventurerList[0].speed = 10;
+        _adventurerList[0].items = new ItemInfo[3];
+        _adventurerList[0].items[0].name = "Sword";
+        _adventurerList[0].items[0].cost = 100;
+        _adventurerList[0].items[0].basePrice = 100;
+        _adventurerList[0].items[1].name = "Shield";
+        _adventurerList[0].items[1].cost = 100;
+        _adventurerList[0].items[1].basePrice = 100;
+        _adventurerList[0].items[2].name = "Armor";
+        _adventurerList[0].items[2].cost = 100;
+        _adventurerList[0].items[2].basePrice = 100;
+        _adventurerList[0].itemImgs = new List<Sprite>();
+        _adventurerList[1].name = "Archer";
+        _adventurerList[1].job = "Archer";
+        _adventurerList[1].img = Resources.Load<Sprite>("Adventurer/Archer");
+        _adventurerList[1].hp = 70;
+        _adventurerList[1].atk = 16;
+        _adventurerList[1].def = 2;
+        _adventurerList[1].speed = 20;
+        _adventurerList[1].items = new ItemInfo[3];
+        _adventurerList[1].items[0].name = "Bow";
+        _adventurerList[1].items[0].cost = 100;
+        _adventurerList[1].items[0].basePrice = 100;
+        _adventurerList[1].items[1].name = "Arrow";
+        _adventurerList[1].items[1].cost = 100;
+        _adventurerList[1].items[1].basePrice = 100;
+        _adventurerList[1].items[2].name = "Armor";
+        _adventurerList[1].items[2].cost = 100;
+        _adventurerList[1].items[2].basePrice = 100;
+        _adventurerList[1].itemImgs = new List<Sprite>();
+        _adventurerList[2].name = "Mage";
+        _adventurerList[2].job = "Mage";
+        _adventurerList[2].img = Resources.Load<Sprite>("Adventurer/Mage");
+        _adventurerList[2].hp = 60;
+        _adventurerList[2].atk = 20;
+        _adventurerList[2].def = 1;
+        _adventurerList[2].speed = 15;
+        _adventurerList[2].items = new ItemInfo[3];
+        _adventurerList[2].items[0].name = "Staff";
+        _adventurerList[2].items[0].cost = 100;
+        _adventurerList[2].items[0].basePrice = 100;
+        _adventurerList[2].items[1].name = "Book";
+        _adventurerList[2].items[1].cost = 100;
+        _adventurerList[2].items[1].basePrice = 100;
+        _adventurerList[2].items[2].name = "Armor";
+        _adventurerList[2].items[2].cost = 100;
+        _adventurerList[2].items[2].basePrice = 100;
+        _adventurerList[2].itemImgs = new List<Sprite>();
     }
 
     public AdventurerInfo[] GetAdventurerList()
