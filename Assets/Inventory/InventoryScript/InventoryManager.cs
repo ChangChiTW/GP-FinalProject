@@ -87,8 +87,6 @@ public class InventoryManager : MonoBehaviour
                 instance.chosenItem.itemHeld += 1;
             }
 
-            //instance._playerManager.AddBalance(-1*price);
-
             instance._stateManager.AddBalance(instance.chosenItem.price);
 
             //RefreshItem();
