@@ -63,6 +63,7 @@ public class AdventurerManager : MonoBehaviour
 
     public void SetAdventurerList(AdventurerInfo[] a)
     {
+        _adventurerList = new AdventurerInfo[a.Length];
         _adventurerList = a;
     }
 }

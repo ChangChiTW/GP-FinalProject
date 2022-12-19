@@ -106,7 +106,14 @@ public class TradeSceneController : MonoBehaviour
     public void OnGoDungeon()
     {
         _stateManager.AddLayer();
-        SceneManager.LoadScene("DungeonRunScene");
+        if (_stateManager.GetLayer() > 3)
+        {
+            SceneManager.LoadScene("SettlementScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("DungeonRunScene");
+        }
     }
 
     private void AdjustAdventurerInfo(float hp, int atk, int def, Sprite img)

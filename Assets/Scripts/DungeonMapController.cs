@@ -166,11 +166,12 @@ public class DungeonMapController : MonoBehaviour
 
     private void EndScene(){
         if(GameObject.Find("AdventurerManager")!= null){
-            GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().SetAdventurerList(OutputAdventurers());
-            if (GameObject.Find("StateManager").GetComponent<StateManager>().GetLayer() < 3) {
-                SceneManager.LoadScene("ShopScene");
-            } else {
+            AdventurerInfo[] r = OutputAdventurers();
+            if (r.Length < 0) {
                 SceneManager.LoadScene("SettlementScene");
+            } else {
+                GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().SetAdventurerList(OutputAdventurers());
+                SceneManager.LoadScene("TradeScene");
             }
         }else{
             Debug.Log("can't find adv manager");

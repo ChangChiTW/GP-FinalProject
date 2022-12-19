@@ -7,7 +7,7 @@ public class ShopSceneController : MonoBehaviour
 {
     private StateManager _stateManager;
 
-    void Start()
+    void Awake()
     {
         _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
     }
