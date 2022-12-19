@@ -38,6 +38,9 @@ public class TradeSceneController : MonoBehaviour
 
     void Start()
     {
+        if (_stateManager.GetInDungeon()) {
+            _shopPanel.SetActive(false);
+        }
         _adventurerList = _adventurerManager.GetAdventurerList();
         ShowAdventurerInfo(0);
     }

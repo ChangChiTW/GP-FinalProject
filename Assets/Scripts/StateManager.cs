@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     private int _day = 1;
+    private bool _inDungeon = false;
     private string _lastSceneToStageBookScene;
     private bool _lastSelectStage = false;
     private int _stageBookPage = 0;
@@ -29,6 +30,16 @@ public class StateManager : MonoBehaviour
     public int GetDay()
     {
         return _day;
+    }
+
+    public void SetInDungeon(bool inDungeon)
+    {
+        _inDungeon = inDungeon;
+    }
+
+    public bool GetInDungeon()
+    {
+        return _inDungeon;
     }
 
     public void SetLastSceneToStageBookScene(string sceneName)

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DungeonRunScene.unity
     guid: 478a4697cd711114db4ea77c3da61e3c
+  - enabled: 1
+    path: Assets/Scenes/TradeScene.unity
+    guid: 14bb626098050ba46a1cce2d8f91229a
   m_configObjects: {}
