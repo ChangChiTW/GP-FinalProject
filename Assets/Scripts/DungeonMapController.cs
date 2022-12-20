@@ -38,8 +38,20 @@ public class DungeonMapController : MonoBehaviour
     private int[] DungeonLayout1 = {2, 3, 1, 2, 2, 1, 1};
     private int[] DungeonLayout2 = {3, 4, 3, 2, 1, 1};
 
+    private int[] DL11 = {1, 1};
+    private int[] DL12 = {2, 1};
+
+
+
     private string[] Dungeonpaths1 = {"12", "12a3", "1a1a1", "12", "1a2", "1a1", "1"};
+
+    private string[] DP11 = {"1", "1"};
+    private string[] DP12 = {"12", "11"};
+
+
     private string[] DungeonRooms1 = {"mm", "mtm", "m", "mm", "tt", "b", "t"};
+    private string[] DR11 = {"m", "t"};
+    private string[] DR12 = {"mt", "p"};
 
     private int[] CurrentLayout;
     private string[] CurrentPaths;
@@ -58,23 +70,24 @@ public class DungeonMapController : MonoBehaviour
         CurrentPaths = Dungeonpaths1;
         CurrentRooms = DungeonRooms1;
         if(GameObject.Find("StateManager") != null)
-            CurrentGameLevel = "level"+GameObject.Find("StateManager").GetComponent<StateManager>().GetLayer().ToString();
+            CurrentGameLevel = "level"
+                                +GameObject.Find("StateManager").GetComponent<StateManager>().GetDay().ToString()
+                                +GameObject.Find("StateManager").GetComponent<StateManager>().GetLayer().ToString();
         else
             CurrentGameLevel = "level1";
-        
         Sprite bg;
-        if(CurrentGameLevel == "level1"){
+        if(CurrentGameLevel == "level11"){
+            bg = bg1;
+            CurrentLayout = DL11;
+            CurrentPaths = DP11;
+            CurrentRooms = DR11;
+        }else if(CurrentGameLevel == "level12"){
             bg = bg2;
-            CurrentLayout = DungeonLayout1;
-            CurrentPaths = Dungeonpaths1;
-            CurrentRooms = DungeonRooms1;
-        }else if(CurrentGameLevel == "level2"){
-            bg = bg2;
-            CurrentLayout = DungeonLayout1;
-            CurrentPaths = Dungeonpaths1;
-            CurrentRooms = DungeonRooms1;
+            CurrentLayout = DL12;
+            CurrentPaths = DP12;
+            CurrentRooms = DR12;
         }
-        else if(CurrentGameLevel == "level3"){
+        else if(CurrentGameLevel == "level13"){
             bg = bg3;
             CurrentLayout = DungeonLayout1;
             CurrentPaths = Dungeonpaths1;
@@ -114,18 +127,33 @@ public class DungeonMapController : MonoBehaviour
                     float CurrEndY = LevelLength*Mathf.Sin(CurrAngle);
                     FloorCoords[i, a, 0] = CurrEndX;
                     FloorCoords[i, a, 1] = CurrEndY;
+                    GameObject bruh;
                     switch(CurrentRooms[i][a]){
                         case 'm':
-                            Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh = Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh.GetComponent<MonsterRoomScript>().SetMon(0);
+                            break;
+                        case 'p':
+                            bruh = Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh.GetComponent<MonsterRoomScript>().SetMon(1);
+                            break;
+                        case 'q':
+                            bruh = Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh.GetComponent<MonsterRoomScript>().SetMon(2);
+                            break;
+                        case 'r':
+                            bruh = Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh.GetComponent<MonsterRoomScript>().SetMon(3);
                             break;
                         case 't':
-                            Instantiate(SmallChestEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh = Instantiate(SmallChestEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
                             break;
                         case 'b':
-                            Instantiate(BossEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh = Instantiate(BossEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
                             break;
                         default:
-                            Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh = Instantiate(MonsterEncounter, new Vector3(CurrEndX, CurrEndY, 0), Quaternion.identity, MapParent);
+                            bruh.GetComponent<MonsterRoomScript>().SetMon(0);
                             break;
                     }
                 }
@@ -157,7 +185,9 @@ public class DungeonMapController : MonoBehaviour
             Vector2[] g = new Vector2[CurrentLayout.Length+1]; //Determine Path
 
             for(int f=0; f<CurrentLayout.Length; f++){
-                int r = Random.Range(int.Parse(CurrentPaths[f].Split('a')[0][0].ToString())-1 , int.Parse(CurrentPaths[f].Split('a')[0][CurrentPaths[f].Split('a')[0].Length-1].ToString()));
+                int r = Random.Range(
+                    int.Parse(CurrentPaths[f].Split('a')[0][0].ToString())-1 , 
+                    int.Parse(CurrentPaths[f].Split('a')[0][CurrentPaths[f].Split('a')[0].Length-1].ToString()));
                 g[f] = new Vector2(FloorCoords[f, r, 0], FloorCoords[f, r, 1]);
             }
             g[CurrentLayout.Length] = new Vector2(FloorCoords[CurrentLayout.Length, 0, 0], FloorCoords[CurrentLayout.Length, 0, 1]);

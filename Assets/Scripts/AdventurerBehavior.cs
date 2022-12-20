@@ -81,7 +81,7 @@ public class AdventurerBehavior : MonoBehaviour
 
             HealthBar.SetHP(hp, maxHP);
             if(Walking){
-                var step =  speed/7f * Time.deltaTime;
+                var step =  speed/8f * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, WalkGoals[CurrFloor], step);
                 Steps++;
                 if(Steps>150){

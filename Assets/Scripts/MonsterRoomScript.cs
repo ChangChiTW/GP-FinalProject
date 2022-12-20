@@ -27,8 +27,13 @@ public class MonsterRoomScript : MonoBehaviour
         heads[1] = Mon2;
         heads[2] = Mon3;
         heads[3] = Mon4;
+    }
 
-        int a = Random.Range(0, 4);
+    public void SetMon(int a){
+        heads[0] = Mon1;
+        heads[1] = Mon2;
+        heads[2] = Mon3;
+        heads[3] = Mon4;
         Attack = ATKs[a];
         Lives = HPs[a];
         gameObject.transform.Find("RoomActive").GetComponent<SpriteRenderer>().sprite = heads[a];

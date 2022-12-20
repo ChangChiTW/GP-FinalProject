@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LootScript : MonoBehaviour
 {
-    private bool hasLoot = true;
+    public bool hasLoot = true;
     public int LootType = 0;
 
     public GameObject loot;
@@ -20,7 +20,7 @@ public class LootScript : MonoBehaviour
     {
         lootAnimFrame = 0f;
         History = GameObject.Find("History").GetComponent<TextLogScript>();
-
+        LootType = Random.Range(0, 3);
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class LootScript : MonoBehaviour
         if(lootAnimFrame>0 && waiting<=0){
             lootAnimFrame--;
             loot.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, lootAnimFrame/MaxLootAnimFrame);
-            float ratio = 1f-lootAnimFrame/MaxLootAnimFrame;
+            float ratio = 1.2f-1.2f*lootAnimFrame/MaxLootAnimFrame;
             loot.transform.localScale = new Vector3(1+ratio, 1+ratio);
         }
         if(lootAnimFrame==0){
@@ -39,7 +39,7 @@ public class LootScript : MonoBehaviour
     }
 
     private float lootAnimFrame = 0f;
-    private float MaxLootAnimFrame = 70f;
+    private float MaxLootAnimFrame = 80f;
     private TextLogScript History;
 
     private void OnTriggerEnter(Collider other) {
@@ -73,7 +73,7 @@ public class LootScript : MonoBehaviour
             hasLoot = false;
             loot.SetActive(true);
             lootAnimFrame = MaxLootAnimFrame;
-            waiting = 60;
+            waiting = 80;
         }
     }
 
@@ -92,12 +92,13 @@ public class LootScript : MonoBehaviour
 
     private void SpikeTrap(GameObject a){
         loot.GetComponent<SpriteRenderer>().sprite = Trap1;
-
+        History.UpdateNewText(a.name+" walked into a trap!", Color.red);
+        a.GetComponent<AdventurerBehavior>().TakeHit(10);
     }
 
     private void GoldenShower(GameObject a){
         loot.GetComponent<SpriteRenderer>().sprite = Gold;
-
+        History.UpdateNewText(a.name+" received a golden shower!", Color.yellow);
     }
 
     private void MonsterDrop(GameObject a){
