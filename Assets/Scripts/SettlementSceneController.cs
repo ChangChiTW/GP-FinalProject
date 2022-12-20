@@ -42,6 +42,7 @@ public class SettlementSceneController : MonoBehaviour
 
     void Start()
     {
+        _currentLayer = _stateManager.GetLayer();
         UpdateResult();
     }
 
@@ -146,7 +147,7 @@ public class SettlementSceneController : MonoBehaviour
                 _stateManager.AddBalance(-1 * _stateManager.GetDebt());
                 _stateManager.ResetLayer();
                 _stateManager.AddDay();
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("StageBookScene");
             }
         }
     }

@@ -2145,6 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1937824d425274153a404ec6ce43facc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myBag: {fileID: 11400000, guid: 9acf119365c028341a763a4dd4402dd0, type: 2}
   _adventurerImg: {fileID: 1609955081}
   _adventurerName: {fileID: 842808947}
   _adventurerHp: {fileID: 2110184082}
