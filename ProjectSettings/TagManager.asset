@@ -7,8 +7,6 @@ TagManager:
   - Adventurer
   - Monster
   - Treasure
-  - AdventurerManager
-  - StateManager
   layers:
   - Default
   - TransparentFX
@@ -51,4 +49,7 @@ TagManager:
     locked: 0
   - name: Adventurer
     uniqueID: 154581511
+    locked: 0
+  - name: Effects
+    uniqueID: 2519695713
     locked: 0

@@ -102,7 +102,7 @@ public class DungeonMapController : MonoBehaviour
             if(i == CurrentLayout.Length){
                 FloorCoords[i, 0, 0] = StartPoint.position.x + LevelLength*(i+1);
                 FloorCoords[i, 0, 1] = 0;
-                Instantiate(BossEncounter, new Vector3(StartPoint.position.x + LevelLength*(i+1), 0, 0), Quaternion.identity, MapParent);
+                Instantiate(LargeChestEncounter, new Vector3(StartPoint.position.x + LevelLength*(i+1), 0, 0), Quaternion.identity, MapParent);
             }else{
                 float BranchCount = CurrentLayout[i]; //How many branches this dungeon level
                 float angle = Mathf.PI/(BranchCount+1);

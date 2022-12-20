@@ -36,7 +36,8 @@ public class AdventurerBehavior : MonoBehaviour
     // Update is called once per frame
     private int roomwait = 0;
     private int dmgAnimationFrame = 0;
-    private float maxFrames = 700;
+    private int moreHPAnimationFrame = 0;
+    private float maxFrames = 600;
     private float oriY;
     [SerializeField] TextMeshProUGUI txt;
 
@@ -60,6 +61,14 @@ public class AdventurerBehavior : MonoBehaviour
                 }
             }
 
+            if(moreHPAnimationFrame>0){
+                moreHPAnimationFrame--;
+                txt.alpha = Mathf.Min(moreHPAnimationFrame, maxFrames)/maxFrames;
+                if(moreHPAnimationFrame <= 0){
+                    txt.gameObject.SetActive(false);
+                }
+            }
+
             if(CurrFloor>=WalkGoals.Length){
                 Arrived = true;
             }
@@ -72,13 +81,12 @@ public class AdventurerBehavior : MonoBehaviour
 
             HealthBar.SetHP(hp, maxHP);
             if(Walking){
-                var step =  speed/6f * Time.deltaTime;
+                var step =  speed/7f * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, WalkGoals[CurrFloor], step);
                 Steps++;
                 if(Steps>150){
                     Steps = 0;
                     Instantiate(WalkingDot, transform.position, Quaternion.identity, GameObject.Find("DotCollection").transform);
-
                 }
             }
 
@@ -114,6 +122,19 @@ public class AdventurerBehavior : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().size = new Vector3(0, 0, 0);
             Alive = false;
         }
+    }
+    public void AddATK(float a){
+        History.UpdateNewText(gameObject.name+" has gained "+a.ToString()+" ATK", Color.blue);
+        atk+=a;
+    }
+    public void AddHP(float more){
+        txt.text = "+"+more.ToString();
+        txt.gameObject.SetActive(true);
+        History.UpdateNewText(gameObject.name+" has recovered "+more.ToString()+" HP", Color.green);
+        moreHPAnimationFrame = Mathf.FloorToInt(maxFrames)+10;
+        hp += more;
+        HealthBar.SetHP(hp, maxHP);
+
     }
 
     public void SetWalkGoals(Vector2[] goals, int m){

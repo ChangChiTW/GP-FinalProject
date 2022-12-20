@@ -8,18 +8,26 @@ public class LootScript : MonoBehaviour
     public int LootType = 0;
 
     public GameObject loot;
+    [SerializeField] private Sprite Potion;
+    [SerializeField] private Sprite BluePotion;
+    [SerializeField] private Sprite Trap1;
 
-    private 
+    [SerializeField] private Sprite Gold;
+
+    private int waiting = 0;
     // Start is called before the first frame update
     void Start()
     {
         lootAnimFrame = 0f;
+        History = GameObject.Find("History").GetComponent<TextLogScript>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(lootAnimFrame>0){
+        if(waiting>0)waiting--;
+        if(lootAnimFrame>0 && waiting<=0){
             lootAnimFrame--;
             loot.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, lootAnimFrame/MaxLootAnimFrame);
             float ratio = 1f-lootAnimFrame/MaxLootAnimFrame;
@@ -32,6 +40,7 @@ public class LootScript : MonoBehaviour
 
     private float lootAnimFrame = 0f;
     private float MaxLootAnimFrame = 70f;
+    private TextLogScript History;
 
     private void OnTriggerEnter(Collider other) {
         if(gameObject.GetComponent<MonsterRoomScript>() == null){
@@ -54,6 +63,9 @@ public class LootScript : MonoBehaviour
                 case 3:
                     GoldenShower(g);
                     break;
+                case 4:
+                    MonsterDrop(g);
+                    break;
                 default:
                     HotSpring(g);
                     break;
@@ -61,22 +73,35 @@ public class LootScript : MonoBehaviour
             hasLoot = false;
             loot.SetActive(true);
             lootAnimFrame = MaxLootAnimFrame;
+            waiting = 60;
         }
     }
 
     private void HotSpring(GameObject a){
-        
+        loot.GetComponent<SpriteRenderer>().sprite = Potion;
+        History.UpdateNewText(a.name+" has found a hot spring!", Color.green);
+        a.GetComponent<AdventurerBehavior>().AddHP(10);
     }
 
     private void Spinach(GameObject a){
+        loot.GetComponent<SpriteRenderer>().sprite = BluePotion;
 
+        History.UpdateNewText(a.name+" has found some Spinach!", Color.blue);
+        a.GetComponent<AdventurerBehavior>().AddATK(10f);
     }
 
     private void SpikeTrap(GameObject a){
+        loot.GetComponent<SpriteRenderer>().sprite = Trap1;
 
     }
 
     private void GoldenShower(GameObject a){
+        loot.GetComponent<SpriteRenderer>().sprite = Gold;
 
+    }
+
+    private void MonsterDrop(GameObject a){
+        loot.GetComponent<SpriteRenderer>().sprite = Potion;
+        a.GetComponent<AdventurerBehavior>().AddHP(10);
     }
 }

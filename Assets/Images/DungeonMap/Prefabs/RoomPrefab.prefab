@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5935104383903364103
 Transform:
   m_ObjectHideFlags: 0
@@ -350,6 +350,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LootType: 0
   loot: {fileID: 2943412018749360595}
+  Potion: {fileID: 21300000, guid: 76b2325bf51434dbb86c95d90d048600, type: 3}
+  BluePotion: {fileID: 21300000, guid: 323a21b1b1f9b47e0aaf85a4b9fdf179, type: 3}
+  Trap1: {fileID: 21300000, guid: f8ce1d922d32144d5afef27c96991e1f, type: 3}
+  Gold: {fileID: 21300000, guid: 5400a8db7f39e4c0b88e5e5b3b4ac3b4, type: 3}
 --- !u!1 &8504129943840209863
 GameObject:
   m_ObjectHideFlags: 0
