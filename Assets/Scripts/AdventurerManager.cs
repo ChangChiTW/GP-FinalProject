@@ -39,7 +39,7 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[0].hp = 90;
         _adventurerList[0].atk = 13;
         _adventurerList[0].def = 3;
-        _adventurerList[0].speed = 10;
+        _adventurerList[0].speed = 15;
         _adventurerList[0].preferenceImgs = new List<Sprite>();
         _adventurerList[0].preferenceImgs.Add(Resources.Load<Sprite>("Item/IronSword"));
         _adventurerList[0].preferenceImgs.Add(Resources.Load<Sprite>("Item/BarrelLid"));
@@ -63,7 +63,7 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[2].hp = 60;
         _adventurerList[2].atk = 20;
         _adventurerList[2].def = 1;
-        _adventurerList[2].speed = 15;
+        _adventurerList[2].speed = 17;
         _adventurerList[2].preferenceImgs = new List<Sprite>();
         _adventurerList[2].preferenceImgs.Add(Resources.Load<Sprite>("Item/WoodenCane"));
         _adventurerList[2].preferenceImgs.Add(Resources.Load<Sprite>("Item/WizardHat"));

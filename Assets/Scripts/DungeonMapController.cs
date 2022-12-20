@@ -21,10 +21,16 @@ public class DungeonMapController : MonoBehaviour
     [SerializeField] private Transform AdventurerParent;
     [SerializeField] private GameObject CheckAdventurers;
 
-    [SerializeField] private GameObject Wizard;
-    [SerializeField] private GameObject Warrior;
-    [SerializeField] private GameObject Warlock;
+    [SerializeField] private GameObject Mage;
+    [SerializeField] private GameObject Knight;
+    [SerializeField] private GameObject Archer;
     [SerializeField] private GameObject King;
+
+    [SerializeField] private Sprite bg1;
+    [SerializeField] private Sprite bg2;
+    [SerializeField] private Sprite bg3;
+
+
 
 
 
@@ -39,6 +45,8 @@ public class DungeonMapController : MonoBehaviour
     private string[] CurrentPaths;
     private string[] CurrentRooms;
 
+    private string CurrentGameLevel;
+    
 
     private AdventurerInfo[] Temp;
 
@@ -49,7 +57,40 @@ public class DungeonMapController : MonoBehaviour
         CurrentLayout = DungeonLayout1;
         CurrentPaths = Dungeonpaths1;
         CurrentRooms = DungeonRooms1;
+        if(GameObject.Find("StateManager") != null)
+            CurrentGameLevel = "level"+GameObject.Find("StateManager").GetComponent<StateManager>().GetLayer().ToString();
+        else
+            CurrentGameLevel = "level1";
         
+        Sprite bg;
+        if(CurrentGameLevel == "level1"){
+            bg = bg2;
+            CurrentLayout = DungeonLayout1;
+            CurrentPaths = Dungeonpaths1;
+            CurrentRooms = DungeonRooms1;
+        }else if(CurrentGameLevel == "level2"){
+            bg = bg2;
+            CurrentLayout = DungeonLayout1;
+            CurrentPaths = Dungeonpaths1;
+            CurrentRooms = DungeonRooms1;
+        }
+        else if(CurrentGameLevel == "level3"){
+            bg = bg3;
+            CurrentLayout = DungeonLayout1;
+            CurrentPaths = Dungeonpaths1;
+            CurrentRooms = DungeonRooms1;
+        }else{
+            bg = bg1;
+            CurrentLayout = DungeonLayout1;
+            CurrentPaths = Dungeonpaths1;
+            CurrentRooms = DungeonRooms1;
+        }
+
+        GameObject.Find("Square").GetComponent<SpriteRenderer>().sprite = bg;
+        GameObject.Find("Square (1)").GetComponent<SpriteRenderer>().sprite = bg;
+        GameObject.Find("Square (2)").GetComponent<SpriteRenderer>().sprite = bg;
+        GameObject.Find("Square (3)").GetComponent<SpriteRenderer>().sprite = bg;
+
         if(GameObject.Find("AdventurerManager")!= null){
             Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
         }else{
@@ -97,17 +138,17 @@ public class DungeonMapController : MonoBehaviour
                 case "King":
                     spawned = Instantiate(King, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
                     break;
-                case "Wizard":
-                    spawned = Instantiate(Wizard, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
+                case "Mage":
+                    spawned = Instantiate(Mage, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
                     break;
-                case "Warlock":
-                    spawned = Instantiate(Warlock, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
+                case "Archer":
+                    spawned = Instantiate(Archer, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
                     break;
-                case "Warrior":
-                    spawned = Instantiate(Warrior, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
+                case "Knight":
+                    spawned = Instantiate(Knight, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
                     break;
                 default:
-                    spawned = Instantiate(Warrior, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
+                    spawned = Instantiate(Knight, StartPoint.transform.position, Quaternion.identity, AdventurerParent);
                     break;
             }
             spawned.name = adv.name;
@@ -155,9 +196,11 @@ public class DungeonMapController : MonoBehaviour
                     flag = true;
                     if(c.gameObject.GetComponent<AdventurerBehavior>().Alive && !c.gameObject.GetComponent<AdventurerBehavior>().Arrived){
                         flag = false;
+                        break;
                     }//Alive and not arrived
                 }
                 if(flag){
+                    Debug.Log("ended");
                     EndScene();
                 }
             }
@@ -181,24 +224,26 @@ public class DungeonMapController : MonoBehaviour
     }
 
     public AdventurerInfo[] OutputAdventurers(){
-        AdventurerInfo[] r = new AdventurerInfo[CheckAdventurers.transform.childCount];
+        List<AdventurerInfo> r = new List<AdventurerInfo>();
+        AdventurerInfo n;
         int count = 0;
         foreach( Transform c in CheckAdventurers.transform){
             if(c.gameObject.GetComponent<AdventurerBehavior>().Alive){
-                r[count] = new AdventurerInfo();
-                r[count].name = c.gameObject.GetComponent<AdventurerBehavior>().name;
-                r[count].job = c.gameObject.GetComponent<AdventurerBehavior>().job;
-                r[count].img = c.gameObject.GetComponent<AdventurerBehavior>().img;
-                r[count].hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
-                r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
-                r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
-                r[count].speed = c.gameObject.GetComponent<AdventurerBehavior>().speed;
-                r[count].preferenceImgs = new List<Sprite>(c.gameObject.GetComponent<AdventurerBehavior>().preferenceImgs);
-                r[count].itemImgs = new List<Sprite>(c.gameObject.GetComponent<AdventurerBehavior>().itemImgs);
+                n = new AdventurerInfo();
+                n.name = c.gameObject.GetComponent<AdventurerBehavior>().name;
+                n.job = c.gameObject.GetComponent<AdventurerBehavior>().job;
+                n.img = c.gameObject.GetComponent<AdventurerBehavior>().img;
+                n.hp = c.gameObject.GetComponent<AdventurerBehavior>().hp;
+                n.atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
+                n.def = c.gameObject.GetComponent<AdventurerBehavior>().def;
+                n.speed = c.gameObject.GetComponent<AdventurerBehavior>().speed;
+                n.preferenceImgs = new List<Sprite>(c.gameObject.GetComponent<AdventurerBehavior>().preferenceImgs);
+                n.itemImgs = new List<Sprite>(c.gameObject.GetComponent<AdventurerBehavior>().itemImgs);
+                r.Add(n);
                 count++;
             }
         }
-        return r;
+        return r.ToArray();
     }
 
 

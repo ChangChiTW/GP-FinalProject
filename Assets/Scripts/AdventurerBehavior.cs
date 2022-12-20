@@ -30,6 +30,7 @@ public class AdventurerBehavior : MonoBehaviour
     {
         HealthBar.SetHP(hp, maxHP);
         oriY = txt.transform.position.y;
+        History = GameObject.Find("History").GetComponent<TextLogScript>();
     }
 
     // Update is called once per frame
@@ -38,10 +39,11 @@ public class AdventurerBehavior : MonoBehaviour
     private float maxFrames = 700;
     private float oriY;
     [SerializeField] TextMeshProUGUI txt;
+
+    private TextLogScript History;
     void Update()
     {
-        
-        if(Alive){
+        if(Alive && ! Arrived){
             if(Walking && Vector2.Distance(WalkGoals[CurrFloor], gameObject.transform.position)<0.01f){ //Next Floor
                 if(roomwait>50){
                     roomwait = 0;
@@ -70,7 +72,7 @@ public class AdventurerBehavior : MonoBehaviour
 
             HealthBar.SetHP(hp, maxHP);
             if(Walking){
-                var step =  speed/8f * Time.deltaTime;
+                var step =  speed/6f * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, WalkGoals[CurrFloor], step);
                 Steps++;
                 if(Steps>150){
@@ -80,7 +82,8 @@ public class AdventurerBehavior : MonoBehaviour
                 }
             }
 
-        }else{ //dead
+        }else if(!Alive){ //dead
+        
             Color a = transform.Find("Circle").gameObject.GetComponent<SpriteRenderer>().color;
             if(a.a>0.01f){
                 a.a = a.a*0.995f;
@@ -92,11 +95,11 @@ public class AdventurerBehavior : MonoBehaviour
         }
     }
 
+
     public void TakeHit(float dmg){
-        Debug.Log(dmg.ToString());
         txt.text = "-"+dmg.ToString();
         txt.gameObject.SetActive(true);
-        
+        History.UpdateNewText(gameObject.name+" has taken "+dmg.ToString()+" damage", Color.black);
         dmgAnimationFrame = Mathf.FloorToInt(maxFrames)+10;
         hp -= dmg;
         HealthBar.SetHP(hp, maxHP);
@@ -107,7 +110,7 @@ public class AdventurerBehavior : MonoBehaviour
             transform.Find("Grave").gameObject.SetActive(true);
             transform.Find("Sprite").gameObject.SetActive(false);
             transform.Find("Canvas").gameObject.SetActive(false);
-
+            History.UpdateNewText(gameObject.name+" has died", Color.red);
             gameObject.GetComponent<BoxCollider>().size = new Vector3(0, 0, 0);
             Alive = false;
         }
