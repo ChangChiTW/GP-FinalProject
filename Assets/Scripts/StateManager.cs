@@ -18,12 +18,16 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
+        if (GameObject.Find("StateManager") != null)
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void SetDay(int day)
+    public void ResetDay()
     {
-        _day = day;
+        _day = 1;
     }
 
     public void AddDay()
@@ -36,9 +40,9 @@ public class StateManager : MonoBehaviour
         return _day;
     }
 
-    public void SetLayer(int layer)
+    public void ResetLayer()
     {
-        _layer = layer;
+        _layer = 0;
     }
 
     public void AddLayer()
@@ -51,9 +55,9 @@ public class StateManager : MonoBehaviour
         return _layer;
     }
 
-    public void SetBalance(int balance)
+    public void ResetBalance()
     {
-        _balance = balance;
+        _balance = 1000;
     }
 
     public void AddBalance(int balance)
@@ -82,6 +86,11 @@ public class StateManager : MonoBehaviour
         return _lastSceneToStageBookScene;
     }
 
+    public void ResetLastSelectStage()
+    {
+        _lastSelectStage = false;
+    }
+
     public void SetLastSelectStage(bool lastSelectStage)
     {
         _lastSelectStage = lastSelectStage;
@@ -90,6 +99,11 @@ public class StateManager : MonoBehaviour
     public bool GetLastSelectStage()
     {
         return _lastSelectStage;
+    }
+
+    public void ResetStageBookPage()
+    {
+        _stageBookPage = 0;
     }
 
     public void SetStageBookPage(int page)
@@ -143,5 +157,16 @@ public class StateManager : MonoBehaviour
     public List<string> GetSpecialConditions()
     {
         return _specialConditions;
+    }
+
+    public void Reset()
+    {
+        ResetDay();
+        ResetLayer();
+        ResetBalance();
+        ResetSettlement();
+        ResetLastSelectStage();
+        ResetStageBookPage();
+        _specialConditions.Clear();
     }
 }

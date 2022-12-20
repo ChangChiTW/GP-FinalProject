@@ -128,11 +128,26 @@ public class SettlementSceneController : MonoBehaviour
     public void OnDoneBtnClick()
     {
         _adventurerManager.initAdventurerList();
-        _stateManager.AddBalance(-1 * _stateManager.GetDebt());
-        _stateManager.SetStageBookPage(0);
-        _stateManager.ResetSettlement();
-        _stateManager.SetLayer(0);
-        _stateManager.AddDay();
-        SceneManager.LoadScene("MainScene");
+        int totalBalance = _stateManager.GetBalance() - _stateManager.GetDebt();
+        if (totalBalance < 0)
+        {
+            SceneManager.LoadScene("FailScene");
+        }
+        else
+        {
+            if (_stateManager.GetDay() == 7)
+            {
+                SceneManager.LoadScene("SuccessScene");
+            }
+            else
+            {
+                _stateManager.SetStageBookPage(0);
+                _stateManager.ResetSettlement();
+                _stateManager.AddBalance(-1 * _stateManager.GetDebt());
+                _stateManager.ResetLayer();
+                _stateManager.AddDay();
+                SceneManager.LoadScene("MainScene");
+            }
+        }
     }
 }
