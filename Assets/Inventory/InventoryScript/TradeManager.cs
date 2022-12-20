@@ -58,7 +58,10 @@ public class TradeManager : MonoBehaviour
 
     public static void AddNewItem()
     {
-        instance._stateManager.AddBalance(-1 * instance.chosenItem.price);
+        int ratio = instance._stateManager.GetGoldRatio();
+        instance._stateManager.AddBalance(
+            System.Convert.ToInt32(System.Math.Floor(-1 * ratio * 0.01 * instance.chosenItem.price))
+        );
         if (instance.chosenItem.itemHeld - 1 == 0)
         {
             instance.itemDes.SetActive(false);
