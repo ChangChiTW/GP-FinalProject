@@ -38,17 +38,15 @@ public class StageBookSceneController : IntroBookSceneController
             page.transform.localScale = new Vector3(1, 1, 1);
             page.transform.Find("Ranger").GetComponent<TMP_Text>().text = adventurer.name;
             page.transform.Find("RangerImg").GetComponent<Image>().sprite = adventurer.img;
-            page.transform.Find("HP").GetComponent<TMP_Text>().text = "HP: " + adventurer.hp;
-            page.transform.Find("ATK").GetComponent<TMP_Text>().text = "ATK: " + adventurer.atk;
-            page.transform.Find("DEF").GetComponent<TMP_Text>().text = "SPD: " + adventurer.speed;
-            page.transform
-                .Find("ShopBtn")
-                .GetComponent<Button>()
-                .onClick.AddListener(() =>
-                {
-                    _stateManager.SetStageBookPage(_currentPage);
-                    SceneManager.LoadScene("ShopScene");
-                });
+            page.transform.Find("HPNum").GetComponent<TMP_Text>().text = adventurer.hp.ToString();
+            page.transform.Find("ATKNum").GetComponent<TMP_Text>().text = adventurer.atk.ToString();
+            page.transform.Find("DEFNum").GetComponent<TMP_Text>().text = adventurer.def.ToString();
+            for (int j = 0; j < adventurer.preferencesImgs.Count; j++)
+            {
+                page.transform.Find("PreferenceItem" + (j)).GetComponent<Image>().sprite =
+                    adventurer.preferencesImgs[j];
+                page.transform.Find("PreferenceItem" + (j)).GetComponent<Image>().enabled = true;
+            }
             _pages.Add(page);
         }
     }
@@ -57,5 +55,11 @@ public class StageBookSceneController : IntroBookSceneController
     {
         _stateManager.SetStageBookPage(_currentPage);
         base.OnCloseBook();
+    }
+
+    public void OnNext()
+    {
+        _stateManager.SetStageBookPage(_currentPage);
+        SceneManager.LoadScene("ShopScene");
     }
 }

@@ -38,7 +38,7 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[0].speed = 10;
         _adventurerList[0].preferencesImgs = new List<Sprite>();
         _adventurerList[0].preferencesImgs.Add(Resources.Load<Sprite>("Item/IronSword"));
-        _adventurerList[0].preferencesImgs.Add(Resources.Load<Sprite>("Item/GoldenShield"));
+        _adventurerList[0].preferencesImgs.Add(Resources.Load<Sprite>("Item/GoldenSword"));
         _adventurerList[0].preferencesImgs.Add(Resources.Load<Sprite>("Item/BarrelLid"));
         _adventurerList[0].itemImgs = new List<Sprite>();
         _adventurerList[1] = new AdventurerInfo();

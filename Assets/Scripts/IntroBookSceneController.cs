@@ -15,6 +15,9 @@ public class IntroBookSceneController : MonoBehaviour
     protected GameObject _rightBtn;
 
     [SerializeField]
+    protected GameObject _nextBtn;
+
+    [SerializeField]
     protected List<GameObject> _pages;
     protected StateManager _stateManager;
     protected AdventurerManager _adventurerManager;
@@ -42,6 +45,10 @@ public class IntroBookSceneController : MonoBehaviour
         _pages[_currentPage].SetActive(false);
         _leftBtn.SetActive(false);
         _rightBtn.SetActive(false);
+        if (_nextBtn != null)
+        {
+            _nextBtn.SetActive(false);
+        }
     }
 
     protected IEnumerator openBook()
@@ -99,6 +106,10 @@ public class IntroBookSceneController : MonoBehaviour
         if (_currentPage != _pages.Count - 1)
         {
             _rightBtn.SetActive(true);
+        }
+        if (_currentPage == _pages.Count - 1 && _nextBtn != null)
+        {
+            _nextBtn.SetActive(true);
         }
     }
 
