@@ -18,7 +18,8 @@ public class TextLogScript : MonoBehaviour
     void Start()
     {
         newNum = 0;
-        rotate = new TextMeshProUGUI[]{txt1, txt2, txt3, txt4, txt5};
+        rotate = new TextMeshProUGUI[]{txt5, txt4, txt3, txt2, txt1};
+
         ChangeText(txt1, new Color(0, 0, 0));
         ChangeText(txt3, new Color(0, 0, 0));
         ChangeText(txt4, new Color(0, 0, 0));
@@ -49,19 +50,14 @@ public class TextLogScript : MonoBehaviour
     private TextMeshProUGUI[] rotate;
     public void UpdateNewText(string newest, Color c){
         Vector3 temp = rotate[0].transform.position;
-        float tempA = rotate[0].alpha;
-
         for(int i=0; i<rotate.Length-1; i++){
             rotate[i].transform.position = rotate[i+1].transform.position;
-            rotate[i].alpha = rotate[i+1].alpha;
         }
         rotate[rotate.Length-1].transform.position = temp;
-        rotate[rotate.Length-1].alpha = tempA;
-
-        
-        ChangeText(rotate[newNum], c, newest);
-        newNum++;
+        newNum--;
+        newNum+=rotate.Length;
         newNum%=rotate.Length;
+        ChangeText(rotate[newNum], c, newest);
         
     }
 }
