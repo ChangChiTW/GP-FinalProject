@@ -74,12 +74,15 @@ public class DungeonMapController : MonoBehaviour
         CurrentLayout = DungeonLayout1;
         CurrentPaths = Dungeonpaths1;
         CurrentRooms = DungeonRooms1;
-        if(GameObject.Find("StateManager") != null)
+        if(GameObject.Find("StateManager") != null){
             CurrentGameLevel = "level"
                                 +GameObject.Find("StateManager").GetComponent<StateManager>().GetDay().ToString()
                                 +GameObject.Find("StateManager").GetComponent<StateManager>().GetLayer().ToString();
-        else
+        }
+        else{
+            
             CurrentGameLevel = "level1";
+        }
         Sprite bg;
         if(CurrentGameLevel == "level11"){
             bg = bg1;
