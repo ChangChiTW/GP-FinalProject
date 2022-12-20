@@ -19,6 +19,14 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: 0.0027067363
       objectReference: {fileID: 0}
+    - target: {fileID: 3002877321273677435, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
+      propertyPath: hasLoot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002877321273677435, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
+      propertyPath: LootType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5527712082757808266, guid: dfec2bb93f12d0b4ca47903894f0e61f, type: 3}
       propertyPath: m_RootOrder
       value: 0
