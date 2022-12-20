@@ -128,6 +128,7 @@ public class SettlementSceneController : MonoBehaviour
     public void OnDoneBtnClick()
     {
         _adventurerManager.initAdventurerList();
+        _stateManager.AddBalance(-1 * _stateManager.GetDebt());
         _stateManager.SetStageBookPage(0);
         _stateManager.ResetSettlement();
         _stateManager.SetLayer(0);

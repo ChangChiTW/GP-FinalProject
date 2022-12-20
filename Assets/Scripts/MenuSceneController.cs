@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuSceneController : MonoBehaviour
-{    
-    public Inventory myBag;
+{
+    [SerializeField]
+    private Inventory _myBag;
 
     public void OnStart()
     {
-        for(int i = myBag.itemList.Count - 1; i >= 0; i--)
+        for (int i = _myBag.itemList.Count - 1; i >= 0; i--)
         {
-            myBag.itemList[i].itemHeld = 1;
-            myBag.itemList.Remove(myBag.itemList[i]);
+            _myBag.itemList[i].itemHeld = 1;
+            _myBag.itemList.Remove(_myBag.itemList[i]);
         }
 
         SceneManager.LoadScene("IntroBookScene");
