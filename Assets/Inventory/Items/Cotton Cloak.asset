@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cotton Cloak
   m_EditorClassIdentifier: 
   itemName: Cotton Cloak
-  itemImage: {fileID: 21300000, guid: 2c0484bb9044040648c39a867f1c9412, type: 3}
+  itemImage: {fileID: 21300000, guid: b0b0b00b1c74142d4831def8708218ca, type: 3}
   itemHeld: 1
   itemInfo: "\rBring a touch of warmth in the cold dungeon"
   equip: 0

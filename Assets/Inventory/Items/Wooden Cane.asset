@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wooden Cane
   m_EditorClassIdentifier: 
   itemName: Wooden Cane
-  itemImage: {fileID: 21300000, guid: 194fd5629245f4ec9b7e5b03b638afb2, type: 3}
+  itemImage: {fileID: 21300000, guid: b9973b82dcb0644e0885b293b7bafc9c, type: 3}
   itemHeld: 1
   itemInfo: "\rIf you have a cane, you should satisfy."
   equip: 0

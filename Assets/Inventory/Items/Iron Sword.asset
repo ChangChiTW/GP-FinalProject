@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Iron Sword
   m_EditorClassIdentifier: 
   itemName: Iron Sword
-  itemImage: {fileID: 21300000, guid: 11783c1668a3c4e3784cc6c959b5c39f, type: 3}
+  itemImage: {fileID: 21300000, guid: 496b553d29e20431f8a949789dd21728, type: 3}
   itemHeld: 1
   itemInfo: Ordinary sword can be seen everywhere
   equip: 0

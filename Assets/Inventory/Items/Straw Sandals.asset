@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Straw Sandals
   m_EditorClassIdentifier: 
   itemName: Straw Sandals
-  itemImage: {fileID: 21300000, guid: 40ff90567f4034c038f04b80b40ac610, type: 3}
+  itemImage: {fileID: 21300000, guid: d90aa2ef1d9074c3f8fc8c7f66758c68, type: 3}
   itemHeld: 1
   itemInfo: Live a little more comfortable than barefoot.
   equip: 0

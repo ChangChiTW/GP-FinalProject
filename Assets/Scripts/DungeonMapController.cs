@@ -128,6 +128,7 @@ public class DungeonMapController : MonoBehaviour
             spawned.GetComponent<AdventurerBehavior>().atk = adv.atk;
             spawned.GetComponent<AdventurerBehavior>().def = adv.def;
             spawned.GetComponent<AdventurerBehavior>().speed = adv.speed;
+            spawned.GetComponent<AdventurerBehavior>().preferencesImgs = new List<Sprite>(adv.preferencesImgs);
             spawned.GetComponent<AdventurerBehavior>().itemImgs = new List<Sprite>(adv.itemImgs);
         }
         
@@ -192,6 +193,7 @@ public class DungeonMapController : MonoBehaviour
                 r[count].atk = c.gameObject.GetComponent<AdventurerBehavior>().atk;
                 r[count].def = c.gameObject.GetComponent<AdventurerBehavior>().def;
                 r[count].speed = c.gameObject.GetComponent<AdventurerBehavior>().speed;
+                r[count].preferencesImgs = new List<Sprite>(c.gameObject.GetComponent<AdventurerBehavior>().preferencesImgs);
                 r[count].itemImgs = new List<Sprite>(c.gameObject.GetComponent<AdventurerBehavior>().itemImgs);
                 count++;
             }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Iron Arrow
   m_EditorClassIdentifier: 
   itemName: Iron Arrow
-  itemImage: {fileID: 21300000, guid: 4413722a1ba7c4e8da4af81720c02cf5, type: 3}
+  itemImage: {fileID: 21300000, guid: 9d9ad285d073042c3b105f7e07ed062c, type: 3}
   itemHeld: 1
   itemInfo: An ordinary arrow, cheap and easy to use.
   equip: 0

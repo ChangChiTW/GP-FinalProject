@@ -24,6 +24,7 @@ public class AdventurerBehavior : MonoBehaviour
     private int Steps = 0;
     public int def;
     public Sprite img;
+    public List<Sprite> preferencesImgs = new List<Sprite>();
     public List<Sprite> itemImgs = new List<Sprite>();
     void Start()
     {
