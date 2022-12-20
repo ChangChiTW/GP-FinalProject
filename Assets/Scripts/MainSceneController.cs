@@ -90,4 +90,14 @@ public class MainSceneController : MonoBehaviour
         _stateManager.SetLastSceneToStageBookScene("MainScene");
         SceneManager.LoadScene("StageBookScene");
     }
+
+    public void playButtonSE()
+    {
+        _stateManager.playButtonSE();
+    }
+
+    public void playFlipBookSE()
+    {
+        _stateManager.playFlipBookSE();
+    }
 }

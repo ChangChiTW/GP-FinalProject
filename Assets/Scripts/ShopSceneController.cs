@@ -23,4 +23,14 @@ public class ShopSceneController : MonoBehaviour
         _stateManager.SetStageBookPage(0);
         SceneManager.LoadScene("StageBookScene");
     }
+
+    public void playButtonSE()
+    {
+        _stateManager.playButtonSE();
+    }
+
+    public void playFlipBookSE()
+    {
+        _stateManager.playFlipBookSE();
+    }
 }

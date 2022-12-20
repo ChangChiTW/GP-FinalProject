@@ -16,6 +16,10 @@ public class StateManager : MonoBehaviour
     private int[] _expectedBalance = { 1500, 2100, 2760, 3416, 3965, 4345, -3000 };
     private List<string> _specialConditions = new List<string>();
 
+    public AudioSource audioPlayer;
+    public AudioClip buttonSE;
+    public AudioClip flipbook;
+
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -143,5 +147,15 @@ public class StateManager : MonoBehaviour
     public List<string> GetSpecialConditions()
     {
         return _specialConditions;
+    }
+
+    public void playButtonSE()
+    {
+        audioPlayer.PlayOneShot(buttonSE);
+    }
+
+    public void playFlipBookSE()
+    {
+        audioPlayer.PlayOneShot(flipbook);
     }
 }

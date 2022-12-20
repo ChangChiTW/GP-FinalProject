@@ -62,4 +62,14 @@ public class StageBookSceneController : IntroBookSceneController
         _stateManager.SetStageBookPage(_currentPage);
         SceneManager.LoadScene("ShopScene");
     }
+
+    public void playButtonSE()
+    {
+        _stateManager.playButtonSE();
+    }
+
+    public void playFlipBookSE()
+    {
+        _stateManager.playFlipBookSE();
+    }
 }

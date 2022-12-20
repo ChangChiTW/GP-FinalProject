@@ -127,4 +127,14 @@ public class IntroBookSceneController : MonoBehaviour
     {
         StartCoroutine(flipLeft());
     }
+
+    public void playButtonSE()
+    {
+        _stateManager.playButtonSE();
+    }
+
+    public void playFlipBookSE()
+    {
+        _stateManager.playFlipBookSE();
+    }
 }
