@@ -11,7 +11,7 @@ public class AdventurerInfo
     public int atk;
     public int def;
     public int speed;
-    public List<Sprite> preferencesImgs;
+    public List<Sprite> preferenceImgs;
     public List<Sprite> itemImgs;
 }
 
@@ -36,10 +36,10 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[0].atk = 13;
         _adventurerList[0].def = 3;
         _adventurerList[0].speed = 10;
-        _adventurerList[0].preferencesImgs = new List<Sprite>();
-        _adventurerList[0].preferencesImgs.Add(Resources.Load<Sprite>("Item/IronSword"));
-        _adventurerList[0].preferencesImgs.Add(Resources.Load<Sprite>("Item/GoldenSword"));
-        _adventurerList[0].preferencesImgs.Add(Resources.Load<Sprite>("Item/BarrelLid"));
+        _adventurerList[0].preferenceImgs = new List<Sprite>();
+        _adventurerList[0].preferenceImgs.Add(Resources.Load<Sprite>("Item/IronSword"));
+        _adventurerList[0].preferenceImgs.Add(Resources.Load<Sprite>("Item/GoldenSword"));
+        _adventurerList[0].preferenceImgs.Add(Resources.Load<Sprite>("Item/BarrelLid"));
         _adventurerList[0].itemImgs = new List<Sprite>();
         _adventurerList[1] = new AdventurerInfo();
         _adventurerList[1].name = "Archer";
@@ -49,10 +49,10 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[1].atk = 16;
         _adventurerList[1].def = 2;
         _adventurerList[1].speed = 20;
-        _adventurerList[1].preferencesImgs = new List<Sprite>();
-        _adventurerList[1].preferencesImgs.Add(Resources.Load<Sprite>("Item/GoldenBow"));
-        _adventurerList[1].preferencesImgs.Add(Resources.Load<Sprite>("Item/IronArrow"));
-        _adventurerList[1].preferencesImgs.Add(Resources.Load<Sprite>("Item/CottonHood"));
+        _adventurerList[1].preferenceImgs = new List<Sprite>();
+        _adventurerList[1].preferenceImgs.Add(Resources.Load<Sprite>("Item/GoldenBow"));
+        _adventurerList[1].preferenceImgs.Add(Resources.Load<Sprite>("Item/IronArrow"));
+        _adventurerList[1].preferenceImgs.Add(Resources.Load<Sprite>("Item/CottonHood"));
         _adventurerList[1].itemImgs = new List<Sprite>();
         _adventurerList[2] = new AdventurerInfo();
         _adventurerList[2].name = "Mage";
@@ -62,9 +62,9 @@ public class AdventurerManager : MonoBehaviour
         _adventurerList[2].atk = 20;
         _adventurerList[2].def = 1;
         _adventurerList[2].speed = 15;
-        _adventurerList[2].preferencesImgs = new List<Sprite>();
-        _adventurerList[2].preferencesImgs.Add(Resources.Load<Sprite>("Item/WoodenCane"));
-        _adventurerList[2].preferencesImgs.Add(Resources.Load<Sprite>("Item/WizardHat"));
+        _adventurerList[2].preferenceImgs = new List<Sprite>();
+        _adventurerList[2].preferenceImgs.Add(Resources.Load<Sprite>("Item/WoodenCane"));
+        _adventurerList[2].preferenceImgs.Add(Resources.Load<Sprite>("Item/WizardHat"));
         _adventurerList[2].itemImgs = new List<Sprite>();
     }
 

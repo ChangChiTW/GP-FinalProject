@@ -22,6 +22,9 @@ public class TradeSceneController : MonoBehaviour
     private Text _adventurerDef;
 
     [SerializeField]
+    private List<Image> _preferenceImages;
+
+    [SerializeField]
     private List<Image> _adventurerImages;
 
     [SerializeField]
@@ -56,6 +59,19 @@ public class TradeSceneController : MonoBehaviour
         _adventurerHp.text = "HP:    " + _adventurerList[index].hp.ToString();
         _adventurerAtk.text = "ATK:  	" + _adventurerList[index].atk.ToString();
         _adventurerDef.text = "DEF:   " + _adventurerList[index].def.ToString();
+        for (int i = 0; i < _preferenceImages.Count; i++)
+        {
+            if (i < _adventurerList[index].preferenceImgs.Count)
+            {
+                _preferenceImages[i].sprite = _adventurerList[index].preferenceImgs[i];
+                _preferenceImages[i].enabled = true;
+            }
+            else
+            {
+                _preferenceImages[i].sprite = null;
+                _preferenceImages[i].enabled = false;
+            }
+        }
         for (int i = 0; i < _adventurerImages.Count; i++)
         {
             if (i < _adventurerList[index].itemImgs.Count)
