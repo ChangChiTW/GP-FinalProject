@@ -32,7 +32,7 @@ public class SettlementSceneController : MonoBehaviour
     private GameObject _totalBalanceText;
     private StateManager _stateManager;
     private AdventurerManager _adventurerManager;
-    private int _currentLayer = 0;
+    private int _currentLayer = 2;
 
     void Awake()
     {
@@ -42,7 +42,6 @@ public class SettlementSceneController : MonoBehaviour
 
     void Start()
     {
-        _currentLayer = _stateManager.GetLayer();
         UpdateResult();
     }
 
@@ -57,12 +56,6 @@ public class SettlementSceneController : MonoBehaviour
         {
             _currentLayer++;
             ChangeBackgroundImage(_currentLayer);
-            _leftBtn.SetActive(true);
-        }
-        if (_currentLayer == _backgroundImages.Count - 1)
-        {
-            _rightBtn.SetActive(false);
-            _doneBtn.SetActive(true);
         }
         UpdateResult();
     }
@@ -73,24 +66,36 @@ public class SettlementSceneController : MonoBehaviour
         {
             _currentLayer--;
             ChangeBackgroundImage(_currentLayer);
-            _rightBtn.SetActive(true);
-            _doneBtn.SetActive(false);
-        }
-        if (_currentLayer == 0)
-        {
-            _leftBtn.SetActive(false);
         }
         UpdateResult();
     }
 
     public void UpdateResult()
     {
+        _leftBtn.SetActive(false);
+        _rightBtn.SetActive(false);
+        _doneBtn.SetActive(false);
+        if (_currentLayer == 0)
+        {
+            _leftBtn.SetActive(false);
+            _rightBtn.SetActive(true);
+        }
+        else if (_currentLayer == _backgroundImages.Count - 1)
+        {
+            _leftBtn.SetActive(true);
+            _rightBtn.SetActive(false);
+            _doneBtn.SetActive(true);
+        }
+        else
+        {
+            _leftBtn.SetActive(true);
+            _rightBtn.SetActive(true);
+        }
         foreach (GameObject layerBalance in _layerBalances)
         {
             layerBalance.SetActive(false);
         }
         int totalBalance = 0;
-        int debt = _stateManager.GetDebt();
         for (int i = 0; i < _currentLayer + 2; i++)
         {
             _layerBalances[i].SetActive(true);
@@ -111,6 +116,7 @@ public class SettlementSceneController : MonoBehaviour
             }
             totalBalance += balance;
         }
+        int debt = _stateManager.GetDebt();
         _debtText.GetComponent<TMP_Text>().text = "-" + debt.ToString();
         _debtText.GetComponent<TMP_Text>().color = Color.red;
         totalBalance -= debt;
@@ -144,7 +150,7 @@ public class SettlementSceneController : MonoBehaviour
             {
                 _stateManager.SetStageBookPage(0);
                 _stateManager.ResetSettlement();
-                _stateManager.AddBalance(-1 * _stateManager.GetDebt());
+                _stateManager.BalanceMinusDebt();
                 _stateManager.ResetLayer();
                 _stateManager.AddDay();
                 SceneManager.LoadScene("StageBookScene");

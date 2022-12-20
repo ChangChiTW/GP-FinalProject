@@ -64,6 +64,11 @@ public class StateManager : MonoBehaviour
         _balance = 1000;
     }
 
+    public void BalanceMinusDebt()
+    {
+        _balance -= _debt[_day - 1];
+    }
+
     public void AddBalance(int balance)
     {
         _settlement[_layer] += balance;
