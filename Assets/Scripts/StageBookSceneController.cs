@@ -19,23 +19,15 @@ public class StageBookSceneController : IntroBookSceneController
         string backgroundImgPath =
             "StageBook/" + _stateManager.GetLastSceneToStageBookScene() + "BG";
         _backgroundImg.GetComponent<Image>().sprite = Resources.Load<Sprite>(backgroundImgPath);
-        _pages[0].transform.Find("Floor").GetComponent<TMP_Text>().text =
-            (_stateManager.GetLayer() + 1).ToString() + "F";
-        _pages[0].transform.Find("GoldRatio").GetComponent<TMP_Text>().text =
-            "Gold Ratio: " + _stateManager.GetNextGoldRatio().ToString() + "%";
-        List<string> specialConditions = _stateManager.GetSpecialConditions();
-        if (specialConditions.Count > 0)
-        {
-            for (int i = 0; i < specialConditions.Count; i++)
-            {
-                _pages[0].transform.Find("SpecialConditionList").GetComponent<TMP_Text>().text +=
-                    specialConditions[i] + "\n";
-            }
-        }
-        else
-        {
-            _pages[0].transform.Find("SpecialConditionList").GetComponent<TMP_Text>().text = "None";
-        }
+        _pages[0].transform.Find("Day").GetComponent<TMP_Text>().text =
+            "Day: " + _stateManager.GetDay().ToString();
+        _pages[0].transform.Find("AmountBalance").GetComponent<TMP_Text>().text =
+            "$" + _stateManager.GetBalance().ToString();
+        _pages[0].transform.Find("InterestPayableBalance").GetComponent<TMP_Text>().text =
+            "$" + _stateManager.GetDebt().ToString();
+        _pages[0].transform.Find("DebtBalance").GetComponent<TMP_Text>().text = "$10000";
+        _pages[0].transform.Find("ExpectedBalance").GetComponent<TMP_Text>().text =
+            "$" + _stateManager.GetExpectedBalance().ToString();
         AdventurerInfo[] adventurerList = _adventurerManager.GetAdventurerList();
         for (int i = 0; i < adventurerList.Length; i++)
         {
@@ -49,14 +41,6 @@ public class StageBookSceneController : IntroBookSceneController
             page.transform.Find("HP").GetComponent<TMP_Text>().text = "HP: " + adventurer.hp;
             page.transform.Find("ATK").GetComponent<TMP_Text>().text = "ATK: " + adventurer.atk;
             page.transform.Find("DEF").GetComponent<TMP_Text>().text = "SPD: " + adventurer.speed;
-            // for (int j = 0; j < adventurer.items.Length; j++)
-            // {
-            //     ItemInfo item = adventurer.items[j];
-            //     page.transform.Find("Cost" + j).GetComponent<TMP_Text>().text =
-            //         item.cost.ToString();
-            //     page.transform.Find("BasePrice" + j).GetComponent<TMP_Text>().text =
-            //         item.basePrice.ToString();
-            // }
             page.transform
                 .Find("ShopBtn")
                 .GetComponent<Button>()

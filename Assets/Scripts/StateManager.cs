@@ -13,6 +13,7 @@ public class StateManager : MonoBehaviour
     private int _stageBookPage = 0;
     private int[] _goldRatio = { 100, 125, 150, 200 };
     private int[] _settlement = { 0, 0, 0, 0 };
+    private int[] _expectedBalance = { 1500, 2100, 2760, 3416, 3965, 4345, -3000 };
     private List<string> _specialConditions = new List<string>();
 
     void Start()
@@ -127,6 +128,11 @@ public class StateManager : MonoBehaviour
     public int[] GetSettlement()
     {
         return _settlement;
+    }
+
+    public int GetExpectedBalance()
+    {
+        return _expectedBalance[_day - 1];
     }
 
     public void AddSpecialCondition(string condition)
