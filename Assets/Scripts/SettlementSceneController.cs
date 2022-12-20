@@ -42,6 +42,7 @@ public class SettlementSceneController : MonoBehaviour
 
     void Start()
     {
+        _currentLayer = _stateManager.GetLayer();
         UpdateResult();
     }
 

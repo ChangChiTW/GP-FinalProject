@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ShopSceneController : MonoBehaviour
 {
     private StateManager _stateManager;
+    public Inventory myBag;
 
     void Awake()
     {
@@ -27,7 +28,14 @@ public class ShopSceneController : MonoBehaviour
     public void OnGoDungeon()
     {
         _stateManager.AddLayer();
-        SceneManager.LoadScene("DungeonRunScene");
+        if (_stateManager.GetLayer() > 3 || myBag.itemList.Count == 0)
+        {
+            SceneManager.LoadScene("SettlementScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("DungeonRunScene");
+        }
     }
 
     public void playButtonSE()

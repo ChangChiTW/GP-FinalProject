@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TradeSceneController : MonoBehaviour
 {
+    public Inventory myBag;
     [SerializeField]
     private Image _adventurerImg;
 
@@ -122,7 +123,7 @@ public class TradeSceneController : MonoBehaviour
     public void OnGoDungeon()
     {
         _stateManager.AddLayer();
-        if (_stateManager.GetLayer() > 3)
+        if (_stateManager.GetLayer() > 3 || myBag.itemList.Count == 0)
         {
             SceneManager.LoadScene("SettlementScene");
         }
