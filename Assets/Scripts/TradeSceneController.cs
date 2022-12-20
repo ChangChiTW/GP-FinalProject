@@ -148,7 +148,15 @@ public class TradeSceneController : MonoBehaviour
     public void SellToAdventurer()
     {
         Item item = TradeManager.GetChosenItem();
-        AdjustAdventurerInfo(item.HP, item.ATK, item.DEF, item.itemImage);
+        if (_adventurerList[_adventurerIndex].preferenceImgs.Contains(item.itemImage))
+        {
+            Debug.Log("Adventurer likes this item!");
+            AdjustAdventurerInfo(item.HP * 1.1f, item.ATK * 1.1f, item.DEF * 1.1f, item.itemImage);
+        }
+        else
+        {
+            AdjustAdventurerInfo(item.HP, item.ATK, item.DEF, item.itemImage);
+        }
         TradeManager.AddNewItem();
         TradeManager.CloseDes();
     }
