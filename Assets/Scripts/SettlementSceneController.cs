@@ -146,7 +146,7 @@ public class SettlementSceneController : MonoBehaviour
                 _stateManager.AddBalance(-1 * _stateManager.GetDebt());
                 _stateManager.ResetLayer();
                 _stateManager.AddDay();
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("StageBookScene");
             }
         }
     }

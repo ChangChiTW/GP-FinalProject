@@ -8,7 +8,7 @@ public class StateManager : MonoBehaviour
     private int _layer = 0;
     private int _balance = 1000;
     private int[] _debt = { 100, 300, 600, 1000, 1500, 2000, 10000 };
-    private string _lastSceneToStageBookScene;
+    private string _lastSceneToStageBookScene = "ShopScene";
     private bool _lastSelectStage = false;
     private int _stageBookPage = 0;
     private int[] _goldRatio = { 100, 125, 150, 200 };

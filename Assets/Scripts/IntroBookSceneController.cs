@@ -137,4 +137,8 @@ public class IntroBookSceneController : MonoBehaviour
     {
         _stateManager.playFlipBookSE();
     }
+
+    public void OnNextBtnClick() {
+        SceneManager.LoadScene("StageBookScene");
+    }
 }
