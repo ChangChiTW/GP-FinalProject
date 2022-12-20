@@ -56,7 +56,7 @@ public class TradeSceneController : MonoBehaviour
     {
         _adventurerName.text = _adventurerList[index].name;
         _adventurerImg.GetComponent<Image>().sprite = _adventurerList[index].img;
-        _adventurerHp.text = "HP:    " + _adventurerList[index].hp.ToString();
+        _adventurerHp.text = "HP:    " + _adventurerList[index].hp.ToString("0");
         _adventurerAtk.text = "ATK:  	" + _adventurerList[index].atk.ToString();
         _adventurerDef.text = "DEF:   " + _adventurerList[index].def.ToString();
         for (int i = 0; i < _preferenceImages.Count; i++)
