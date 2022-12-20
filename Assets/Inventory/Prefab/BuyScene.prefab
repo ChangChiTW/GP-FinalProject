@@ -594,7 +594,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 96df80d8d1117463cba0dffd09c18d7d, type: 3}
-    m_FontSize: 29
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -605,10 +605,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A sword is an edged, bladed weapon intended for manual cutting or thrusting.
-    Its blade, longer than a knife or dagger, is attached to a hilt and can be straight
-    or curved. A thrusting sword tends to have a straighter blade with a pointed
-    tip.
+  m_Text: A sword is an edged
 --- !u!1 &3783964498206978305
 GameObject:
   m_ObjectHideFlags: 0
