@@ -7,9 +7,9 @@ public class DungeonRunCanvasScript : MonoBehaviour
 
     [SerializeField] private Transform ButtonParent;
 
-    [SerializeField] private GameObject WizardButton;
-    [SerializeField] private GameObject WarriorButton;
-    [SerializeField] private GameObject WarlockButton;
+    [SerializeField] private GameObject MageButton;
+    [SerializeField] private GameObject KnightButton;
+    [SerializeField] private GameObject ArcherButton;
     [SerializeField] private GameObject KingButton;
     private AdventurerInfo[] Temp;
     
@@ -30,17 +30,17 @@ public class DungeonRunCanvasScript : MonoBehaviour
                 case "King":
                     spawned = Instantiate(KingButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
-                case "Wizard":
-                    spawned = Instantiate(WizardButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                case "Mage":
+                    spawned = Instantiate(MageButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
-                case "Warlock":
-                    spawned = Instantiate(WarlockButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                case "Archer":
+                    spawned = Instantiate(ArcherButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
-                case "Warrior":
-                    spawned = Instantiate(WarriorButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                case "Knight":
+                    spawned = Instantiate(KnightButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
                 default:
-                    spawned = Instantiate(WarriorButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
+                    spawned = Instantiate(KnightButton, new Vector2(StartPoint.x+120*ButtNum, StartPoint.y), Quaternion.identity, ButtonParent);
                     break;
             }
             spawned.name = adv.name;

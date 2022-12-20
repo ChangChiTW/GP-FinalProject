@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: b15a6b534bbc14f449d7df8fda7cf910, type: 3}
     - target: {fileID: 1780546901234239162, guid: be795fea250aa594f874c65614facb4e, type: 3}
       propertyPath: m_Name
-      value: WarlockButtonPrefab
+      value: ArcherButtonPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 1780546901234239163, guid: be795fea250aa594f874c65614facb4e, type: 3}
       propertyPath: m_Pivot.x
@@ -102,6 +102,6 @@ PrefabInstance:
     - target: {fileID: 6842675410867177229, guid: be795fea250aa594f874c65614facb4e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: afb5f6802a4709b4b98c9678355e839e, type: 3}
+      objectReference: {fileID: 21300000, guid: 83c04d67fbf4f4fafb1f52b51565fd62, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be795fea250aa594f874c65614facb4e, type: 3}

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1072935424425540519, guid: b125b7b88cd438545ba65582885a20eb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: afb5f6802a4709b4b98c9678355e839e, type: 3}
+      objectReference: {fileID: 21300000, guid: 83c04d67fbf4f4fafb1f52b51565fd62, type: 3}
     - target: {fileID: 2366699469450832472, guid: b125b7b88cd438545ba65582885a20eb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2366699469450832479, guid: b125b7b88cd438545ba65582885a20eb, type: 3}
       propertyPath: m_Name
-      value: WarlockPrefab
+      value: ArcherPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 3969966080289196623, guid: b125b7b88cd438545ba65582885a20eb, type: 3}
       propertyPath: m_Sprite
