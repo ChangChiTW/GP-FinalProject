@@ -1053,6 +1053,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1237617940}
+        m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
+        m_MethodName: playButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &728756874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1227,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1237617940}
         m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
         m_MethodName: OnPrevAdventure
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1237617940}
+        m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
+        m_MethodName: playButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1898,6 +1922,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1237617940}
         m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
         m_MethodName: OnGoDungeon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1237617940}
+        m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
+        m_MethodName: playButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2819,6 +2855,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1237617940}
+        m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
+        m_MethodName: playButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1543416677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3729,6 +3777,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1237617940}
         m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
         m_MethodName: OnCheckFloorInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1237617940}
+        m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
+        m_MethodName: playButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1237617940}
+        m_TargetAssemblyTypeName: TradeSceneController, Assembly-CSharp
+        m_MethodName: playFlipBookSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

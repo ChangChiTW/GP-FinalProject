@@ -11,6 +11,8 @@ public class Slot : MonoBehaviour
     public GameObject itemDescription;
     public Inventory playerInventory;
 
+    private StateManager _stateManager;
+
     public void ItemOnClicked()
     {   
         InventoryManager.ShowDes();
@@ -37,5 +39,11 @@ public class Slot : MonoBehaviour
     public void CloseDes()
     {
         InventoryManager.CloseDes();
+    }
+
+    public void playButtonSE()
+    {
+        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
+        _stateManager.playButtonSE();
     }
 }

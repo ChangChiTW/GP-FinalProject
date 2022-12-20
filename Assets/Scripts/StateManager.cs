@@ -16,6 +16,10 @@ public class StateManager : MonoBehaviour
     private int[] _expectedBalance = { 1500, 2100, 2760, 3416, 3965, 4345, -3000 };
     private List<string> _specialConditions = new List<string>();
 
+    public AudioSource audioPlayer;
+    public AudioClip buttonSE;
+    public AudioClip flipbook;
+
     void Start()
     {
         if (GameObject.FindGameObjectsWithTag("StateManager").Length > 1)
@@ -168,5 +172,15 @@ public class StateManager : MonoBehaviour
         ResetLastSelectStage();
         ResetStageBookPage();
         _specialConditions.Clear();
+    }
+
+    public void playButtonSE()
+    {
+        audioPlayer.PlayOneShot(buttonSE);
+    }
+
+    public void playFlipBookSE()
+    {
+        audioPlayer.PlayOneShot(flipbook);
     }
 }

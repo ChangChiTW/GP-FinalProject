@@ -159,4 +159,14 @@ public class TradeSceneController : MonoBehaviour
         TradeManager.AddNewItem();
         TradeManager.CloseDes();
     }
+
+    public void playButtonSE()
+    {
+        _stateManager.playButtonSE();
+    }
+
+    public void playFlipBookSE()
+    {
+        _stateManager.playFlipBookSE();
+    }
 }

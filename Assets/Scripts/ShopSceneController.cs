@@ -29,4 +29,14 @@ public class ShopSceneController : MonoBehaviour
         _stateManager.AddLayer();
         SceneManager.LoadScene("DungeonRunScene");
     }
+
+    public void playButtonSE()
+    {
+        _stateManager.playButtonSE();
+    }
+
+    public void playFlipBookSE()
+    {
+        _stateManager.playFlipBookSE();
+    }
 }
