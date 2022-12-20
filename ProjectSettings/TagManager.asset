@@ -7,6 +7,8 @@ TagManager:
   - Adventurer
   - Monster
   - Treasure
+  - AdventurerManager
+  - StateManager
   layers:
   - Default
   - TransparentFX
