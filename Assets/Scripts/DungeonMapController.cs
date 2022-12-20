@@ -39,19 +39,24 @@ public class DungeonMapController : MonoBehaviour
     private int[] DungeonLayout2 = {3, 4, 3, 2, 1, 1};
 
     private int[] DL11 = {1, 1};
-    private int[] DL12 = {2, 1};
+    private int[] DL22 = {2, 1};
+    private int[] DL21 = {2, 1};
 
+    private int[] DL31 = {2, 1, 1};
 
 
     private string[] Dungeonpaths1 = {"12", "12a3", "1a1a1", "12", "1a2", "1a1", "1"};
 
     private string[] DP11 = {"1", "1"};
-    private string[] DP12 = {"12", "11"};
-
+    private string[] DP22 = {"12", "1a1"};
+    private string[] DP21 = {"12", "1a1"};
+    private string[] DP31 = {"12", "1a1", "1"};
 
     private string[] DungeonRooms1 = {"mm", "mtm", "m", "mm", "tt", "b", "t"};
     private string[] DR11 = {"m", "t"};
-    private string[] DR12 = {"mt", "p"};
+    private string[] DR22 = {"mt", "p"};
+    private string[] DR21 = {"mt", "p"};
+    private string[] DR31 = {"pq", "t", "r"};
 
     private int[] CurrentLayout;
     private string[] CurrentPaths;
@@ -81,17 +86,37 @@ public class DungeonMapController : MonoBehaviour
             CurrentLayout = DL11;
             CurrentPaths = DP11;
             CurrentRooms = DR11;
-        }else if(CurrentGameLevel == "level12"){
+        }else if(CurrentGameLevel == "level22"){
             bg = bg2;
-            CurrentLayout = DL12;
-            CurrentPaths = DP12;
-            CurrentRooms = DR12;
+            CurrentLayout = DL22;
+            CurrentPaths = DP22;
+            CurrentRooms = DR22;
         }
         else if(CurrentGameLevel == "level13"){
             bg = bg3;
             CurrentLayout = DungeonLayout1;
             CurrentPaths = Dungeonpaths1;
             CurrentRooms = DungeonRooms1;
+        }else if(CurrentGameLevel == "level21"){
+            bg = bg2;
+            CurrentLayout = DL21;
+            CurrentPaths = DP21;
+            CurrentRooms = DR21;
+        }else if(CurrentGameLevel == "level31"){
+            bg = bg3;
+            CurrentLayout = DL31;
+            CurrentPaths = DP31;
+            CurrentRooms = DR31;
+        }else if(CurrentGameLevel == "level32"){
+            bg = bg3;
+            CurrentLayout = DL31;
+            CurrentPaths = DP31;
+            CurrentRooms = DR31;
+        }else if(CurrentGameLevel == "level33"){
+            bg = bg3;
+            CurrentLayout = DL31;
+            CurrentPaths = DP31;
+            CurrentRooms = DR31;
         }else{
             bg = bg1;
             CurrentLayout = DungeonLayout1;
