@@ -35,6 +35,7 @@ public class MonsterRoomScript : MonoBehaviour
             other.gameObject.GetComponent<AdventurerBehavior>().TakeHit(Attack);
             Lives-=1;
             if(Lives<=0){
+                transform.GetComponent<LootScript>().DespenseLoot(other.gameObject);
                 transform.Find("RoomActive").gameObject.SetActive(false);
                 transform.Find("RoomDead").gameObject.SetActive(true);
             }
