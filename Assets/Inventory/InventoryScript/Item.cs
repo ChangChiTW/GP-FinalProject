@@ -11,8 +11,8 @@ public class Item : ScriptableObject
     [TextArea]
     public string itemInfo;
     public bool equip;
-    public int HP;
-    public int ATK;
-    public int DEF;
+    public float HP;
+    public float ATK;
+    public float DEF;
     public int price;
 }

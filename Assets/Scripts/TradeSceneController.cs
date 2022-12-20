@@ -132,7 +132,7 @@ public class TradeSceneController : MonoBehaviour
         }
     }
 
-    private void AdjustAdventurerInfo(float hp, int atk, int def, Sprite img)
+    private void AdjustAdventurerInfo(float hp, float atk, float def, Sprite img)
     {
         if (_adventurerList[_adventurerIndex].itemImgs.Count < 6)
         {

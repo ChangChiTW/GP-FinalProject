@@ -10,7 +10,7 @@ public class AdventurerBehavior : MonoBehaviour
     // Start is called before the first frame update
     public bool Walking = false;
     public bool Arrived = false;
-    public int speed = 1;
+    public float speed = 1;
 
     public GameObject WalkingDot;
 
@@ -20,9 +20,9 @@ public class AdventurerBehavior : MonoBehaviour
     public bool Alive = true;
 
     public string job;
-    public int atk;
+    public float atk;
     private int Steps = 0;
-    public int def;
+    public float def;
     public Sprite img;
     public List<Sprite> preferenceImgs = new List<Sprite>();
     public List<Sprite> itemImgs = new List<Sprite>();

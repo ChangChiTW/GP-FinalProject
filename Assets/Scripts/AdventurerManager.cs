@@ -8,9 +8,9 @@ public class AdventurerInfo
     public string job;
     public Sprite img;
     public float hp;
-    public int atk;
-    public int def;
-    public int speed;
+    public float atk;
+    public float def;
+    public float speed;
     public List<Sprite> preferenceImgs;
     public List<Sprite> itemImgs;
 }

@@ -74,9 +74,9 @@ public class TradeManager : MonoBehaviour
     public static void UpdateItemInfo(
         string itemName,
         string itemDescription,
-        int HP,
-        int ATK,
-        int DEF,
+        float HP,
+        float ATK,
+        float DEF,
         Sprite itemImage,
         int price
     )
