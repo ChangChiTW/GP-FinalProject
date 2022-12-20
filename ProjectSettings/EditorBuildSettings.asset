@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FailScene.unity
     guid: 08321f19e55cf4cbb938bd5233b2f4c1
+  - enabled: 1
+    path: Assets/Scenes/SuccessScene.unity
+    guid: c43a24df245104ae9852c6361dfd98cd
   m_configObjects: {}
