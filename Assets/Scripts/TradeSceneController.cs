@@ -150,7 +150,6 @@ public class TradeSceneController : MonoBehaviour
         Item item = TradeManager.GetChosenItem();
         if (_adventurerList[_adventurerIndex].preferenceImgs.Contains(item.itemImage))
         {
-            Debug.Log("Adventurer likes this item!");
             AdjustAdventurerInfo(item.HP * 1.1f, item.ATK * 1.1f, item.DEF * 1.1f, item.itemImage);
         }
         else

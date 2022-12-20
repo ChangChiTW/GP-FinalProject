@@ -211,7 +211,7 @@ public class DungeonMapController : MonoBehaviour
     private void EndScene(){
         if(GameObject.Find("AdventurerManager")!= null){
             AdventurerInfo[] r = OutputAdventurers();
-            if (r.Length < 0) {
+            if (r.Length == 0) {
                 SceneManager.LoadScene("SettlementScene");
             } else {
                 GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().SetAdventurerList(OutputAdventurers());
