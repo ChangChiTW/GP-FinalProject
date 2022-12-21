@@ -7,7 +7,6 @@ TagManager:
   - Adventurer
   - Monster
   - Treasure
-  - AudioManager
   - GameManager
   layers:
   - Default
