@@ -2150,7 +2150,6 @@ MonoBehaviour:
   - {fileID: 863725413}
   - {fileID: 1602588082}
   - {fileID: 505583817}
-  _shopPanel: {fileID: 0}
 --- !u!4 &1237617941
 Transform:
   m_ObjectHideFlags: 0
@@ -2730,8 +2729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -666, y: 62}
-  m_SizeDelta: {x: -1656.5416, y: -826.61}
+  m_AnchoredPosition: {x: -664.423, y: 75.349}
+  m_SizeDelta: {x: -1729.5593, y: -853.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1609955081
 MonoBehaviour:
@@ -2753,7 +2752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89c7f1c2136781a46bc13728f188353c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79dc0a284bc1b40a09001eae880771f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
