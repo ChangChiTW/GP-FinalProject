@@ -21,11 +21,6 @@ public class AdventurerManager : MonoBehaviour
 
     void Start()
     {
-        if (GameObject.FindGameObjectsWithTag("AdventurerManager").Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
         initAdventurerList();
     }
 

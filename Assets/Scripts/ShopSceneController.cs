@@ -12,8 +12,8 @@ public class ShopSceneController : MonoBehaviour
 
     void Awake()
     {
-        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
+        _audioManager = GameObject.Find("GameManager").GetComponent<AudioManager>();
+        _stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
     }
 
     public void OnCheckFloorInfo()

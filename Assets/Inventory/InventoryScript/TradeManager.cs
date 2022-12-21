@@ -28,7 +28,7 @@ public class TradeManager : MonoBehaviour
         if (instance != null)
             Destroy(this);
         instance = this;
-        instance._stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
+        instance._stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
     }
 
     void Start()

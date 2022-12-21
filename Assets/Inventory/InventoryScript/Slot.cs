@@ -13,7 +13,7 @@ public class Slot : MonoBehaviour
 
     public void ItemOnClicked()
     {   
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
+        GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         InventoryManager.ShowDes();
         InventoryManager.UpdateItemInfo(slotItem.itemName, slotItem.itemInfo, slotItem.HP, slotItem.ATK, slotItem.DEF, slotItem.itemImage, slotItem.price);
         InventoryManager.ChooseItem(slotItem);
@@ -31,14 +31,14 @@ public class Slot : MonoBehaviour
 
     public void BuyItem()
     {
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
+        GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         InventoryManager.AddNewItem();
         InventoryManager.CloseDes();
     }
 
     public void CloseDes()
     {
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
+        GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         InventoryManager.CloseDes();
     }
 }

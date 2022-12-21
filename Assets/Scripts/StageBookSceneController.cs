@@ -52,7 +52,7 @@ public class StageBookSceneController : IntroBookSceneController
 
     public void OnNext()
     {
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
+        GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         SceneManager.LoadScene("ShopScene");
     }
 }

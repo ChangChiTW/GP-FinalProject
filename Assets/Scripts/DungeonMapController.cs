@@ -74,10 +74,10 @@ public class DungeonMapController : MonoBehaviour
         CurrentLayout = DungeonLayout1;
         CurrentPaths = Dungeonpaths1;
         CurrentRooms = DungeonRooms1;
-        if(GameObject.Find("StateManager") != null){
+        if(GameObject.Find("GameManager") != null){
             CurrentGameLevel = "level"
-                                +GameObject.Find("StateManager").GetComponent<StateManager>().GetDay().ToString()
-                                +GameObject.Find("StateManager").GetComponent<StateManager>().GetLayer().ToString();
+                                +GameObject.Find("GameManager").GetComponent<StateManager>().GetDay().ToString()
+                                +GameObject.Find("GameManager").GetComponent<StateManager>().GetLayer().ToString();
         }
         else{
             
@@ -132,8 +132,8 @@ public class DungeonMapController : MonoBehaviour
         GameObject.Find("Square (2)").GetComponent<SpriteRenderer>().sprite = bg;
         GameObject.Find("Square (3)").GetComponent<SpriteRenderer>().sprite = bg;
 
-        if(GameObject.Find("AdventurerManager")!= null){
-            Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
+        if(GameObject.Find("GameManager")!= null){
+            Temp = GameObject.Find("GameManager").GetComponent<AdventurerManager>().GetAdventurerList();
         }else{
             Temp = gameObject.GetComponent<AdventurerManager>().GetAdventurerList();
         }
@@ -267,12 +267,12 @@ public class DungeonMapController : MonoBehaviour
     }
 
     private void EndScene(){
-        if(GameObject.Find("AdventurerManager")!= null){
+        if(GameObject.Find("GameManager")!= null){
             AdventurerInfo[] r = OutputAdventurers();
             if (r.Length == 0) {
                 SceneManager.LoadScene("SettlementScene");
             } else {
-                GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().SetAdventurerList(OutputAdventurers());
+                GameObject.Find("GameManager").GetComponent<AdventurerManager>().SetAdventurerList(OutputAdventurers());
                 SceneManager.LoadScene("TradeScene");
             }
         }else{

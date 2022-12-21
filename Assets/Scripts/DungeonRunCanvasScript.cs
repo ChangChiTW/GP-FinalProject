@@ -16,8 +16,8 @@ public class DungeonRunCanvasScript : MonoBehaviour
     void Start()
     {
         
-        if(GameObject.Find("AdventurerManager")!= null){
-            Temp = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>().GetAdventurerList();
+        if(GameObject.Find("GameManager")!= null){
+            Temp = GameObject.Find("GameManager").GetComponent<AdventurerManager>().GetAdventurerList();
         }else{
             Temp = GameObject.Find("DungeonMapController").GetComponent<AdventurerManager>().GetAdventurerList();
         }

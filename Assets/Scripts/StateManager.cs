@@ -16,7 +16,7 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
-        if (GameObject.FindGameObjectsWithTag("StateManager").Length > 1)
+        if (GameObject.FindGameObjectsWithTag("GameManager").Length > 1)
         {
             Destroy(this.gameObject);
         }

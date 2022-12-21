@@ -14,7 +14,7 @@ public class SuccessSceneController : MonoBehaviour
 
     void Awake()
     {
-        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
+        _stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
     }
 
     void Start()
@@ -25,7 +25,7 @@ public class SuccessSceneController : MonoBehaviour
 
     public void OnNextBtnClick()
     {
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
+        GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         _stateManager.Reset();
         SceneManager.LoadScene("MenuScene");
     }

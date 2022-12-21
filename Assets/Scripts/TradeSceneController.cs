@@ -39,9 +39,9 @@ public class TradeSceneController : MonoBehaviour
 
     void Awake()
     {
-        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
-        _adventurerManager = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>();
+        _audioManager = GameObject.Find("GameManager").GetComponent<AudioManager>();
+        _stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
+        _adventurerManager = GameObject.Find("GameManager").GetComponent<AdventurerManager>();
     }
 
     void Start()
