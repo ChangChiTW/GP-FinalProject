@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class TradeSceneController : MonoBehaviour
 {
-    public Inventory myBag;
+    [SerializeField]
+    private Inventory myBag;
 
     [SerializeField]
     private Image _adventurerImg;
@@ -110,7 +111,6 @@ public class TradeSceneController : MonoBehaviour
     {
         _audioManager.PlayBtnClick();
         _stateManager.SetLastSceneToStageBookScene("TradeScene");
-        _stateManager.SetStageBookPage(0);
         SceneManager.LoadScene("StageBookScene");
     }
 

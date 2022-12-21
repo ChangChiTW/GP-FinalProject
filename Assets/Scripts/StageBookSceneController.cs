@@ -15,7 +15,6 @@ public class StageBookSceneController : IntroBookSceneController
 
     override protected void init()
     {
-        _currentPage = _stateManager.GetStageBookPage();
         string backgroundImgPath =
             "StageBook/" + _stateManager.GetLastSceneToStageBookScene() + "BG";
         _backgroundImg.GetComponent<Image>().sprite = Resources.Load<Sprite>(backgroundImgPath);
@@ -51,15 +50,9 @@ public class StageBookSceneController : IntroBookSceneController
         }
     }
 
-    public override void OnCloseBook()
-    {
-        _stateManager.SetStageBookPage(_currentPage);
-        base.OnCloseBook();
-    }
-
     public void OnNext()
     {
-        _stateManager.SetStageBookPage(_currentPage);
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         SceneManager.LoadScene("ShopScene");
     }
 }

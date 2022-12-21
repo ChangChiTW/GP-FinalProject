@@ -20,7 +20,6 @@ public class ShopSceneController : MonoBehaviour
     {
         _audioManager.PlayBtnClick();
         _stateManager.SetLastSceneToStageBookScene("ShopScene");
-        _stateManager.SetStageBookPage(0);
         SceneManager.LoadScene("StageBookScene");
     }
 

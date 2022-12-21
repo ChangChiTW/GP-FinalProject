@@ -14,6 +14,10 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        if (GameObject.FindGameObjectsWithTag("AudioManager").Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = 0.5f;

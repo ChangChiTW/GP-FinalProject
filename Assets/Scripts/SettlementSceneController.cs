@@ -153,11 +153,7 @@ public class SettlementSceneController : MonoBehaviour
             }
             else
             {
-                _stateManager.SetStageBookPage(0);
-                _stateManager.ResetSettlement();
-                _stateManager.BalanceMinusDebt();
-                _stateManager.ResetLayer();
-                _stateManager.AddDay();
+                _stateManager.DailyReset();
                 SceneManager.LoadScene("StageBookScene");
             }
         }

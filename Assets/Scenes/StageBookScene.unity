@@ -3375,7 +3375,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1126829912}
-        m_TargetAssemblyTypeName: IntroBookSceneController, Assembly-CSharp
+        m_TargetAssemblyTypeName: StageBookSceneController, Assembly-CSharp
         m_MethodName: OnCloseBook
         m_Mode: 1
         m_Arguments:

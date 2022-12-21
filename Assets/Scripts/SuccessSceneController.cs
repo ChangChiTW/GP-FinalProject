@@ -19,7 +19,8 @@ public class SuccessSceneController : MonoBehaviour
 
     void Start()
     {
-        _balanceText.GetComponent<TMP_Text>().text = "$" + _stateManager.GetBalance().ToString();
+        int totalBalance = _stateManager.GetBalance() - _stateManager.GetDebt();
+        _balanceText.GetComponent<TMP_Text>().text = "$" + totalBalance.ToString();
     }
 
     public void OnNextBtnClick()
