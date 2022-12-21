@@ -24,6 +24,7 @@ public class SuccessSceneController : MonoBehaviour
 
     public void OnNextBtnClick()
     {
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         _stateManager.Reset();
         SceneManager.LoadScene("MenuScene");
     }

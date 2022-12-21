@@ -19,12 +19,14 @@ public class IntroBookSceneController : MonoBehaviour
 
     [SerializeField]
     protected List<GameObject> _pages;
+    protected AudioManager _audioManager;
     protected StateManager _stateManager;
     protected AdventurerManager _adventurerManager;
     protected int _currentPage;
 
     void Awake()
     {
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
         _adventurerManager = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>();
     }
@@ -53,6 +55,7 @@ public class IntroBookSceneController : MonoBehaviour
 
     protected IEnumerator openBook()
     {
+        _audioManager.PlayPageFlip();
         _book.GetComponent<BookAnimator>().OpenBook();
         yield return new WaitForSeconds(0.8f);
         _pages[_currentPage].SetActive(true);
@@ -68,6 +71,7 @@ public class IntroBookSceneController : MonoBehaviour
 
     protected IEnumerator closeBook()
     {
+        _audioManager.PlayBtnClick();
         disActivateAllContents();
         _book.GetComponent<BookAnimator>().CloseBook();
         yield return new WaitForSeconds(0.8f);
@@ -76,6 +80,7 @@ public class IntroBookSceneController : MonoBehaviour
 
     protected IEnumerator flipRight()
     {
+        _audioManager.PlayPageFlip();
         disActivateAllContents();
         _book.GetComponent<BookAnimator>().FlipRight();
         yield return new WaitForSeconds(0.6f);
@@ -90,6 +95,7 @@ public class IntroBookSceneController : MonoBehaviour
 
     protected IEnumerator flipLeft()
     {
+        _audioManager.PlayPageFlip();
         disActivateAllContents();
         _book.GetComponent<BookAnimator>().FlipLeft();
         yield return new WaitForSeconds(0.6f);
@@ -121,17 +127,9 @@ public class IntroBookSceneController : MonoBehaviour
         StartCoroutine(flipLeft());
     }
 
-    public void playButtonSE()
+    public void OnNextBtnClick()
     {
-        _stateManager.playButtonSE();
-    }
-
-    public void playFlipBookSE()
-    {
-        _stateManager.playFlipBookSE();
-    }
-
-    public void OnNextBtnClick() {
+        _audioManager.PlayBtnClick();
         SceneManager.LoadScene("StageBookScene");
     }
 }

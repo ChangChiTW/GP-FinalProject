@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class TradeSceneController : MonoBehaviour
 {
     public Inventory myBag;
+
     [SerializeField]
     private Image _adventurerImg;
 
@@ -28,9 +29,7 @@ public class TradeSceneController : MonoBehaviour
     [SerializeField]
     private List<Image> _adventurerImages;
 
-    [SerializeField]
-    private GameObject _shopPanel;
-
+    private AudioManager _audioManager;
     private StateManager _stateManager;
     private AdventurerManager _adventurerManager;
 
@@ -39,16 +38,13 @@ public class TradeSceneController : MonoBehaviour
 
     void Awake()
     {
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
         _adventurerManager = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>();
     }
 
     void Start()
     {
-        if (_stateManager.GetLayer() != 0)
-        {
-            _shopPanel.SetActive(false);
-        }
         _adventurerList = _adventurerManager.GetAdventurerList();
         ShowAdventurerInfo(0);
     }
@@ -90,6 +86,7 @@ public class TradeSceneController : MonoBehaviour
 
     public void OnNextAdventure()
     {
+        _audioManager.PlayBtnClick();
         _adventurerIndex++;
         if (_adventurerIndex >= _adventurerList.Length)
         {
@@ -100,6 +97,7 @@ public class TradeSceneController : MonoBehaviour
 
     public void OnPrevAdventure()
     {
+        _audioManager.PlayBtnClick();
         _adventurerIndex--;
         if (_adventurerIndex < 0)
         {
@@ -110,18 +108,15 @@ public class TradeSceneController : MonoBehaviour
 
     public void OnCheckFloorInfo()
     {
+        _audioManager.PlayBtnClick();
         _stateManager.SetLastSceneToStageBookScene("TradeScene");
         _stateManager.SetStageBookPage(0);
         SceneManager.LoadScene("StageBookScene");
     }
 
-    public void OnBackToShop()
-    {
-        SceneManager.LoadScene("ShopScene");
-    }
-
     public void OnGoDungeon()
     {
+        _audioManager.PlayBtnClick();
         _stateManager.AddLayer();
         if (_stateManager.GetLayer() > 3 || myBag.itemList.Count == 0)
         {
@@ -148,6 +143,7 @@ public class TradeSceneController : MonoBehaviour
 
     public void SellToAdventurer()
     {
+        _audioManager.PlayBtnClick();
         Item item = TradeManager.GetChosenItem();
         if (_adventurerList[_adventurerIndex].preferenceImgs.Contains(item.itemImage))
         {
@@ -159,15 +155,5 @@ public class TradeSceneController : MonoBehaviour
         }
         TradeManager.AddNewItem();
         TradeManager.CloseDes();
-    }
-
-    public void playButtonSE()
-    {
-        _stateManager.playButtonSE();
-    }
-
-    public void playFlipBookSE()
-    {
-        _stateManager.playFlipBookSE();
     }
 }

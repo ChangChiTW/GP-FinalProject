@@ -13,18 +13,15 @@ public class TradeSlot : MonoBehaviour
 
     public void ItemOnClicked()
     {   
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         TradeManager.ShowDes();
         TradeManager.UpdateItemInfo(slotItem.itemName, slotItem.itemInfo, slotItem.HP, slotItem.ATK, slotItem.DEF, slotItem.itemImage, slotItem.price);
         TradeManager.ChooseItem(slotItem);
     }
 
-    public void BuyItem()
-    {
-        TradeManager.AddNewItem();
-    }
-
     public void CloseDes()
     {
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         TradeManager.CloseDes();
     }
 }

@@ -30,12 +30,14 @@ public class SettlementSceneController : MonoBehaviour
 
     [SerializeField]
     private GameObject _totalBalanceText;
+    private AudioManager _audioManager;
     private StateManager _stateManager;
     private AdventurerManager _adventurerManager;
     private int _currentLayer = 2;
 
     void Awake()
     {
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
         _adventurerManager = GameObject.Find("AdventurerManager").GetComponent<AdventurerManager>();
     }
@@ -52,6 +54,7 @@ public class SettlementSceneController : MonoBehaviour
 
     public void OnRightBtnClick()
     {
+        _audioManager.PlayBtnClick();
         if (_currentLayer < _backgroundImages.Count - 1)
         {
             _currentLayer++;
@@ -62,6 +65,7 @@ public class SettlementSceneController : MonoBehaviour
 
     public void OnLeftBtnClick()
     {
+        _audioManager.PlayBtnClick();
         if (_currentLayer > 0)
         {
             _currentLayer--;
@@ -134,6 +138,7 @@ public class SettlementSceneController : MonoBehaviour
 
     public void OnDoneBtnClick()
     {
+        _audioManager.PlayBtnClick();
         _adventurerManager.initAdventurerList();
         int totalBalance = _stateManager.GetBalance() - _stateManager.GetDebt();
         if (totalBalance < 0)

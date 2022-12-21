@@ -36,6 +36,7 @@ public class FailSceneController : MonoBehaviour
 
     public void OnRetryBtnClick()
     {
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         _stateManager.Reset();
         SceneManager.LoadScene("MenuScene");
     }

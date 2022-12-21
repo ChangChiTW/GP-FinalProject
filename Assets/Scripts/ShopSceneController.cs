@@ -5,21 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class ShopSceneController : MonoBehaviour
 {
+    [SerializeField]
+    private Inventory myBag;
+    private AudioManager _audioManager;
     private StateManager _stateManager;
-    public Inventory myBag;
 
     void Awake()
     {
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
-    }
-
-    public void OnCheckAdventure()
-    {
-        SceneManager.LoadScene("TradeScene");
     }
 
     public void OnCheckFloorInfo()
     {
+        _audioManager.PlayBtnClick();
         _stateManager.SetLastSceneToStageBookScene("ShopScene");
         _stateManager.SetStageBookPage(0);
         SceneManager.LoadScene("StageBookScene");
@@ -27,6 +26,7 @@ public class ShopSceneController : MonoBehaviour
 
     public void OnGoDungeon()
     {
+        _audioManager.PlayBtnClick();
         _stateManager.AddLayer();
         if (_stateManager.GetLayer() > 3 || myBag.itemList.Count == 0)
         {
@@ -36,15 +36,5 @@ public class ShopSceneController : MonoBehaviour
         {
             SceneManager.LoadScene("DungeonRunScene");
         }
-    }
-
-    public void playButtonSE()
-    {
-        _stateManager.playButtonSE();
-    }
-
-    public void playFlipBookSE()
-    {
-        _stateManager.playFlipBookSE();
     }
 }

@@ -19,13 +19,8 @@ public class AdventurerManager : MonoBehaviour
 {
     private AdventurerInfo[] _adventurerList = new AdventurerInfo[3];
 
-    public AudioSource audioPlayer;
-    public AudioClip buttonSE;
-    public AudioClip FlipBookSE;
-
     void Start()
     {
-        
         DontDestroyOnLoad(this.gameObject);
         initAdventurerList();
     }
@@ -80,15 +75,5 @@ public class AdventurerManager : MonoBehaviour
     {
         _adventurerList = new AdventurerInfo[a.Length];
         _adventurerList = a;
-    }
-
-    public void playButtonSE()
-    {
-        audioPlayer.PlayOneShot(buttonSE);
-    }
-
-    public void playFlipBookSE()
-    {
-        audioPlayer.PlayOneShot(FlipBookSE);
     }
 }

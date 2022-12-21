@@ -10,6 +10,7 @@ public class MenuSceneController : MonoBehaviour
 
     public void OnStart()
     {
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         for (int i = _myBag.itemList.Count - 1; i >= 0; i--)
         {
             _myBag.itemList[i].itemHeld = 1;

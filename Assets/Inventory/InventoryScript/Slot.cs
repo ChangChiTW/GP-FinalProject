@@ -11,10 +11,9 @@ public class Slot : MonoBehaviour
     public GameObject itemDescription;
     public Inventory playerInventory;
 
-    private StateManager _stateManager;
-
     public void ItemOnClicked()
     {   
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         InventoryManager.ShowDes();
         InventoryManager.UpdateItemInfo(slotItem.itemName, slotItem.itemInfo, slotItem.HP, slotItem.ATK, slotItem.DEF, slotItem.itemImage, slotItem.price);
         InventoryManager.ChooseItem(slotItem);
@@ -32,18 +31,14 @@ public class Slot : MonoBehaviour
 
     public void BuyItem()
     {
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         InventoryManager.AddNewItem();
         InventoryManager.CloseDes();
     }
 
     public void CloseDes()
     {
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayBtnClick();
         InventoryManager.CloseDes();
-    }
-
-    public void playButtonSE()
-    {
-        _stateManager = GameObject.Find("StateManager").GetComponent<StateManager>();
-        _stateManager.playButtonSE();
     }
 }
