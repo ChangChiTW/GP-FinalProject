@@ -71,14 +71,7 @@ public class IntroBookSceneController : MonoBehaviour
         disActivateAllContents();
         _book.GetComponent<BookAnimator>().CloseBook();
         yield return new WaitForSeconds(0.8f);
-        if (SceneManager.GetActiveScene().name == "IntroBookScene")
-        {
-            SceneManager.LoadScene("MainScene");
-        }
-        else
-        {
-            SceneManager.LoadScene(_stateManager.GetLastSceneToStageBookScene());
-        }
+        SceneManager.LoadScene(_stateManager.GetLastSceneToStageBookScene());
     }
 
     protected IEnumerator flipRight()
