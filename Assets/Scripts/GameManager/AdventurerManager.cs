@@ -27,42 +27,60 @@ public class AdventurerManager : MonoBehaviour
     public void initAdventurerList()
     {
         _adventurerList = new AdventurerInfo[3];
-        _adventurerList[0] = new AdventurerInfo();
-        _adventurerList[0].name = "Knight";
-        _adventurerList[0].job = "Knight";
-        _adventurerList[0].img = Resources.Load<Sprite>("Adventurer/Knight");
-        _adventurerList[0].hp = 90;
-        _adventurerList[0].atk = 13;
-        _adventurerList[0].def = 3;
-        _adventurerList[0].speed = 17;
-        _adventurerList[0].preferenceImgs = new List<Sprite>();
-        _adventurerList[0].preferenceImgs.Add(Resources.Load<Sprite>("Item/IronSword"));
-        _adventurerList[0].preferenceImgs.Add(Resources.Load<Sprite>("Item/BarrelLid"));
-        _adventurerList[0].itemImgs = new List<Sprite>();
-        _adventurerList[1] = new AdventurerInfo();
-        _adventurerList[1].name = "Archer";
-        _adventurerList[1].job = "Archer";
-        _adventurerList[1].img = Resources.Load<Sprite>("Adventurer/Archer");
-        _adventurerList[1].hp = 70;
-        _adventurerList[1].atk = 16;
-        _adventurerList[1].def = 2;
-        _adventurerList[1].speed = 20;
-        _adventurerList[1].preferenceImgs = new List<Sprite>();
-        _adventurerList[1].preferenceImgs.Add(Resources.Load<Sprite>("Item/IronArrow"));
-        _adventurerList[1].preferenceImgs.Add(Resources.Load<Sprite>("Item/CottonHood"));
-        _adventurerList[1].itemImgs = new List<Sprite>();
-        _adventurerList[2] = new AdventurerInfo();
-        _adventurerList[2].name = "Mage";
-        _adventurerList[2].job = "Mage";
-        _adventurerList[2].img = Resources.Load<Sprite>("Adventurer/Mage");
-        _adventurerList[2].hp = 60;
-        _adventurerList[2].atk = 20;
-        _adventurerList[2].def = 1;
-        _adventurerList[2].speed = 19;
-        _adventurerList[2].preferenceImgs = new List<Sprite>();
-        _adventurerList[2].preferenceImgs.Add(Resources.Load<Sprite>("Item/WoodenCane"));
-        _adventurerList[2].preferenceImgs.Add(Resources.Load<Sprite>("Item/WizardHat"));
-        _adventurerList[2].itemImgs = new List<Sprite>();
+        _adventurerList[0] = NewKnight();
+        _adventurerList[1] = NewArcher();
+        _adventurerList[2] = NewMage();
+    }
+
+    private AdventurerInfo NewKnight()
+    {
+        AdventurerInfo adventurer = new AdventurerInfo();
+        adventurer.name = "Knight";
+        adventurer.job = "Knight";
+        adventurer.img = Resources.Load<Sprite>("Adventurer/Knight");
+        adventurer.hp = 90;
+        adventurer.atk = 13;
+        adventurer.def = 3;
+        adventurer.speed = 17;
+        adventurer.preferenceImgs = new List<Sprite>();
+        adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/IronSword"));
+        adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/BarrelLid"));
+        adventurer.itemImgs = new List<Sprite>();
+        return adventurer;
+    }
+
+    private AdventurerInfo NewArcher()
+    {
+        AdventurerInfo adventurer = new AdventurerInfo();
+        adventurer.name = "Archer";
+        adventurer.job = "Archer";
+        adventurer.img = Resources.Load<Sprite>("Adventurer/Archer");
+        adventurer.hp = 70;
+        adventurer.atk = 16;
+        adventurer.def = 2;
+        adventurer.speed = 20;
+        adventurer.preferenceImgs = new List<Sprite>();
+        adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/IronArrow"));
+        adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/CottonHood"));
+        adventurer.itemImgs = new List<Sprite>();
+        return adventurer;
+    }
+
+    private AdventurerInfo NewMage()
+    {
+        AdventurerInfo adventurer = new AdventurerInfo();
+        adventurer.name = "Mage";
+        adventurer.job = "Mage";
+        adventurer.img = Resources.Load<Sprite>("Adventurer/Mage");
+        adventurer.hp = 60;
+        adventurer.atk = 20;
+        adventurer.def = 1;
+        adventurer.speed = 19;
+        adventurer.preferenceImgs = new List<Sprite>();
+        adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/WoodenCane"));
+        adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/WizardHat"));
+        adventurer.itemImgs = new List<Sprite>();
+        return adventurer;
     }
 
     public AdventurerInfo[] GetAdventurerList()
