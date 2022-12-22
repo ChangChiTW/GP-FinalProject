@@ -154,6 +154,7 @@ public class SettlementSceneController : MonoBehaviour
             else
             {
                 _stateManager.DailyReset();
+                _stateManager.SaveGame();
                 SceneManager.LoadScene("StageBookScene");
             }
         }

@@ -5,14 +5,15 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     private int _day = 1;
+    private int _balance = 1000;
     private int _layer = 0;
-    private int _balance = 20000;
     private int[] _debt = { 100, 300, 600, 1000, 1500, 2000, 10000 };
     private string _lastSceneToStageBookScene = "ShopScene";
     private int[] _goldRatio = { 100, 125, 150, 200 };
     private int[] _settlement = { 0, 0, 0, 0, 0 };
     private int[] _expectedBalance = { 1500, 2100, 2760, 3416, 3965, 4345, -3000 };
     private List<string> _specialConditions = new List<string>();
+    private FileDataHandler _fileDataHandler;
 
     void Start()
     {
@@ -21,6 +22,11 @@ public class StateManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+        _fileDataHandler = new FileDataHandler(
+            Application.persistentDataPath,
+            "saveData.json",
+            true
+        );
     }
 
     private void ResetDay()
@@ -140,6 +146,36 @@ public class StateManager : MonoBehaviour
     public List<string> GetSpecialConditions()
     {
         return _specialConditions;
+    }
+
+    private void SetGameData(GameData gameData)
+    {
+        _day = gameData.day;
+        _balance = gameData.balance;
+    }
+
+    public void SaveGame()
+    {
+        GameData gameData = new GameData();
+        gameData.day = _day;
+        gameData.balance = _balance;
+        _fileDataHandler.Save(gameData);
+    }
+
+    public void NewGame()
+    {
+        SetGameData(new GameData());
+    }
+
+    public bool ResumeGame()
+    {
+        GameData loadedData = _fileDataHandler.Load();
+        if (loadedData == null)
+        {
+            return false;
+        }
+        SetGameData(loadedData);
+        return true;
     }
 
     public void DailyReset()
