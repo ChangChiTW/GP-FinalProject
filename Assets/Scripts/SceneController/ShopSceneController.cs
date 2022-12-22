@@ -16,6 +16,21 @@ public class ShopSceneController : MonoBehaviour
         _stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
     }
 
+    void Update()
+    {
+        if (_stateManager.DeveloperMode())
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                _stateManager.SecretAddBalance(1000);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                _stateManager.SecretAddBalance(-1000);
+            }
+        }
+    }
+
     public void OnCheckFloorInfo()
     {
         _audioManager.PlayBtnClick();

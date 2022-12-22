@@ -69,6 +69,11 @@ public class StateManager : MonoBehaviour
         _balance -= _debt[_day - 1];
     }
 
+    public void SecretAddBalance(int balance)
+    {
+        _balance += balance;
+    }
+
     public void AddBalance(int balance)
     {
         _settlement[_layer] += balance;
@@ -175,6 +180,11 @@ public class StateManager : MonoBehaviour
             return false;
         }
         SetGameData(loadedData);
+        return true;
+    }
+
+    public bool DeveloperMode()
+    {
         return true;
     }
 
