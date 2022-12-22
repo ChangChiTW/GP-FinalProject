@@ -16,7 +16,6 @@ public class FileDataHandler
         this._dataDirPath = dataDirPath;
         this._dataFileName = dataFileName;
         this._useEncryption = useEncryption;
-        Debug.Log(dataDirPath + ":" + dataFileName);
     }
 
     public GameData Load()
