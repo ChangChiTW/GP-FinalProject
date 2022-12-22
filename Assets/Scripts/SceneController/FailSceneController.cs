@@ -38,6 +38,6 @@ public class FailSceneController : MonoBehaviour
     {
         GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         _stateManager.Reset();
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("IntroBookScene");
     }
 }

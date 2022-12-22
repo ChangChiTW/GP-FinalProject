@@ -29,11 +29,6 @@ public class StateManager : MonoBehaviour
         );
     }
 
-    private void ResetDay()
-    {
-        _day = 1;
-    }
-
     public void AddDay()
     {
         _day++;
@@ -57,11 +52,6 @@ public class StateManager : MonoBehaviour
     public int GetLayer()
     {
         return _layer;
-    }
-
-    public void ResetBalance()
-    {
-        _balance = 1000;
     }
 
     private void BalanceMinusDebt()
@@ -199,9 +189,9 @@ public class StateManager : MonoBehaviour
 
     public void Reset()
     {
-        ResetDay();
+        _fileDataHandler.Delete();
+        NewGame();
         ResetLayer();
-        ResetBalance();
         ResetSettlement();
         ResetSpecialConditions();
         ResetLastSceneToStageBookScene();
