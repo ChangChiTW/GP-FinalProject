@@ -2246,6 +2246,17 @@ RectTransform:
   m_AnchoredPosition: {x: -146, y: 51}
   m_SizeDelta: {x: -1468, y: -1050}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1373471101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3023819298254735375, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
+  m_PrefabInstance: {fileID: 6966413916542023351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1387359763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,6 +2624,7 @@ MonoBehaviour:
   itemStrength: {fileID: 6966413916542023358}
   itemWisdom: {fileID: 6966413916542023357}
   itemLuck: {fileID: 6966413916542023356}
+  itemSpeed: {fileID: 1373471101}
   itemPic: {fileID: 6966413916542023355}
   itemPrice: {fileID: 6966413916542023353}
   originalPrice: {fileID: 6966413916542023354}

@@ -13,6 +13,7 @@ public class TradeManager : MonoBehaviour
     public Text itemStrength;
     public Text itemWisdom;
     public Text itemLuck;
+    public Text itemSpeed;
     public Image itemPic;
     public Text itemPrice;
     public Text originalPrice;
@@ -80,14 +81,16 @@ public class TradeManager : MonoBehaviour
         float HP,
         float ATK,
         float DEF,
+        float SPD,
         Sprite itemImage,
         int price
     )
     {
         instance.itemName.text = itemName;
-        instance.itemStrength.text = "HP:    " + HP.ToString();
-        instance.itemWisdom.text = "ATK:  " + ATK.ToString();
-        instance.itemLuck.text = "DEF:   " + DEF.ToString();
+        instance.itemStrength.text = "HP:       +" + HP.ToString();
+        instance.itemWisdom.text = "ATK:     +" + ATK.ToString();
+        instance.itemLuck.text = "DEF:     +" + DEF.ToString();
+        instance.itemSpeed.text = "SPEED:  +" + SPD.ToString();
         instance.itemPic.sprite = itemImage;
         instance.originalPrice.text = (-1 * price).ToString();
         int ratio = instance._stateManager.GetGoldRatio();

@@ -442,6 +442,7 @@ MonoBehaviour:
   itemStrength: {fileID: 5808724630502445293}
   itemWisdom: {fileID: 2953860772205246155}
   itemLuck: {fileID: 1918726499551266870}
+  itemSpeed: {fileID: 8360518106788001472}
   itemPic: {fileID: 4328615018802980020}
   itemPrice: {fileID: 4889552697675120595}
   BuySell: {fileID: 366454733}
@@ -2808,6 +2809,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7234809166800727829, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+--- !u!114 &8360518106788001472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 25589414192738064, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+  m_PrefabInstance: {fileID: 8360518106788001471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8944858429629640536
 MonoBehaviour:
   m_ObjectHideFlags: 0

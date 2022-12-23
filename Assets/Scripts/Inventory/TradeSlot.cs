@@ -12,10 +12,19 @@ public class TradeSlot : MonoBehaviour
     public Inventory playerInventory;
 
     public void ItemOnClicked()
-    {   
+    {
         GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         TradeManager.ShowDes();
-        TradeManager.UpdateItemInfo(slotItem.itemName, slotItem.itemInfo, slotItem.HP, slotItem.ATK, slotItem.DEF, slotItem.itemImage, slotItem.price);
+        TradeManager.UpdateItemInfo(
+            slotItem.itemName,
+            slotItem.itemInfo,
+            slotItem.HP,
+            slotItem.ATK,
+            slotItem.DEF,
+            slotItem.SPEED,
+            slotItem.itemImage,
+            slotItem.price
+        );
         TradeManager.ChooseItem(slotItem);
     }
 

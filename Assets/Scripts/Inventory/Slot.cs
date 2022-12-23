@@ -12,10 +12,19 @@ public class Slot : MonoBehaviour
     public Inventory playerInventory;
 
     public void ItemOnClicked()
-    {   
+    {
         GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
         InventoryManager.ShowDes();
-        InventoryManager.UpdateItemInfo(slotItem.itemName, slotItem.itemInfo, slotItem.HP, slotItem.ATK, slotItem.DEF, slotItem.itemImage, slotItem.price);
+        InventoryManager.UpdateItemInfo(
+            slotItem.itemName,
+            slotItem.itemInfo,
+            slotItem.HP,
+            slotItem.ATK,
+            slotItem.DEF,
+            slotItem.SPEED,
+            slotItem.itemImage,
+            slotItem.price
+        );
         InventoryManager.ChooseItem(slotItem);
     }
 

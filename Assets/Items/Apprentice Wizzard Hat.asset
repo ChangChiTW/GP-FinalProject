@@ -20,4 +20,5 @@ MonoBehaviour:
   HP: 1
   ATK: 1
   DEF: 1
+  SPEED: 0
   price: -500

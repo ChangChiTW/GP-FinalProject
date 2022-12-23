@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public Text itemStrength;
     public Text itemWisdom;
     public Text itemLuck;
+    public Text itemSpeed;
     public Image itemPic;
     public Text itemPrice;
     public Text BuySell;
@@ -113,6 +114,7 @@ public class InventoryManager : MonoBehaviour
         float HP,
         float ATK,
         float DEF,
+        float SPD,
         Sprite itemImage,
         int price
     )
@@ -120,9 +122,10 @@ public class InventoryManager : MonoBehaviour
         //itemDes.SetActive(true);
         instance.itemName.text = itemName;
         instance.itemInformation.text = itemDescription;
-        instance.itemStrength.text = "HP:    " + HP.ToString();
-        instance.itemWisdom.text = "ATK:  " + ATK.ToString();
-        instance.itemLuck.text = "DEF:   " + DEF.ToString();
+        instance.itemStrength.text = "HP:       +" + HP.ToString();
+        instance.itemWisdom.text = "ATK:     +" + ATK.ToString();
+        instance.itemLuck.text = "DEF:     +" + DEF.ToString();
+        instance.itemSpeed.text = "SPEED:  +" + SPD.ToString();
         instance.itemPic.sprite = itemImage;
         instance.itemPrice.text = price.ToString();
     }
