@@ -4605,7 +4605,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 3df34a8d4ef792744af27480420165d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79dc0a284bc1b40a09001eae880771f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4625,7 +4625,7 @@ Transform:
   m_GameObject: {fileID: 983980197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4917,6 +4917,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b02d4fa84414e979a7ca4dd1294865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _backgroundImage: {fileID: 492741954}
+  _backgroundImages:
+  - {fileID: 2800000, guid: 4bf41474ef7334a2b85be9fd3c3841c1, type: 3}
+  - {fileID: 2800000, guid: e51829ab9a6404d6397020505451c20a, type: 3}
+  - {fileID: 2800000, guid: 17140d7c2ac1a41b39448339e4842199, type: 3}
   _avatars:
   - {fileID: 778418896}
   - {fileID: 839737813}

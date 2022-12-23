@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class DungeonSceneController : MonoBehaviour
 {
     [SerializeField]
+    private RawImage _backgroundImage;
+
+    [SerializeField]
+    private List<Texture> _backgroundImages = new List<Texture>();
+
+    [SerializeField]
     private GameObject[] _avatars = new GameObject[3];
 
     [SerializeField]
@@ -42,6 +48,8 @@ public class DungeonSceneController : MonoBehaviour
     void Start()
     {
         _audioManager.PlayDungeonBGM();
+        int layer = _stateManager.GetLayer() - 1;
+        _backgroundImage.texture = _backgroundImages[layer];
         _adventurerList = _adventurerManager.GetAdventurerList();
         // sort adventurer list by speed
         for (int i = 0; i < _adventurerList.Length; i++)
