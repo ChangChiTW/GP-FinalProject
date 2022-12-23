@@ -48,7 +48,7 @@ public class ShopSceneController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("DungeonRunScene");
+            SceneManager.LoadScene("DungeonScene");
         }
     }
 }

@@ -7,6 +7,7 @@ public class AdventurerInfo
     public string name;
     public string job;
     public Sprite img;
+    public float maxHp;
     public float hp;
     public float atk;
     public float def;
@@ -38,10 +39,11 @@ public class AdventurerManager : MonoBehaviour
         adventurer.name = "Knight";
         adventurer.job = "Knight";
         adventurer.img = Resources.Load<Sprite>("Adventurer/Knight");
+        adventurer.maxHp = 90;
         adventurer.hp = 90;
         adventurer.atk = 13;
         adventurer.def = 3;
-        adventurer.speed = 17;
+        adventurer.speed = 10;
         adventurer.preferenceImgs = new List<Sprite>();
         adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/IronSword"));
         adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/BarrelLid"));
@@ -55,6 +57,7 @@ public class AdventurerManager : MonoBehaviour
         adventurer.name = "Archer";
         adventurer.job = "Archer";
         adventurer.img = Resources.Load<Sprite>("Adventurer/Archer");
+        adventurer.maxHp = 70;
         adventurer.hp = 70;
         adventurer.atk = 16;
         adventurer.def = 2;
@@ -72,10 +75,11 @@ public class AdventurerManager : MonoBehaviour
         adventurer.name = "Mage";
         adventurer.job = "Mage";
         adventurer.img = Resources.Load<Sprite>("Adventurer/Mage");
+        adventurer.maxHp = 60;
         adventurer.hp = 60;
         adventurer.atk = 20;
         adventurer.def = 1;
-        adventurer.speed = 19;
+        adventurer.speed = 15;
         adventurer.preferenceImgs = new List<Sprite>();
         adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/WoodenCane"));
         adventurer.preferenceImgs.Add(Resources.Load<Sprite>("Item/WizardHat"));

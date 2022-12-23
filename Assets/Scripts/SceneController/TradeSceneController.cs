@@ -124,7 +124,7 @@ public class TradeSceneController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("DungeonRunScene");
+            SceneManager.LoadScene("DungeonScene");
         }
     }
 
