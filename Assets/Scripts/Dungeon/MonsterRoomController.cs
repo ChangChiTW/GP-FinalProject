@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class Monster
@@ -29,6 +30,27 @@ public class MonsterRoomController : MonoBehaviour
 {
     [SerializeField]
     private GameObject _monsterImg;
+
+    [SerializeField]
+    private GameObject _info;
+
+    [SerializeField]
+    private TMP_Text _nameText;
+
+    [SerializeField]
+    private TMP_Text _hpText;
+
+    [SerializeField]
+    private TMP_Text _atkText;
+
+    [SerializeField]
+    private TMP_Text _defText;
+
+    [SerializeField]
+    private TMP_Text _speedText;
+
+    [SerializeField]
+    private TMP_Text _goldText;
     private DungeonSceneController _dungeonSceneController;
     private Monster _monster;
 
@@ -59,6 +81,12 @@ public class MonsterRoomController : MonoBehaviour
     void Start()
     {
         this.GetComponent<Button>().onClick.AddListener(() => OnClick());
+        _nameText.text = _monster.name;
+        _hpText.text = _monster.hp.ToString();
+        _atkText.text = _monster.atk.ToString();
+        _defText.text = _monster.def.ToString();
+        _speedText.text = _monster.speed.ToString();
+        _goldText.text = _monster.gold.ToString();
     }
 
     private Monster NewSlime()
@@ -103,5 +131,15 @@ public class MonsterRoomController : MonoBehaviour
             this.GetComponent<RectTransform>().localPosition,
             _monster
         );
+    }
+
+    public void OnCheckMonsterInfo()
+    {
+        _info.SetActive(true);
+    }
+
+    public void OnCloseMonsterInfo()
+    {
+        _info.SetActive(false);
     }
 }

@@ -38,7 +38,8 @@ public class MenuSceneController : MonoBehaviour
             _myBag.itemList[i].itemHeld = 1;
             _myBag.itemList.Remove(_myBag.itemList[i]);
         }
-        SceneManager.LoadScene("IntroBookScene");
+        // SceneManager.LoadScene("IntroBookScene");
+        SceneManager.LoadScene("DungeonScene");
     }
 
     public void OnResume()

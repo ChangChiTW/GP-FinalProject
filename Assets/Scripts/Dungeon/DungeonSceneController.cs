@@ -57,9 +57,7 @@ public class DungeonSceneController : MonoBehaviour
             {
                 AdventurerInfo adventurer = _adventurerList[i];
                 _avatars[i].SetActive(true);
-                _avatars[i].transform.Find("Img").GetComponent<Image>().sprite = adventurer.img;
-                _avatars[i].transform.Find("HP").GetComponent<Image>().fillAmount =
-                    adventurer.hp / adventurer.maxHp;
+                _avatars[i].GetComponent<AvatarController>().SetAdventurer(adventurer);
             }
             else
             {
@@ -135,8 +133,6 @@ public class DungeonSceneController : MonoBehaviour
                         if (_adventurerList[i].hp <= 0)
                         {
                             _adventurerList[i].hp = 0;
-                            _avatars[i].transform.Find("Img").GetComponent<Image>().sprite =
-                                Resources.Load<Sprite>("Adventurer/Dead");
                         }
                     }
                     else
@@ -145,8 +141,6 @@ public class DungeonSceneController : MonoBehaviour
                         if (_adventurerList[i].hp <= 0)
                         {
                             _adventurerList[i].hp = 0;
-                            _avatars[i].transform.Find("Img").GetComponent<Image>().sprite =
-                                Resources.Load<Sprite>("Adventurer/Dead");
                         }
                         monsterHp -= _adventurerList[i].atk - monster.def;
                         if (monsterHp <= 0)
@@ -154,8 +148,9 @@ public class DungeonSceneController : MonoBehaviour
                             break;
                         }
                     }
-                    _avatars[i].transform.Find("HP").GetComponent<Image>().fillAmount =
-                        _adventurerList[i].hp / _adventurerList[i].maxHp;
+                    _avatars[i]
+                        .GetComponent<AvatarController>()
+                        .UpdateAdventurerHp(_adventurerList[i].hp);
                 }
             }
         }
