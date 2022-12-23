@@ -16,6 +16,11 @@ public class ShopSceneController : MonoBehaviour
         _stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
     }
 
+    void Start()
+    {
+        _audioManager.PlayShopBGM();
+    }
+
     void Update()
     {
         if (_stateManager.DeveloperMode())

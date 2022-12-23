@@ -44,6 +44,7 @@ public class SettlementSceneController : MonoBehaviour
 
     void Start()
     {
+        _audioManager.PlaySettlementBGM();
         UpdateResult();
     }
 

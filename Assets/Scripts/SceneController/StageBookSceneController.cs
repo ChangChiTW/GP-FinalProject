@@ -15,6 +15,7 @@ public class StageBookSceneController : IntroBookSceneController
 
     override protected void init()
     {
+        _audioManager.PlayBookBGM();
         string backgroundImgPath =
             "StageBook/" + _stateManager.GetLastSceneToStageBookScene() + "BG";
         _backgroundImg.GetComponent<Image>().sprite = Resources.Load<Sprite>(backgroundImgPath);

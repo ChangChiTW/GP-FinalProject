@@ -11,6 +11,7 @@ public class DungeonSceneController : MonoBehaviour
 
     [SerializeField]
     private Transform _team;
+    private AudioManager _audioManager;
     private StateManager _stateManager;
     private EventController _eventController;
     private AdventurerManager _adventurerManager;
@@ -23,6 +24,7 @@ public class DungeonSceneController : MonoBehaviour
 
     void Awake()
     {
+        _audioManager = GameObject.Find("GameManager").GetComponent<AudioManager>();
         _stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
         _eventController = GameObject.Find("GameController").GetComponent<EventController>();
         _adventurerManager = GameObject.Find("GameManager").GetComponent<AdventurerManager>();
@@ -39,6 +41,7 @@ public class DungeonSceneController : MonoBehaviour
 
     void Start()
     {
+        _audioManager.PlayDungeonBGM();
         _adventurerList = _adventurerManager.GetAdventurerList();
         // sort adventurer list by speed
         for (int i = 0; i < _adventurerList.Length; i++)
@@ -96,6 +99,7 @@ public class DungeonSceneController : MonoBehaviour
             Vector2 team = new Vector2(_team.position.x, _team.position.y);
             if (Vector2.Distance(target, team) < 6f && target.x > team.x)
             {
+                _audioManager.PlayBtnClick();
                 _isArrived = false;
                 GameObject
                     .Find("Main Camera")

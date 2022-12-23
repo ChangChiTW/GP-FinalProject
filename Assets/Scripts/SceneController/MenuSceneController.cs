@@ -15,6 +15,7 @@ public class MenuSceneController : MonoBehaviour
 
     void Start()
     {
+        GameObject.Find("GameManager").GetComponent<AudioManager>().PlayMenuBGM();
         if (GameObject.Find("GameManager").GetComponent<StateManager>().ResumeGame())
         {
             _resumeBtn.GetComponent<Button>().interactable = true;

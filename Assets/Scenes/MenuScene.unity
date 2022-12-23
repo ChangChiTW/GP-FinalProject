@@ -674,7 +674,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a1e4dbe1902c5a4492d97713cd98968, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e39b69748b93046fdaff128f9828cb7f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -774,6 +774,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _btnClickClip: {fileID: 8300000, guid: 9f46c7fb2297fd1438cbe9e599be8cc6, type: 3}
   _pageFlipClip: {fileID: 8300000, guid: 34b54dda7ff1e8149984901b6bf25bc3, type: 3}
+  _menuBGMClip: {fileID: 8300000, guid: e39b69748b93046fdaff128f9828cb7f, type: 3}
+  _bookBGMClip: {fileID: 8300000, guid: 46604f15f05c941f39c6f39aedaa6356, type: 3}
+  _shopBGMClip: {fileID: 8300000, guid: 5d44a16307c96484e8f0825070d72411, type: 3}
+  _tradeBGMClip: {fileID: 8300000, guid: d37d80dd20cc342f59c6538165a68650, type: 3}
+  _settlementBGMClip: {fileID: 8300000, guid: 26bdf79124f214281a59f1a3ab4fcdbd, type: 3}
+  _dungeonBGMClip: {fileID: 8300000, guid: fe8dc8bba61d84a4992d1ed96afafe6a, type: 3}
 --- !u!114 &755980428
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -49,6 +49,7 @@ public class TradeSceneController : MonoBehaviour
 
     void Start()
     {
+        _audioManager.PlayTradeBGM();
         _adventurerList = _adventurerManager.GetAdventurerList();
         ShowAdventurerInfo(0);
     }
