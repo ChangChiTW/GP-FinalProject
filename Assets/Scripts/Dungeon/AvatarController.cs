@@ -73,7 +73,7 @@ public class AvatarController : MonoBehaviour
     public void OnCheckAdventurerInfo()
     {
         _nameText.text = _name;
-        _hpText.text = _hp.ToString();
+        _hpText.text = _hp.ToString("0");
         _atkText.text = _atk.ToString();
         _defText.text = _def.ToString();
         _speedText.text = _speed.ToString();

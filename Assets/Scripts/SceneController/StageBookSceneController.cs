@@ -40,6 +40,8 @@ public class StageBookSceneController : IntroBookSceneController
             page.transform.Find("HPNum").GetComponent<TMP_Text>().text = adventurer.hp.ToString();
             page.transform.Find("ATKNum").GetComponent<TMP_Text>().text = adventurer.atk.ToString();
             page.transform.Find("DEFNum").GetComponent<TMP_Text>().text = adventurer.def.ToString();
+            page.transform.Find("SPEEDNum").GetComponent<TMP_Text>().text =
+                adventurer.speed.ToString();
             for (int j = 0; j < adventurer.preferenceImgs.Count; j++)
             {
                 page.transform.Find("PreferenceItem" + (j)).GetComponent<Image>().sprite =

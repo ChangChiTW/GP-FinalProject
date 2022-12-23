@@ -23,6 +23,8 @@ public class TradeSceneController : MonoBehaviour
 
     [SerializeField]
     private Text _adventurerDef;
+    [SerializeField]
+    private Text _adventurerSpd;
 
     [SerializeField]
     private List<Image> _preferenceImages;
@@ -54,9 +56,10 @@ public class TradeSceneController : MonoBehaviour
     {
         _adventurerName.text = _adventurerList[index].name;
         _adventurerImg.GetComponent<Image>().sprite = _adventurerList[index].img;
-        _adventurerHp.text = "HP:    " + _adventurerList[index].hp.ToString("0");
-        _adventurerAtk.text = "ATK:  	" + _adventurerList[index].atk.ToString();
-        _adventurerDef.text = "DEF:   " + _adventurerList[index].def.ToString();
+        _adventurerHp.text = "HP:        " + _adventurerList[index].hp.ToString("0");
+        _adventurerAtk.text = "ATK:  	    " + _adventurerList[index].atk.ToString();
+        _adventurerDef.text = "DEF:       " + _adventurerList[index].def.ToString();
+        _adventurerSpd.text = "SPEED:	" + _adventurerList[index].speed.ToString();
         for (int i = 0; i < _preferenceImages.Count; i++)
         {
             if (i < _adventurerList[index].preferenceImgs.Count)
