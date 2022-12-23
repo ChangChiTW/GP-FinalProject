@@ -98,11 +98,11 @@ public class EventController : MonoBehaviour
         btn.SetActive(true);
         btn.transform.Find("Name").GetComponent<TMP_Text>().text = "Hot Spring";
         btn.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a hot spring. Everyone recover 30 HP.";
+            "Adventurer found a hot spring. Everyone recover 20 HP.";
         btn.GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                _dungeonSceneController.HotSpringEffect();
+                _dungeonSceneController.AdventurerAddHp(20);
                 CloseEventInfo();
             });
     }
@@ -129,7 +129,7 @@ public class EventController : MonoBehaviour
         btn.GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                _dungeonSceneController.SpinachEffect();
+                _dungeonSceneController.AdventurerAddAtk(5);
                 CloseEventInfo();
             });
     }
@@ -143,7 +143,7 @@ public class EventController : MonoBehaviour
         btn.GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                _dungeonSceneController.PotionEffect();
+                _dungeonSceneController.AdventurerAddDef(5);
                 CloseEventInfo();
             });
     }
@@ -154,8 +154,8 @@ public class EventController : MonoBehaviour
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Name").GetComponent<TMP_Text>().text = "Monster";
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a monster. Everyone lose 15 HP.";
-        _dungeonSceneController.MonsterEffect();
+            "Adventurer found a monster. Everyone lose 10 HP.";
+        _dungeonSceneController.AdventurerAddHp(-10);
     }
 
     private void TrapEvent()
@@ -173,6 +173,6 @@ public class EventController : MonoBehaviour
         _eventInfoPanel.transform.Find("Name").GetComponent<TMP_Text>().text = "Poison";
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
             "Adventurer found a poison. Everyone lose 2 ATK.";
-        _dungeonSceneController.PoisonEffect();
+        _dungeonSceneController.AdventurerAddAtk(-2);
     }
 }

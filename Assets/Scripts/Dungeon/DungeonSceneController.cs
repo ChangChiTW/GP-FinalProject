@@ -195,13 +195,13 @@ public class DungeonSceneController : MonoBehaviour
         }
     }
 
-    public void HotSpringEffect()
+    public void AdventurerAddHp(float hp)
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
             if (_adventurerList[i].hp > 0)
             {
-                _adventurerList[i].hp += 30;
+                _adventurerList[i].hp += hp;
                 if (_adventurerList[i].hp > _adventurerList[i].maxHp)
                 {
                     _adventurerList[i].hp = _adventurerList[i].maxHp;
@@ -211,56 +211,32 @@ public class DungeonSceneController : MonoBehaviour
         }
     }
 
-    public void SpinachEffect()
+    public void AdventurerAddAtk(float atk)
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
             if (_adventurerList[i].hp > 0)
             {
-                _adventurerList[i].atk += 5;
-                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
-            }
-        }
-    }
-
-    public void PotionEffect()
-    {
-        for (int i = 0; i < _adventurerList.Length; i++)
-        {
-            if (_adventurerList[i].hp > 0)
-            {
-                _adventurerList[i].def += 5;
-                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
-            }
-        }
-    }
-
-    public void MonsterEffect()
-    {
-        for (int i = 0; i < _adventurerList.Length; i++)
-        {
-            if (_adventurerList[i].hp > 0)
-            {
-                _adventurerList[i].hp -= 15;
-                if (_adventurerList[i].hp < 0)
+                _adventurerList[i].atk += atk;
+                if (_adventurerList[i].atk < 0)
                 {
-                    _adventurerList[i].hp = 0;
+                    _adventurerList[i].atk = 0;
                 }
                 _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
             }
         }
     }
 
-    public void PoisonEffect()
+    public void AdventurerAddDef(float def)
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
             if (_adventurerList[i].hp > 0)
             {
-                _adventurerList[i].atk -= 5;
-                if (_adventurerList[i].atk < 0)
+                _adventurerList[i].def += def;
+                if (_adventurerList[i].def < 0)
                 {
-                    _adventurerList[i].atk = 0;
+                    _adventurerList[i].def = 0;
                 }
                 _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
             }
