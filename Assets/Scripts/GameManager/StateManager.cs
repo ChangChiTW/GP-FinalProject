@@ -6,13 +6,14 @@ public class StateManager : MonoBehaviour
 {
     private int _day = 1;
     private int _balance = 1000;
+    private int _additionalRatio = 0;
     private int _layer = 0;
     private int[] _debt = { 100, 300, 600, 1000, 1500, 2000, 10000 };
     private string _lastSceneToStageBookScene = "ShopScene";
     private int[] _goldRatio = { 100, 125, 150, 200 };
     private int[] _settlement = { 0, 0, 0, 0, 0 };
     private int[] _expectedBalance = { 1500, 2100, 2760, 3416, 3965, 4345, -3000 };
-    private List<string> _specialConditions = new List<string>();
+    private int[] _monsterRatio = { 100, 100, 105, 110, 120 };
     private FileDataHandler _fileDataHandler;
 
     void Start()
@@ -95,14 +96,14 @@ public class StateManager : MonoBehaviour
         return _lastSceneToStageBookScene;
     }
 
-    public int GetGoldRatio()
+    public int GetMonsterRatio()
     {
-        return _goldRatio[_layer];
+        return _monsterRatio[_layer];
     }
 
-    public int GetNextGoldRatio()
+    public int GetGoldRatio()
     {
-        return _goldRatio[_layer + 1];
+        return _goldRatio[_layer] + _additionalRatio;
     }
 
     private void ResetSettlement()
@@ -128,25 +129,11 @@ public class StateManager : MonoBehaviour
         return _expectedBalance[_day - 1];
     }
 
-    private void ResetSpecialConditions()
-    {
-        _specialConditions.Clear();
-    }
-
-    public void AddSpecialCondition(string condition)
-    {
-        _specialConditions.Add(condition);
-    }
-
-    public List<string> GetSpecialConditions()
-    {
-        return _specialConditions;
-    }
-
     private void SetGameData(GameData gameData)
     {
         _day = gameData.day;
         _balance = gameData.balance;
+        _additionalRatio = gameData.additionalRatio;
     }
 
     public void SaveGame()
@@ -154,6 +141,7 @@ public class StateManager : MonoBehaviour
         GameData gameData = new GameData();
         gameData.day = _day;
         gameData.balance = _balance;
+        gameData.additionalRatio = _additionalRatio;
         _fileDataHandler.Save(gameData);
     }
 
@@ -193,7 +181,6 @@ public class StateManager : MonoBehaviour
         NewGame();
         ResetLayer();
         ResetSettlement();
-        ResetSpecialConditions();
         ResetLastSceneToStageBookScene();
     }
 }

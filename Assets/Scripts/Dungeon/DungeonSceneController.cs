@@ -12,6 +12,7 @@ public class DungeonSceneController : MonoBehaviour
     [SerializeField]
     private Transform _team;
     private StateManager _stateManager;
+    private EventController _eventController;
     private AdventurerManager _adventurerManager;
     private AdventurerInfo[] _adventurerList;
     private Vector3 _targetPosition = new Vector3(-5, 0, 0);
@@ -23,6 +24,7 @@ public class DungeonSceneController : MonoBehaviour
     void Awake()
     {
         _stateManager = GameObject.Find("GameManager").GetComponent<StateManager>();
+        _eventController = GameObject.Find("GameController").GetComponent<EventController>();
         _adventurerManager = GameObject.Find("GameManager").GetComponent<AdventurerManager>();
     }
 
@@ -150,7 +152,7 @@ public class DungeonSceneController : MonoBehaviour
                     }
                     _avatars[i]
                         .GetComponent<AvatarController>()
-                        .UpdateAdventurerHp(_adventurerList[i].hp);
+                        .UpdateAdventurer(_adventurerList[i]);
                 }
             }
         }
@@ -162,6 +164,8 @@ public class DungeonSceneController : MonoBehaviour
     private IEnumerator StartTreasure()
     {
         yield return new WaitUntil(() => _team.position == _targetPosition);
+        _eventController.ShowEventInfo();
+        yield return new WaitUntil(() => _eventController.IsEventFinished());
         _level++;
         _isArrived = true;
         CheckLastLevel();
@@ -171,7 +175,6 @@ public class DungeonSceneController : MonoBehaviour
     {
         if (_level == 9)
         {
-            Debug.Log("Game Clear");
             List<AdventurerInfo> newList = new List<AdventurerInfo>();
             for (int i = 0; i < _adventurerList.Length; i++)
             {
@@ -188,6 +191,78 @@ public class DungeonSceneController : MonoBehaviour
             else
             {
                 SceneManager.LoadScene("SettlementScene");
+            }
+        }
+    }
+
+    public void HotSpringEffect()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].hp > 0)
+            {
+                _adventurerList[i].hp += 30;
+                if (_adventurerList[i].hp > _adventurerList[i].maxHp)
+                {
+                    _adventurerList[i].hp = _adventurerList[i].maxHp;
+                }
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+            }
+        }
+    }
+
+    public void SpinachEffect()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].hp > 0)
+            {
+                _adventurerList[i].atk += 5;
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+            }
+        }
+    }
+
+    public void PotionEffect()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].hp > 0)
+            {
+                _adventurerList[i].def += 5;
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+            }
+        }
+    }
+
+    public void MonsterEffect()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].hp > 0)
+            {
+                _adventurerList[i].hp -= 15;
+                if (_adventurerList[i].hp < 0)
+                {
+                    _adventurerList[i].hp = 0;
+                }
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+            }
+        }
+    }
+
+    public void PoisonEffect()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].hp > 0)
+            {
+                _adventurerList[i].atk -= 5;
+                if (_adventurerList[i].atk < 0)
+                {
+                    _adventurerList[i].atk = 0;
+                }
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
             }
         }
     }

@@ -57,9 +57,12 @@ public class AvatarController : MonoBehaviour
         _hpBar.GetComponent<Image>().fillAmount = 1;
     }
 
-    public void UpdateAdventurerHp(float hp)
+    public void UpdateAdventurer(AdventurerInfo adventurer)
     {
-        _hp = hp;
+        _hp = adventurer.hp;
+        _atk = adventurer.atk;
+        _def = adventurer.def;
+        _speed = adventurer.speed;
         _hpBar.GetComponent<Image>().fillAmount = _hp / _maxHp;
         if (_hp <= 0)
         {
