@@ -43,6 +43,16 @@ public class DungeonSceneController : MonoBehaviour
             _targetPosition,
             _speed * Time.deltaTime
         );
+
+        // change _team image
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].hp > 0)
+            {
+                _team.GetComponent<SpriteRenderer>().sprite = _adventurerList[i].img;
+                break;
+            }
+        }
     }
 
     void Start()
