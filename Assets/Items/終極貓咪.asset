@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
+  m_Name: "\u7D42\u6975\u8C93\u54AA"
+  m_EditorClassIdentifier: 
+  itemName: Ultimate Cat
+  itemImage: {fileID: 21300000, guid: 16072fd05d6dc4fd8aed37b4a77796da, type: 3}
+  itemHeld: 1
+  itemInfo: "\u5230\u5E95\u662F\u8AB0\u5077\u653E\u7684\u8D85\u7D1A\u5F8C\u9580\u963F=="
+  equip: 0
+  HP: 90
+  ATK: 90
+  DEF: 0
+  SPEED: 90
+  price: -10
+  itemRaise: 0

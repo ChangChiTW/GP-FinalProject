@@ -14,6 +14,7 @@ public class Slot : MonoBehaviour
     public void ItemOnClicked()
     {
         GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
+        InventoryManager.ChooseItem(slotItem);
         InventoryManager.ShowDes();
         InventoryManager.UpdateItemInfo(
             slotItem.itemName,
@@ -25,7 +26,6 @@ public class Slot : MonoBehaviour
             slotItem.itemImage,
             slotItem.price
         );
-        InventoryManager.ChooseItem(slotItem);
     }
 
     public void StoreItemClicked()

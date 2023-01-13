@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
-  m_Name: Straw Sandals
+  m_Name: "\u6728\u6756"
   m_EditorClassIdentifier: 
-  itemName: Straw Sandals
-  itemImage: {fileID: 21300000, guid: d90aa2ef1d9074c3f8fc8c7f66758c68, type: 3}
+  itemName: Wooden Cane
+  itemImage: {fileID: 21300000, guid: b9973b82dcb0644e0885b293b7bafc9c, type: 3}
   itemHeld: 1
-  itemInfo: Live a little more comfortable than barefoot.
+  itemInfo: "\u5B78\u5F92\u6709\u6839\u62D0\u6756\u5C31\u8A72\u5077\u7B11\u4E86"
   equip: 0
-  HP: 2
-  ATK: 0
-  DEF: 1
-  SPEED: 3
-  price: -400
+  HP: 0
+  ATK: 3
+  DEF: 0
+  SPEED: 0
+  price: -500
+  itemRaise: 0

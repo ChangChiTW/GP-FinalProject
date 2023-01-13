@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
-  m_Name: Barrel Lid
+  m_Name: "\u9EC3\u91D1\u528D"
   m_EditorClassIdentifier: 
-  itemName: Barrel Lid
-  itemImage: {fileID: 21300000, guid: 828cf6bb5fd354b9ab4f12c87f15fda5, type: 3}
+  itemName: Golden Sword
+  itemImage: {fileID: 21300000, guid: 35d1daa08ff4543b6a807c735215bb80, type: 3}
   itemHeld: 1
-  itemInfo: The barrel lid stolen form roadside is very fragile.
+  itemInfo: "\u91D1\u9322\u7684\u529B\u91CF\uFF0C\u5617\u5617\u8CC7\u672C\u4E3B\u7FA9\u5DE8\u528D"
   equip: 0
-  HP: 3
-  ATK: 0
-  DEF: 2
-  price: -600
+  HP: 30
+  ATK: 20
+  DEF: 0
+  SPEED: -4
+  price: -2700
+  itemRaise: 0

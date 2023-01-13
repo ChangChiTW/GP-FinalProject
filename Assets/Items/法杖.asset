@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
-  m_Name: Iron Sword
+  m_Name: "\u6CD5\u6756"
   m_EditorClassIdentifier: 
-  itemName: Iron Sword
-  itemImage: {fileID: 21300000, guid: 496b553d29e20431f8a949789dd21728, type: 3}
+  itemName: Magic Wand
+  itemImage: {fileID: 21300000, guid: 71e389d2b0a424f778955836b5ba4b80, type: 3}
   itemHeld: 1
-  itemInfo: Ordinary sword can be seen everywhere
+  itemInfo: 
   equip: 0
   HP: 0
-  ATK: 4
+  ATK: 15
   DEF: 0
-  price: -600
+  SPEED: 0
+  price: -1100
+  itemRaise: 0

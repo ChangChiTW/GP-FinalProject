@@ -168,4 +168,10 @@ public class TradeSceneController : MonoBehaviour
         TradeManager.AddNewItem();
         TradeManager.CloseDes();
     }
+
+    public void RaisePrice()
+    {
+        _audioManager.PlayBtnClick();        
+        TradeManager.RaisePrice();
+    }
 }
