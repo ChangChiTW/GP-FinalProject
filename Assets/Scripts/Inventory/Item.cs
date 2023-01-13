@@ -17,4 +17,5 @@ public class Item : ScriptableObject
     public float DEF;
     public float SPEED;
     public int price;
+    public int itemRaise = 0;//0:origin, 1:raise success, 2:raise fail
 }

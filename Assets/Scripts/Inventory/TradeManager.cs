@@ -17,12 +17,14 @@ public class TradeManager : MonoBehaviour
     public Image itemPic;
     public Text itemPrice;
     public Text originalPrice;
-    public Text goldRatio;
+    public Text raiseRatio;
     private StateManager _stateManager;
     public Text OwnMoney;
 
     public GameObject itemDes;
     public Item chosenItem;
+
+    public Button Raise;
 
     void Awake()
     {
@@ -60,9 +62,21 @@ public class TradeManager : MonoBehaviour
     public static void AddNewItem()
     {
         int ratio = instance._stateManager.GetGoldRatio();
-        instance._stateManager.AddBalance(
+        if(instance.chosenItem.itemRaise==0)
+            instance._stateManager.AddBalance(
+                System.Convert.ToInt32(System.Math.Floor(-1.0 * instance.chosenItem.price))
+            );
+        else if(instance.chosenItem.itemRaise==1)
+            instance._stateManager.AddBalance(
+                System.Convert.ToInt32(System.Math.Floor(-2.0 * instance.chosenItem.price))
+            );
+        else
+            instance._stateManager.AddBalance(
+                System.Convert.ToInt32(System.Math.Floor(-0.5 * instance.chosenItem.price))
+            );
+        /*instance._stateManager.AddBalance(
             System.Convert.ToInt32(System.Math.Floor(-1 * ratio * 0.01 * instance.chosenItem.price))
-        );
+        );*/
         if (instance.chosenItem.itemHeld - 1 == 0)
         {
             instance.itemDes.SetActive(false);
@@ -86,6 +100,7 @@ public class TradeManager : MonoBehaviour
         int price
     )
     {
+        //instance.Raise.interactable = true;
         instance.itemName.text = itemName;
         instance.itemStrength.text = "HP:       +" + HP.ToString();
         instance.itemWisdom.text = "ATK:     +" + ATK.ToString();
@@ -93,9 +108,10 @@ public class TradeManager : MonoBehaviour
         instance.itemSpeed.text = "SPEED:  +" + SPD.ToString();
         instance.itemPic.sprite = itemImage;
         instance.originalPrice.text = (-1 * price).ToString();
-        int ratio = instance._stateManager.GetGoldRatio();
-        instance.goldRatio.text = ratio.ToString() + "%";
-        instance.itemPrice.text = "+" + (-1 * ratio * 0.01 * price).ToString();
+        int ratio = instance._stateManager.GetRaiseRatio();
+        instance.raiseRatio.text = ratio.ToString() + "%";
+        //instance.itemPrice.text = "+" + (-1 * ratio * 0.01 * price).ToString();
+        instance.itemPrice.text = "+" + (-1 * price).ToString();
     }
 
     public static void CreateNewItem(Item item)
@@ -129,5 +145,21 @@ public class TradeManager : MonoBehaviour
     public static Item GetChosenItem()
     {
         return instance.chosenItem;
+    }
+
+    public static void RaisePrice()
+    {
+        System.Random random = new System.Random();
+        int rand=random.Next(0,99);
+        int ratio = instance._stateManager.GetRaiseRatio();
+        if(rand<ratio){
+            instance.chosenItem.itemRaise=1;
+            instance.itemPrice.text = "+" + (-1 * 2 * instance.chosenItem.price).ToString();
+        }
+        else{
+            instance.chosenItem.itemRaise=2;
+            instance.itemPrice.text = "+" + (-1 * 0.5 * instance.chosenItem.price).ToString();
+        }
+        instance.Raise.interactable = false;
     }
 }

@@ -301,17 +301,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202342848}
   m_CullTransparentMesh: 1
---- !u!114 &320917891 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 948237563111066920, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
-  m_PrefabInstance: {fileID: 6966413916542023351}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &373668841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,6 +2465,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404141522}
   m_CullTransparentMesh: 1
+--- !u!114 &1424511021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 948237563111066920, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
+  m_PrefabInstance: {fileID: 6966413916542023351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1446433016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,10 +2628,11 @@ MonoBehaviour:
   itemPic: {fileID: 6966413916542023355}
   itemPrice: {fileID: 6966413916542023353}
   originalPrice: {fileID: 6966413916542023354}
-  goldRatio: {fileID: 320917891}
+  raiseRatio: {fileID: 1424511021}
   OwnMoney: {fileID: 661976204}
   itemDes: {fileID: 2015540105}
   chosenItem: {fileID: 0}
+  Raise: {fileID: 1928671808}
 --- !u!1 &1468691109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3555,6 +3556,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779290249}
   m_CullTransparentMesh: 1
+--- !u!114 &1928671808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7615132013056863578, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
+  m_PrefabInstance: {fileID: 6966413916542023351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943671391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,6 +3982,18 @@ PrefabInstance:
     - target: {fileID: 7552278078083592490, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615132013056863578, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1237617940}
+    - target: {fileID: 7615132013056863578, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RaisePrice
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615132013056863578, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TradeSceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8334058331314423631, guid: cc2039664e0c9ad4ab38530f6b6b4386, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
