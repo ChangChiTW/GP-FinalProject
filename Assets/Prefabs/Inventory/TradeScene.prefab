@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Raise
+  m_text: Bargain
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6dd9296133f844dd0885bc59eac47c29, type: 2}
   m_sharedMaterial: {fileID: -764742797400405938, guid: 6dd9296133f844dd0885bc59eac47c29, type: 2}
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -550,10 +550,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 96df80d8d1117463cba0dffd09c18d7d, type: 3}
-    m_FontSize: 50
+    m_FontSize: 44
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 4
     m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Raise Price Ratio: '
+  m_Text: 'Bargain Success Rate: '
 --- !u!1 &8334058331268485760
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -73.08252, y: -139}
+  m_AnchoredPosition: {x: -73.08252, y: -144}
   m_SizeDelta: {x: -1613.835, y: -1022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8334058331633888912
@@ -1000,7 +1000,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 96df80d8d1117463cba0dffd09c18d7d, type: 3}
-    m_FontSize: 50
+    m_FontSize: 44
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

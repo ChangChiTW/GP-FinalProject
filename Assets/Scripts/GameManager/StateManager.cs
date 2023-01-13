@@ -12,6 +12,7 @@ public class StateManager : MonoBehaviour
     private int[] _expectedBalance = { 1500, 2100, 2760, 3416, 3965, 4345, -3000 };
     private int[] _monsterRatio = { 100, 100, 105, 110, 120 };
     private FileDataHandler _fileDataHandler;
+    private int _currentday;
 
     void Start()
     {
@@ -35,6 +36,16 @@ public class StateManager : MonoBehaviour
     public int GetDay()
     {
         return _gameData.day;
+    }
+
+    public void SetCurentDay(int today)
+    {
+        _currentday = today;
+    }
+
+    public int GetCurrentDay()
+    {
+        return _currentday;
     }
 
     private void ResetLayer()
