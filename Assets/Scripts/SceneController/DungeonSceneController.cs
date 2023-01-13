@@ -245,51 +245,86 @@ public class DungeonSceneController : MonoBehaviour
         }
     }
 
-    public void AdventurerAddHp(float hp)
+    public AdventurerInfo GetRandomAdventurer()
     {
+        List<AdventurerInfo> list = new List<AdventurerInfo>();
         for (int i = 0; i < _adventurerList.Length; i++)
         {
             if (_adventurerList[i].hp > 0)
             {
-                _adventurerList[i].hp += hp;
-                if (_adventurerList[i].hp > _adventurerList[i].maxHp)
+                list.Add(_adventurerList[i]);
+            }
+        }
+        if (list.Count > 0)
+        {
+            return list[Random.Range(0, list.Count)];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public void DashForward(string adventurer)
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].name == adventurer)
+            {
+                _adventurerList[i].speed -= 3;
+                if (_adventurerList[i].speed < 0)
                 {
-                    _adventurerList[i].hp = _adventurerList[i].maxHp;
+                    _adventurerList[i].speed = 0;
                 }
                 _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+                break;
             }
         }
     }
 
-    public void AdventurerAddAtk(float atk)
+    public void RollBack()
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
-            if (_adventurerList[i].hp > 0)
+            _adventurerList[i].hp -= 5;
+            if (_adventurerList[i].hp < 0)
             {
-                _adventurerList[i].atk += atk;
-                if (_adventurerList[i].atk < 0)
-                {
-                    _adventurerList[i].atk = 0;
-                }
-                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+                _adventurerList[i].hp = 0;
             }
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
     }
 
-    public void AdventurerAddDef(float def)
+    public void OpenChestWithCoins()
+    {
+        _stateManager.AddAdventurerBalance(500);
+    }
+
+    public void OpenChestWithMonster(Monster monster)
+    {
+        StartCoroutine(StartBattle(monster));
+    }
+
+    public void EatDirectly()
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
-            if (_adventurerList[i].hp > 0)
+            _adventurerList[i].hp -= 10;
+            _adventurerList[i].atk += 3;
+            if (_adventurerList[i].hp < 0)
             {
-                _adventurerList[i].def += def;
-                if (_adventurerList[i].def < 0)
-                {
-                    _adventurerList[i].def = 0;
-                }
-                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+                _adventurerList[i].hp = 0;
             }
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void MakeIntoDish()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].hp += 5;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
     }
 }

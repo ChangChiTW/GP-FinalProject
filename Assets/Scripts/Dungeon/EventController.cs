@@ -11,7 +11,16 @@ public class EventController : MonoBehaviour
     private GameObject _eventInfo;
 
     [SerializeField]
-    private List<GameObject> _eventButtons = new List<GameObject>();
+    private GameObject _eventName;
+
+    [SerializeField]
+    private GameObject _description;
+
+    [SerializeField]
+    private GameObject _optionA;
+
+    [SerializeField]
+    private GameObject _optionB;
 
     [SerializeField]
     private GameObject _eventInfoPanel;
@@ -20,6 +29,7 @@ public class EventController : MonoBehaviour
     private GameObject _battleResultPanel;
     private StateManager _stateManager;
     private DungeonSceneController _dungeonSceneController;
+    private MonsterManager _monsterManager;
 
     void Awake()
     {
@@ -27,76 +37,16 @@ public class EventController : MonoBehaviour
         _dungeonSceneController = GameObject
             .Find("GameController")
             .GetComponent<DungeonSceneController>();
+        _monsterManager = GameObject.Find("GameManager").GetComponent<MonsterManager>();
     }
 
-    public void ShowEventInfo()
-    {
-        _eventInfo.SetActive(true);
-        if (Random.Range(0, 100) < 25)
-        {
-            int eventIndex = Random.Range(0, 3);
-            switch (eventIndex)
-            {
-                case 0:
-                    MonsterEvent();
-                    break;
-                case 1:
-                    TrapEvent();
-                    break;
-                case 2:
-                    PoisonEvent();
-                    break;
-                default:
-                    MonsterEvent();
-                    break;
-            }
-        }
-        else
-        {
-            List<int> eventList = Enumerable.Range(0, 4).ToList();
-            for (int i = 0; i < _eventButtons.Count; i++)
-            {
-                int eventIndex = Random.Range(0, eventList.Count);
-                switch (eventList[eventIndex])
-                {
-                    case 0:
-                        HotSpringEvent(_eventButtons[i]);
-                        break;
-                    case 1:
-                        TreasureEvent(_eventButtons[i]);
-                        break;
-                    case 2:
-                        SpinachEvent(_eventButtons[i]);
-                        break;
-                    case 3:
-                        PotionEvent(_eventButtons[i]);
-                        break;
-                    default:
-                        HotSpringEvent(_eventButtons[i]);
-                        break;
-                }
-                eventList.RemoveAt(eventIndex);
-            }
-        }
-    }
-
-    public void CloseEventInfo()
-    {
-        _eventInfo.SetActive(false);
-        _eventInfoPanel.SetActive(false);
-        _battleResultPanel.SetActive(false);
-        foreach (GameObject btn in _eventButtons)
-        {
-            btn.SetActive(false);
-        }
-    }
+    void Start() { }
 
     public bool IsEventFinished()
     {
         return !_eventInfo.activeSelf;
     }
 
-    // Battle result
     public void ShowBattleResult(float[] beforeHp, AdventurerInfo[] after)
     {
         _eventInfo.SetActive(true);
@@ -126,87 +76,176 @@ public class EventController : MonoBehaviour
         }
     }
 
-    // Event to be called when the player click on the event button (good event)
-    private void HotSpringEvent(GameObject btn)
+    public void ShowEventInfo()
     {
-        btn.SetActive(true);
-        btn.transform.Find("Name").GetComponent<TMP_Text>().text = "Hot Spring";
-        btn.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a hot spring. Everyone recover 20 HP.";
-        btn.GetComponent<Button>()
+        _eventInfo.SetActive(true);
+        _eventName.SetActive(true);
+        _description.SetActive(true);
+        _optionA.SetActive(true);
+        _optionB.SetActive(true);
+        int eventIndex = Random.Range(0, 3);
+        switch (eventIndex)
+        {
+            case 0:
+                BoulderTrapEvent();
+                break;
+            case 1:
+                ObtrusiveTreasureChestEvent();
+                break;
+            case 2:
+                CannedSpinachEvent();
+                break;
+        }
+    }
+
+    public void CloseEventInfo()
+    {
+        _eventInfo.SetActive(false);
+        CloseDescription();
+        _eventInfoPanel.SetActive(false);
+        _battleResultPanel.SetActive(false);
+    }
+
+    private void CloseDescription()
+    {
+        _eventName.SetActive(false);
+        _description.SetActive(false);
+        _optionA.SetActive(false);
+        _optionB.SetActive(false);
+    }
+
+    // Events
+    private void BoulderTrapEvent()
+    {
+        AdventurerInfo adventurer = _dungeonSceneController.GetRandomAdventurer();
+        _eventName.GetComponent<TMP_Text>().text = "Boulder Trap";
+        _description.GetComponent<TMP_Text>().text =
+            adventurer.name
+            + " stepped on a trap on the long and narrow road, and after the stone door on the right opened, a huge boulder rolled towards the "
+            + adventurer.name
+            + " at high speed";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Dash forward";
+        _optionA
+            .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                _dungeonSceneController.AdventurerAddHp(20);
-                CloseEventInfo();
+                DashForwardResult(adventurer.name);
+            });
+
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Roll back";
+        _optionB
+            .GetComponent<Button>()
+            .onClick.AddListener(() =>
+            {
+                RollBackResult(adventurer.name);
             });
     }
 
-    private void TreasureEvent(GameObject btn)
+    private void ObtrusiveTreasureChestEvent()
     {
-        btn.SetActive(true);
-        btn.transform.Find("Name").GetComponent<TMP_Text>().text = "Treasure";
-        btn.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a treasure. Everyone gain 30 gold.";
-        // btn.GetComponent<Button>().onClick.AddListener(() =>
-        // {
-        //     _dungeonSceneController.TreasureEffect();
-        //     CloseEventInfo();
-        // });
-    }
-
-    private void SpinachEvent(GameObject btn)
-    {
-        btn.SetActive(true);
-        btn.transform.Find("Name").GetComponent<TMP_Text>().text = "Spinach";
-        btn.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a spinach. Everyone gain 5 ATK.";
-        btn.GetComponent<Button>()
+        _eventName.GetComponent<TMP_Text>().text = "Obtrusive Treasure Chest";
+        _description.GetComponent<TMP_Text>().text =
+            "In an empty room, a treasure chest out of place with the surroundings is conspicuously placed in the center of the room";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Open the chest";
+        _optionA
+            .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                _dungeonSceneController.AdventurerAddAtk(5);
-                CloseEventInfo();
+                OpenChestResult();
+            });
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Ignore the chest";
+        _optionB
+            .GetComponent<Button>()
+            .onClick.AddListener(() =>
+            {
+                IgnoreChestResult();
             });
     }
 
-    private void PotionEvent(GameObject btn)
+    private void CannedSpinachEvent()
     {
-        btn.SetActive(true);
-        btn.transform.Find("Name").GetComponent<TMP_Text>().text = "Potion";
-        btn.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a potion. Everyone gain 5 DEF.";
-        btn.GetComponent<Button>()
+        _eventName.GetComponent<TMP_Text>().text = "Canned Spinach";
+        _description.GetComponent<TMP_Text>().text =
+            "Picked up a can of spinach with Bu Pai's face printed on it, how to eat it?";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Eat directly";
+        _optionA
+            .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                _dungeonSceneController.AdventurerAddDef(5);
-                CloseEventInfo();
+                EatDirectlyResult();
+            });
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Make it into a dish";
+        _optionB
+            .GetComponent<Button>()
+            .onClick.AddListener(() =>
+            {
+                MakeIntoDishResult();
             });
     }
 
-    // Event to be called when the player on the treasure room (bad event)
-    private void MonsterEvent()
+    // Results
+    private void DashForwardResult(string adventurer)
     {
+        CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Name").GetComponent<TMP_Text>().text = "Monster";
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a monster. Everyone lose 10 HP.";
-        _dungeonSceneController.AdventurerAddHp(-10);
+            "Although dodged the boulder, but sprained his ankle while sprinting, "
+            + adventurer
+            + "'s speed is permanently -3";
+        _dungeonSceneController.DashForward(adventurer);
     }
 
-    private void TrapEvent()
+    private void RollBackResult(string adventurer)
     {
-        _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Name").GetComponent<TMP_Text>().text = "Trap";
+        CloseDescription();
+        _eventInfoPanel.SetActive(false);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a trap. Everyone lose 15 gold.";
-        // _dungeonSceneController.TrapEffect();
+            adventurer
+            + " collides with his team after narrowly dodging the boulder, and the team takes 5 damage";
+        _dungeonSceneController.RollBack();
     }
 
-    private void PoisonEvent()
+    private void OpenChestResult()
     {
+        CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Name").GetComponent<TMP_Text>().text = "Poison";
+        if (Random.Range(0, 100) < 25)
+        {
+            _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
+                "The chest is filled with gold coins, and the team gains 500 gold coins";
+            _dungeonSceneController.OpenChestWithCoins();
+        }
+        else
+        {
+            Monster monster = _monsterManager.GetRandomMonster();
+            _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
+                "The chest is filled with a monster, and the team encounters a " + monster.name;
+            _dungeonSceneController.OpenChestWithMonster(monster);
+        }
+    }
+
+    private void IgnoreChestResult()
+    {
+        CloseDescription();
+        _eventInfoPanel.SetActive(true);
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "Nothing happened";
+    }
+
+    private void EatDirectlyResult()
+    {
+        CloseDescription();
+        _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Adventurer found a poison. Everyone lose 2 ATK.";
-        _dungeonSceneController.AdventurerAddAtk(-2);
+            "A bit expired, causing everyone in the team to have diarrhea, but also received the blessing of Bu Pai, the team's hp -10 attack power +3";
+        _dungeonSceneController.EatDirectly();
+    }
+
+    private void MakeIntoDishResult()
+    {
+        CloseDescription();
+        _eventInfoPanel.SetActive(true);
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
+            "Didn't take a big gulp of spinach, one less taste, the whole team recovered 5 points of HP";
+        _dungeonSceneController.MakeIntoDish();
     }
 }

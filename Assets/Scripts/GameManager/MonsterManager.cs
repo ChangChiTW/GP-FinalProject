@@ -111,4 +111,10 @@ public class MonsterManager : MonoBehaviour
     {
         return _monsterList;
     }
+
+    public Monster GetRandomMonster()
+    {
+        int random = Random.Range(0, 4);
+        return _monsterList[random];
+    }
 }
