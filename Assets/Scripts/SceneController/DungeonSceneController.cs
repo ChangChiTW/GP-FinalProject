@@ -187,6 +187,7 @@ public class DungeonSceneController : MonoBehaviour
             }
             CheckAnyAdventurerAlive();
         }
+        yield return new WaitUntil(() => _eventController.IsEventFinished());
         _stateManager.AddAdventurerBalance(monster.gold);
         _eventController.ShowBattleResult(monster.gold, adventurerHp, _adventurerList);
         yield return new WaitUntil(() => _eventController.IsEventFinished());
@@ -296,11 +297,6 @@ public class DungeonSceneController : MonoBehaviour
         }
     }
 
-    public void OpenChestWithCoins()
-    {
-        _stateManager.AddAdventurerBalance(500);
-    }
-
     public void OpenChestWithMonster(Monster monster)
     {
         StartCoroutine(StartBattle(monster));
@@ -325,6 +321,138 @@ public class DungeonSceneController : MonoBehaviour
         for (int i = 0; i < _adventurerList.Length; i++)
         {
             _adventurerList[i].hp += 5;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void DontAskForAdvice()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].hp += 5;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void BuyFireworks()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].atk += 1;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void UseBlackMagicDeckSlaughtered()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].hp -= 10;
+            if (_adventurerList[i].hp < 0)
+            {
+                _adventurerList[i].hp = 0;
+            }
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void UseBlackMagicDeckDefeated()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].hp -= 5;
+            if (_adventurerList[i].hp < 0)
+            {
+                _adventurerList[i].hp = 0;
+            }
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void UseBlackMagicDeckVictory()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].atk += 1;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void AnotherOrder()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].atk += 1;
+            _adventurerList[i].speed += 1;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void IdiotGame()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].atk += 1;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void UseEightArtifacts(string adventurer)
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].name == adventurer)
+            {
+                _adventurerList[i].hp += 10;
+                _adventurerList[i].atk += 10;
+                _adventurerList[i].speed += 10;
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+                break;
+            }
+        }
+    }
+
+    public void TrashEightArtifacts()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].speed += 1;
+            _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+        }
+    }
+
+    public void OolongCoveredWithMulletRoe(string adventurer)
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].name == adventurer)
+            {
+                _adventurerList[i].hp += 3;
+                _adventurerList[i].speed += 1;
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+                break;
+            }
+        }
+    }
+
+    public void BubbleMilkTea(string adventurer)
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].name == adventurer)
+            {
+                _adventurerList[i].atk += 2;
+                _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
+                break;
+            }
+        }
+    }
+
+    public void UndergroundHotSprings()
+    {
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            _adventurerList[i].hp += 15;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
     }
