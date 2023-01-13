@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u5BEC\u6055\u5DEB\u5E2B\u5E3D"
   m_EditorClassIdentifier: 
   itemName: Forgiveness Wizard Hat
-  itemImage: {fileID: 21300000, guid: 94fab09a6284345e28a373f3087ade6a, type: 3}
+  itemImage: {fileID: 21300000, guid: 935d5d2cfb1605048a9b09510fa82af5, type: 3}
   itemHeld: 1
   itemInfo: "\u6234\u4E0A\u4EE5\u5C55\u73FE\u9AD8\u6DF1\u7684\u667A\u6167\u548C\u539F\u8AD2\u7684\u7F8E\u5FB7"
   equip: 0

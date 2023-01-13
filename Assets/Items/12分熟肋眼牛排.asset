@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Rib Eye Steak
   itemImage: {fileID: 21300000, guid: b7622ea4294c44624b60adabb2139632, type: 3}
   itemHeld: 1
-  itemInfo: 
+  itemInfo: "\u8ACB\u554F\u9019\u88E1\u9084\u6709\u6BD412\u5206\u808B\u773C\u725B\u6392\u66F4\u786C\u7684\u6771\u897F\u55CE?"
   equip: 0
   HP: 100
   ATK: 0

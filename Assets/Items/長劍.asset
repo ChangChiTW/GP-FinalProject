@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u9577\u528D"
   m_EditorClassIdentifier: 
   itemName: Long Sword
-  itemImage: {fileID: 21300000, guid: e836ddc64f5414f7480068c97ae14b69, type: 3}
+  itemImage: {fileID: 21300000, guid: 41139a37c1c1ecc4cbf61d6f6f510c76, type: 3}
   itemHeld: 1
   itemInfo: "\u4E0D\u5DEE\u7684\u653B\u64CA\u529B\uFF0C\u53EF\u60DC\u6C92\u6709\u9644\u8D08\u4E09\u74F6\u6C34"
   equip: 0

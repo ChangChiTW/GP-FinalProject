@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u8FEB\u64CA\u7832"
   m_EditorClassIdentifier: 
   itemName: Mortar
-  itemImage: {fileID: 21300000, guid: 7a1045e50289f48e68561210a6244bd1, type: 3}
+  itemImage: {fileID: 21300000, guid: 687691bc4f59ffc4bb8946c76655b02b, type: 3}
   itemHeld: 1
   itemInfo: "\u73FE\u4EE3\u6B66\u5668\uFF0C\u6E05\u602A\u8DDF\u70B8\u9B5A\u4E00\u6A23\u5BB9\u6613"
   equip: 0
