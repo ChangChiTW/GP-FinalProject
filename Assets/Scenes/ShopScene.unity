@@ -437,7 +437,7 @@ MonoBehaviour:
   myBag: {fileID: 11400000, guid: 9acf119365c028341a763a4dd4402dd0, type: 2}
   slotGrid: {fileID: 1708913942}
   slotPrefab: {fileID: 1045856633651460953, guid: b528b61795af04540bdc9498400177e1, type: 3}
-  itemInformation: {fileID: 2426812887082099575}
+  itemInformation: {fileID: 8360518106788001473}
   itemName: {fileID: 6823795691908159186}
   itemStrength: {fileID: 5808724630502445293}
   itemWisdom: {fileID: 2953860772205246155}
@@ -2311,17 +2311,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5784005072280340720}
   m_CullTransparentMesh: 1
---- !u!114 &2426812887082099575 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6173102045421082056, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
-  m_PrefabInstance: {fileID: 8360518106788001471}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2668636458195040691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2825,6 +2814,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8360518106788001473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6873476544181063229, guid: 33858b4b82d768943b76e19232eedfe5, type: 3}
+  m_PrefabInstance: {fileID: 8360518106788001471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8944858429629640536

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public Inventory myBag;
     public GameObject slotGrid;
     public Slot slotPrefab;
-    public Text itemInformation;
+    public TMP_Text itemInformation;
     public Text itemName;
     public Text itemStrength;
     public Text itemWisdom;
