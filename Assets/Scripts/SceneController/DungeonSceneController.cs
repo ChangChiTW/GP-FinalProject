@@ -16,7 +16,7 @@ public class DungeonSceneController : MonoBehaviour
     private GameObject[] _avatars = new GameObject[3];
 
     [SerializeField]
-    private Transform _team;
+    private Transform[] _team = new Transform[3];
     private AudioManager _audioManager;
     private StateManager _stateManager;
     private EventController _eventController;
@@ -38,8 +38,8 @@ public class DungeonSceneController : MonoBehaviour
 
     void Update()
     {
-        _team.position = Vector3.MoveTowards(
-            _team.position,
+        _team[0].position = Vector3.MoveTowards(
+            _team[0].position,
             _targetPosition,
             _speed * Time.deltaTime
         );
@@ -49,8 +49,11 @@ public class DungeonSceneController : MonoBehaviour
         {
             if (_adventurerList[i].hp > 0)
             {
-                _team.GetComponent<SpriteRenderer>().sprite = _adventurerList[i].img;
-                break;
+                _team[i].GetComponent<SpriteRenderer>().sprite = _adventurerList[i].img;
+            }
+            else
+            {
+                _team[i].GetComponent<SpriteRenderer>().sprite = null;
             }
         }
     }
@@ -91,7 +94,7 @@ public class DungeonSceneController : MonoBehaviour
 
     public Vector3 GetTeamPosition()
     {
-        return _team.position;
+        return _team[0].position;
     }
 
     public bool IsArrived()
@@ -114,7 +117,7 @@ public class DungeonSceneController : MonoBehaviour
         if (_isArrived)
         {
             Vector2 target = new Vector2(pos.x * _scale, pos.y * _scale);
-            Vector2 team = new Vector2(_team.position.x, _team.position.y);
+            Vector2 team = new Vector2(_team[0].position.x, _team[0].position.y);
             if (Vector2.Distance(target, team) < 6f && target.x > team.x)
             {
                 _audioManager.PlayBtnClick();
@@ -138,7 +141,7 @@ public class DungeonSceneController : MonoBehaviour
 
     private IEnumerator StartBattle(Monster monster)
     {
-        yield return new WaitUntil(() => _team.position == _targetPosition);
+        yield return new WaitUntil(() => _team[0].position == _targetPosition);
         float monsterHp = monster.hp;
         while (monsterHp > 0)
         {
@@ -185,7 +188,7 @@ public class DungeonSceneController : MonoBehaviour
 
     private IEnumerator StartTreasure()
     {
-        yield return new WaitUntil(() => _team.position == _targetPosition);
+        yield return new WaitUntil(() => _team[0].position == _targetPosition);
         _eventController.ShowEventInfo();
         yield return new WaitUntil(() => _eventController.IsEventFinished());
         _level++;
