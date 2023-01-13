@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
-  m_Name: Barrel Lid
+  m_Name: "12\u5206\u719F\u808B\u773C\u725B\u6392"
   m_EditorClassIdentifier: 
-  itemName: Barrel Lid
-  itemImage: {fileID: 21300000, guid: 828cf6bb5fd354b9ab4f12c87f15fda5, type: 3}
+  itemName: "12\u5206\u719F\u808B\u773C\u725B\u6392"
+  itemImage: {fileID: 21300000, guid: b7622ea4294c44624b60adabb2139632, type: 3}
   itemHeld: 1
-  itemInfo: The barrel lid stolen form roadside is very fragile.
+  itemInfo: 
   equip: 0
-  HP: 3
+  HP: 100
   ATK: 0
-  DEF: 2
-  price: -600
+  DEF: 0
+  SPEED: -5
+  price: -4500
+  itemRaise: 0

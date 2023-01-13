@@ -447,6 +447,13 @@ MonoBehaviour:
   itemPrice: {fileID: 4889552697675120595}
   BuySell: {fileID: 366454733}
   myShop: {fileID: 11400000, guid: 2b3ec5aeaf5916c458c1d89c96b8b9c4, type: 2}
+  shop1: {fileID: 11400000, guid: 22e199fd9c1f48c41b4c733b601bc819, type: 2}
+  shop2: {fileID: 11400000, guid: a25ce4b6ab7d9304aada820883e35d30, type: 2}
+  shop3: {fileID: 11400000, guid: bb631c0d4aadde2408cc49844e43ee44, type: 2}
+  shop4: {fileID: 11400000, guid: 8be4fbbe2a2bc424da8f17f2898a2cd7, type: 2}
+  shop5: {fileID: 11400000, guid: ce6e36641fa19f044a81251a4f99f57e, type: 2}
+  shop6: {fileID: 11400000, guid: f64651779061f7841b16fe46be6e5ca5, type: 2}
+  shop7: {fileID: 11400000, guid: 885e531eca197594f9698bcebadd8c11, type: 2}
   shopGrid: {fileID: 2084957781}
   shopPrefab: {fileID: -691590101799860167, guid: 1abfdcdb1ddc28b4b9cb0a8db908b6ec, type: 3}
   OwnDebt: {fileID: 1697656949}

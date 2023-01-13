@@ -21,6 +21,13 @@ public class InventoryManager : MonoBehaviour
     private bool Buy = true;
 
     public Inventory myShop;
+    public Inventory shop1;
+    public Inventory shop2;
+    public Inventory shop3;
+    public Inventory shop4;
+    public Inventory shop5;
+    public Inventory shop6;
+    public Inventory shop7;
     public GameObject shopGrid;
     public Slot shopPrefab;
 
@@ -196,9 +203,45 @@ public class InventoryManager : MonoBehaviour
                 break;
             Destroy(instance.shopGrid.transform.GetChild(i).gameObject);
         }
-        for (int i = 0; i < instance.myShop.itemList.Count; i++)
+        int today=instance._stateManager.GetDay();
+        switch (today)
+        {
+            case 1:
+                for (int i = 0; i < instance.shop1.itemList.Count; i++)
+                    CreateShopItem(instance.shop1.itemList[i]);
+                break;
+            case 2:
+                for (int i = 0; i < instance.shop2.itemList.Count; i++)
+                    CreateShopItem(instance.shop2.itemList[i]);
+                break;
+            case 3:
+                for (int i = 0; i < instance.shop3.itemList.Count; i++)
+                    CreateShopItem(instance.shop3.itemList[i]);
+                break;
+            case 4:
+                for (int i = 0; i < instance.shop4.itemList.Count; i++)
+                    CreateShopItem(instance.shop4.itemList[i]);
+                break;
+            case 5:
+                for (int i = 0; i < instance.shop5.itemList.Count; i++)
+                    CreateShopItem(instance.shop5.itemList[i]);
+                break;
+            case 6:
+                for (int i = 0; i < instance.shop6.itemList.Count; i++)
+                    CreateShopItem(instance.shop6.itemList[i]);
+                break;
+            case 7:
+                for (int i = 0; i < instance.shop7.itemList.Count; i++)
+                    CreateShopItem(instance.shop7.itemList[i]);
+                break;
+            default:
+                for (int i = 0; i < instance.shop1.itemList.Count; i++)
+                    CreateShopItem(instance.shop1.itemList[i]);
+                break;
+        }
+        /*for (int i = 0; i < instance.myShop.itemList.Count; i++)
         {
             CreateShopItem(instance.myShop.itemList[i]);
-        }
+        }*/
     }
 }

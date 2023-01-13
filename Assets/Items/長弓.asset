@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
-  m_Name: Iron Arrow
+  m_Name: "\u9577\u5F13"
   m_EditorClassIdentifier: 
-  itemName: Iron Arrow
-  itemImage: {fileID: 21300000, guid: 9d9ad285d073042c3b105f7e07ed062c, type: 3}
+  itemName: "\u9577\u5F13"
+  itemImage: {fileID: 21300000, guid: e42132bdb2779484fb2f1abf042f9773, type: 3}
   itemHeld: 1
-  itemInfo: An ordinary arrow, cheap and easy to use.
+  itemInfo: "\u767E\u5E74\u6230\u722D\u6642\u671F\u7684\u8001\u53E4\u8463\uFF0C\u59D1\u4E14\u80FD\u5C04\u5C04\u6CD5\u570B\u4EBA"
   equip: 0
   HP: 0
-  ATK: 2
+  ATK: 13
   DEF: 0
-  price: -400
+  SPEED: 2
+  price: -1000
+  itemRaise: 0
