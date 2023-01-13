@@ -152,13 +152,10 @@ public class EventController : MonoBehaviour
     {
         AdventurerInfo adventurer = _dungeonSceneController.GetRandomAdventurer();
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Boulder Trap";
+        _eventName.GetComponent<TMP_Text>().text = "巨石陷阱";
         _description.GetComponent<TMP_Text>().text =
-            adventurer.name
-            + " stepped on a trap on the long and narrow road, and after the stone door on the right opened, a huge boulder rolled towards the "
-            + adventurer.name
-            + " at high speed";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Dash forward";
+            "在狹長的道路上" + adventurer.name + "踩到了陷阱，右側石門打開後出現一塊巨石朝著" + adventurer.name + "高速滾動";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "向前衝刺";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -166,7 +163,7 @@ public class EventController : MonoBehaviour
                 DashForwardResult(adventurer.name);
             });
 
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Roll back";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "往後翻滾";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -178,17 +175,16 @@ public class EventController : MonoBehaviour
     private void ObtrusiveTreasureChestEvent()
     {
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Obtrusive Treasure Chest";
-        _description.GetComponent<TMP_Text>().text =
-            "In an empty room, a treasure chest out of place with the surroundings is conspicuously placed in the center of the room";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Open the chest";
+        _eventName.GetComponent<TMP_Text>().text = "突兀的寶箱";
+        _description.GetComponent<TMP_Text>().text = "在一個空曠的房間中，一個與周圍格格不入的寶箱顯眼的擺在房間中央";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "打開它";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 OpenChestResult();
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Ignore the chest";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "無視他";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -200,17 +196,16 @@ public class EventController : MonoBehaviour
     private void CannedSpinachEvent()
     {
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Canned Spinach";
-        _description.GetComponent<TMP_Text>().text =
-            "Adventurers picked up a can of spinach with Bu Pai's face printed on it, how should they eat it?";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Eat directly";
+        _eventName.GetComponent<TMP_Text>().text = "菠菜罐頭";
+        _description.GetComponent<TMP_Text>().text = "撿到一個菠菜罐頭，上面還印著卜派的頭像，該怎麼吃呢?";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "直接吃掉";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 EatDirectlyResult();
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Make it into a dish";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "將其做成菜餚";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -222,16 +217,16 @@ public class EventController : MonoBehaviour
     private void MagicConchEvent()
     {
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Magic Conch";
-        _description.GetComponent<TMP_Text>().text = "Adventurers picked up a conch";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Ask for advice";
+        _eventName.GetComponent<TMP_Text>().text = "神奇海螺";
+        _description.GetComponent<TMP_Text>().text = "冒險者們撿到一個海螺";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "問";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 AskForAdviceResult();
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Don't ask for advice";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "不問";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -243,17 +238,16 @@ public class EventController : MonoBehaviour
     private void ReceiveSoaringSharesEvent()
     {
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Receive Soaring Shares";
-        _description.GetComponent<TMP_Text>().text =
-            "A strange teacher appeared, claiming that as long as you buy the props specified by him, you will get rich. Do you want to take off with the teacher?";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Trust the teacher";
+        _eventName.GetComponent<TMP_Text>().text = "領取飆股";
+        _description.GetComponent<TMP_Text>().text = "出現一個奇怪的老師，聲稱只要買他指定的道具就會發家致富，要跟著老師一起起飛嗎？";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "信他一把";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 TrustTeacherResult();
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Call 165";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "撥打165專線";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -265,17 +259,16 @@ public class EventController : MonoBehaviour
     private void HappyNewYearEvent()
     {
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Happy New Year";
-        _description.GetComponent<TMP_Text>().text =
-            "The end of the year is approaching, come to the grocery store for fun.";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Buy scratch cards";
+        _eventName.GetComponent<TMP_Text>().text = "新年快樂";
+        _description.GetComponent<TMP_Text>().text = "年關將近，來到雜貨店否放一下";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "買刮刮樂";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 BuyScratchCardsResult();
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Buy fireworks";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "買沖天炮";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -287,18 +280,16 @@ public class EventController : MonoBehaviour
     private void DuelEvent()
     {
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Duel";
-        _description.GetComponent<TMP_Text>().text =
-            "The adventurers came to a room, and it was Muto Yuki standing in front of him, and Muto Yuki issued a duel to the adventurers!";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text =
-            "Use the Ultimate Mage deck";
+        _eventName.GetComponent<TMP_Text>().text = "決鬥";
+        _description.GetComponent<TMP_Text>().text = "冒險者們來到一個房間，站在前方 的正是武藤遊戲，武藤遊戲對冒險者發出了決鬥!";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "使用究極大法師牌組";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 UseUltimateMageDeckResult();
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Use the Black Magic Deck";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "使用黑魔導牌組";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -310,17 +301,16 @@ public class EventController : MonoBehaviour
     private void AfricanChiefEvent()
     {
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "African Chief";
-        _description.GetComponent<TMP_Text>().text =
-            "TThe adventurer encountered a slot machine that could be played, but he failed to win the jackpot after playing 200 times";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Another order";
+        _eventName.GetComponent<TMP_Text>().text = "非洲酋長";
+        _description.GetComponent<TMP_Text>().text = "遇到一台可以玩的拉霸機，但是玩了200次都沒中大獎";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "再來一單";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 AnotherOrderResult();
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Idiot game";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "白痴遊戲";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -333,17 +323,16 @@ public class EventController : MonoBehaviour
     {
         AdventurerInfo adventurer = _dungeonSceneController.GetRandomAdventurer();
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Eight Artifacts";
-        _description.GetComponent<TMP_Text>().text =
-            "This script gives you +10 attack speed and blood volume, which is guaranteed to be non-toxic and absolutely safe.";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "Use it";
+        _eventName.GetComponent<TMP_Text>().text = "八門神器";
+        _description.GetComponent<TMP_Text>().text = "這個腳本讓你攻擊速度血量+10，保證無毒，絕對安全";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "我還不用爆";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 UseEightArtifactsResult(adventurer.name);
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Trash it";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "垃圾遊戲";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -356,18 +345,16 @@ public class EventController : MonoBehaviour
     {
         AdventurerInfo adventurer = _dungeonSceneController.GetRandomAdventurer();
         ShowDescription();
-        _eventName.GetComponent<TMP_Text>().text = "Mini Drink";
-        _description.GetComponent<TMP_Text>().text =
-            adventurer.name + "found a lovely drink shop selling different drinks";
-        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text =
-            "Oolong covered with mullet roe";
+        _eventName.GetComponent<TMP_Text>().text = "地雷飲料";
+        _description.GetComponent<TMP_Text>().text = adventurer.name + "發現一家可愛的飲料店販賣不同的飲料";
+        _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "烏魚子奶蓋烏龍";
         _optionA
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 OolongCoveredWithMulletRoeResult(adventurer.name);
             });
-        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "Bubble milk tea";
+        _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "珍珠奶茶";
         _optionB
             .GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -380,7 +367,7 @@ public class EventController : MonoBehaviour
     {
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "The adventurers found an underground hot spring, took a good rest, and the whole team recovered 15HP";
+            "冒險者找到了一處地下溫泉，好好休息了一番，全隊恢復15HP";
         _dungeonSceneController.UndergroundHotSprings();
     }
 
@@ -388,7 +375,7 @@ public class EventController : MonoBehaviour
     {
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Gold coins began to rain everywhere in the dungeon, and the purchasing power of adventurers increased significantly, +2000g, the desire to buy level +2";
+            "地牢各處開始下起金幣雨，冒險者購買力大幅提升，+2000g，購買慾望等級+2";
         _stateManager.AddAdventurerBalance(2000);
         _stateManager.AddRaiseRatio(4);
     }
@@ -399,9 +386,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Although dodged the boulder, but sprained his ankle while sprinting, "
-            + adventurer
-            + "'s speed is permanently -3";
+            "雖然躲過了巨石，但卻在衝刺時扭傷腳踝，" + adventurer + "速度-3";
         _dungeonSceneController.DashForward(adventurer);
     }
 
@@ -410,8 +395,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(false);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            adventurer
-            + " collides with his team after narrowly dodging the boulder, and the team takes 5 damage";
+            adventurer + "在驚險地躲過巨石後，與他的隊伍撞成一團，全隊受到5點傷害";
         _dungeonSceneController.RollBack();
     }
 
@@ -422,14 +406,14 @@ public class EventController : MonoBehaviour
         if (Random.Range(0, 100) < 25)
         {
             _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-                "The chest is filled with gold coins, and the team gains 500 gold coins";
+                "寶箱裝滿金幣，團隊獲得500金幣";
             _stateManager.AddAdventurerBalance(500);
         }
         else
         {
             Monster monster = _monsterManager.GetRandomMonster();
             _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-                "The chest is filled with a monster, and the team encounters a " + monster.name;
+                "箱子裡裝滿了怪物，隊伍遇到了" + monster.name;
             _dungeonSceneController.OpenChestWithMonster(monster);
         }
     }
@@ -438,7 +422,7 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "Nothing happened";
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "無事發生";
     }
 
     private void EatDirectlyResult()
@@ -446,7 +430,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "A bit expired, causing everyone in the team to have diarrhea, but also received the blessing of Bu Pai, the team's hp -10 attack power +3";
+            "有點過期導致隊伍所有人拉肚子，但也獲得了卜派的祝福，全隊血量-10攻擊力+3";
         _dungeonSceneController.EatDirectly();
     }
 
@@ -455,7 +439,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Didn't take a big gulp of spinach, one less taste, the whole team recovered 5 points of HP";
+            "沒有大口嗑下菠菜少了一個醍醐味，全隊回復5點血量";
         _dungeonSceneController.MakeIntoDish();
     }
 
@@ -463,8 +447,7 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "The conch guides the adventurer to a treasure chest, +200g";
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "海螺指引冒險者找到一個寶箱，+200g";
         _stateManager.AddAdventurerBalance(200);
     }
 
@@ -472,8 +455,7 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "The conch makes a melodious melody, and the whole team recovers 5 HP";
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "海螺發出悠揚旋律，全隊恢復5HP";
         _dungeonSceneController.DontAskForAdvice();
     }
 
@@ -481,19 +463,17 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "The sensibility of adventurers prevailed, and they decided to take a gamble. ";
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "冒險者的感性佔據上風，決定冒險賭一把，";
         if (Random.Range(0, 100) < 90)
         {
             _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text +=
-                "The teacher was a fraud, and the team lost 300 gold coins, and the desire to buy level +1";
+                "，-300g，並增加購買欲望等級+1";
             _stateManager.AddAdventurerBalance(-300);
             _stateManager.AddRaiseRatio(2);
         }
         else
         {
-            _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text +=
-                "The teacher is a fraud, but the adventurers are lucky enough to find the teacher's secret stash, and the team gains 2000 gold coins";
+            _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text += "+2000g";
             _stateManager.AddAdventurerBalance(2000);
         }
     }
@@ -503,7 +483,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "The rationality of the risk taker prevailed, and he decided to report this stock market teacher, +300g but the desire to buy level -1";
+            "冒險者的理性佔據上風，決定檢舉這個飆股老師，+300g但購買慾望等級-1";
         _stateManager.AddAdventurerBalance(300);
         _stateManager.AddRaiseRatio(-2);
     }
@@ -513,7 +493,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Doing public welfare to accumulate character, -100g but the desire to buy level +1";
+            "做做公益累積人品，-100g, 購買慾望等級+1";
         _stateManager.AddAdventurerBalance(-100);
         _stateManager.AddRaiseRatio(2);
     }
@@ -523,7 +503,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "This thing can scare even Nian Beasts away, -200g, the attack power of the whole team +1";
+            "這東西連年獸都能嚇跑啊，-200g，全隊攻擊力+1";
         _stateManager.AddAdventurerBalance(-200);
         _dungeonSceneController.BuyFireworks();
     }
@@ -533,8 +513,8 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "It's faith! 100% wins but this deck is too expensive and only wins 200g";
-        _stateManager.AddAdventurerBalance(200);
+            "這是信仰!100%勝利，但這牌組太貴了，只贏得100g";
+        _stateManager.AddAdventurerBalance(100);
     }
 
     private void UseBlackMagicDeckResult()
@@ -542,24 +522,24 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "It is obviously not a wise choice to use the most familiar deck of the game against the game. ";
+            "使用遊戲最熟悉的牌組對付遊戲顯然不是明智的選擇";
         int random = Random.Range(0, 100);
         if (random < 30)
         {
             _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text +=
-                "The whole team was brutally slaughtered with full blood HP-10";
+                "，慘遭遊戲滿血虐殺，全隊HP-10";
             _dungeonSceneController.UseBlackMagicDeckSlaughtered();
         }
         else if (random < 80)
         {
             _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text +=
-                "Easily defeated, all team HP-5";
+                "，被遊戲輕鬆贏得勝利，全隊HP-5";
             _dungeonSceneController.UseBlackMagicDeckDefeated();
         }
         else
         {
             _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text +=
-                "Miraculously won the victory, +1000g, team attack +1";
+                "，奇蹟似的打倒遊戲，+1000g，全隊攻擊+1";
             _stateManager.AddAdventurerBalance(1000);
             _dungeonSceneController.UseBlackMagicDeckVictory();
         }
@@ -570,7 +550,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "-400g, spent another 400g, but still lost, team attack +1, team speed +1";
+            "-400g，又花了400g，但還是慘賠，全隊攻擊+1，全隊速度+1";
         _stateManager.AddAdventurerBalance(-800);
         _dungeonSceneController.AnotherOrder();
     }
@@ -579,8 +559,7 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "-400g, team attack +1";
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "-400g，全隊攻擊+1";
         _stateManager.AddAdventurerBalance(-400);
         _dungeonSceneController.IdiotGame();
     }
@@ -590,7 +569,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Attack speed HP +10, lose all money if detected after a random round";
+            adventurer + "攻擊速度血量+10，隨機輪後被偵測到失去所有金錢";
         _dungeonSceneController.UseEightArtifacts(adventurer);
         _stateManager.AddAdventurerBalance(-_stateManager.GetAdventurerBalance());
     }
@@ -599,8 +578,7 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Game designer thanks for your kindness.";
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "遊戲設計者感謝您的善良，全隊速度+1";
         _dungeonSceneController.TrashEightArtifacts();
     }
 
@@ -609,7 +587,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "Surprisingly delicious, +3 health +1 speed";
+            "意外的很好喝，+3血量+1速度(註:http://dadaochen.com，真的好喝)";
         _dungeonSceneController.OolongCoveredWithMulletRoe(adventurer);
     }
 
@@ -618,7 +596,7 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "The basic model is so bad, the fist is hard, attack +2";
+            "基本款竟然這麼雷，拳頭都硬了，" + adventurer + "攻擊+2";
         _dungeonSceneController.BubbleMilkTea(adventurer);
     }
 }
