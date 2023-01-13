@@ -47,10 +47,12 @@ public class EventController : MonoBehaviour
         return !_eventInfo.activeSelf;
     }
 
-    public void ShowBattleResult(float[] beforeHp, AdventurerInfo[] after)
+    public void ShowBattleResult(int gold, float[] beforeHp, AdventurerInfo[] after)
     {
         _eventInfo.SetActive(true);
         _battleResultPanel.SetActive(true);
+        _battleResultPanel.transform.Find("Gold").GetComponent<TMP_Text>().text =
+            "Gold +" + gold.ToString();
         for (int i = 0; i < after.Length; i++)
         {
             _battleResultPanel.transform

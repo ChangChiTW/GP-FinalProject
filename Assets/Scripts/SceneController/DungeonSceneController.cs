@@ -187,7 +187,8 @@ public class DungeonSceneController : MonoBehaviour
             }
             CheckAnyAdventurerAlive();
         }
-        _eventController.ShowBattleResult(adventurerHp, _adventurerList);
+        _stateManager.AddAdventurerBalance(monster.gold);
+        _eventController.ShowBattleResult(monster.gold, adventurerHp, _adventurerList);
         yield return new WaitUntil(() => _eventController.IsEventFinished());
         _level++;
         _isArrived = true;
