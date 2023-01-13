@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
   m_Name: "\u8FEB\u64CA\u7832"
   m_EditorClassIdentifier: 
-  itemName: "\u8FEB\u64CA\u7832"
+  itemName: Mortar
   itemImage: {fileID: 21300000, guid: 7a1045e50289f48e68561210a6244bd1, type: 3}
   itemHeld: 1
   itemInfo: "\u73FE\u4EE3\u6B66\u5668\uFF0C\u6E05\u602A\u8DDF\u70B8\u9B5A\u4E00\u6A23\u5BB9\u6613"

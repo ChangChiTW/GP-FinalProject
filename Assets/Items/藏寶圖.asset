@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
   m_Name: "\u85CF\u5BF6\u5716"
   m_EditorClassIdentifier: 
-  itemName: "\u85CF\u5BF6\u5716"
+  itemName: ' Treasure Map'
   itemImage: {fileID: 21300000, guid: bd02616d1a1e547b2810a6a2d8baf99a, type: 3}
   itemHeld: 1
   itemInfo: "\u8CFA\u9322\u5C31\u662FEZ\uFF0C\u6C92\u4EBA\u80FD\u62B5\u64CB\u85CF\u5BF6\u5716\u7684\u9B45\u529B"

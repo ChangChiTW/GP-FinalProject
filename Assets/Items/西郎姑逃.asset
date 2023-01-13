@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
   m_Name: "\u897F\u90CE\u59D1\u9003"
   m_EditorClassIdentifier: 
-  itemName: "\u897F\u90CE\u59D1\u9003"
+  itemName: Skull
   itemImage: {fileID: 21300000, guid: bd41a269e62424918972a849e6bb175f, type: 3}
   itemHeld: 1
   itemInfo: "\u6B7B\u9748\u6CD5\u5E2B\u7684\u88DD\u5099\uFF0C\u4EE4\u4EBA\u805E\u98A8\u55AA\u81BD"

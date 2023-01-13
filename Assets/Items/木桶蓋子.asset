@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
   m_Name: "\u6728\u6876\u84CB\u5B50"
   m_EditorClassIdentifier: 
-  itemName: "\u6728\u6876\u84CB\u5B50"
+  itemName: BarrelLid
   itemImage: {fileID: 21300000, guid: 828cf6bb5fd354b9ab4f12c87f15fda5, type: 3}
   itemHeld: 1
   itemInfo: "\u8DEF\u908A\u6728\u6876\u9806\u4F86\u7684\u84CB\u5B50\uFF0C\u975E\u5E38\u8106\u5F31"

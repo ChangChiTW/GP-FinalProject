@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9215b4af0bbc74cafdf2874cae0316, type: 3}
   m_Name: "\u8349\u978B"
   m_EditorClassIdentifier: 
-  itemName: "\u8349\u978B"
+  itemName: ' Straw Sandals'
   itemImage: {fileID: 21300000, guid: 40ff90567f4034c038f04b80b40ac610, type: 3}
   itemHeld: 1
   itemInfo: "\u904E\u5F97\u6BD4\u8D64\u8173\u5927\u4ED9\u8212\u5766\u4E00\u9EDE"
