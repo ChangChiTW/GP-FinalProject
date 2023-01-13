@@ -34,10 +34,13 @@ public class DungeonMapCreator : MonoBehaviour
         for (int i = 0; i < _maxLevel; i++)
         {
             List<int> level = new List<int>();
-            level.Add(Random.Range(1, 4));
-            for (int j = 0; j < 2; j++)
+            for (int j = 0; j < 3; j++)
             {
-                level.Add(Random.Range(0, 3));
+                level.Add(Random.Range(0, 100));
+            }
+            if (level[0] > 80 && level[1] > 80 && level[2] > 80)
+            {
+                level[Random.Range(0, 3)] = Random.Range(0, 80);
             }
             _map.Add(level);
         }
@@ -48,11 +51,11 @@ public class DungeonMapCreator : MonoBehaviour
             List<int> treasureList = new List<int>();
             for (int j = 0; j < 3; j++)
             {
-                if (_map[i][j] == 1)
+                if (_map[i][j] < 30)
                 {
                     treasureList.Add(j);
                 }
-                else if (_map[i][j] > 1)
+                else if (_map[i][j] < 80)
                 {
                     monsterList.Add(j);
                 }
