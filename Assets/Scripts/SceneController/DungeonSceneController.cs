@@ -142,6 +142,11 @@ public class DungeonSceneController : MonoBehaviour
     private IEnumerator StartBattle(Monster monster)
     {
         yield return new WaitUntil(() => _team[0].position == _targetPosition);
+        float[] adventurerHp = new float[_adventurerList.Length];
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            adventurerHp[i] = _adventurerList[i].hp;
+        }
         float monsterHp = monster.hp;
         while (monsterHp > 0)
         {
@@ -180,7 +185,10 @@ public class DungeonSceneController : MonoBehaviour
                         .UpdateAdventurer(_adventurerList[i]);
                 }
             }
+            CheckAnyAdventurerAlive();
         }
+        _eventController.ShowBattleResult(adventurerHp, _adventurerList);
+        yield return new WaitUntil(() => _eventController.IsEventFinished());
         _level++;
         _isArrived = true;
         CheckLastLevel();
@@ -194,6 +202,23 @@ public class DungeonSceneController : MonoBehaviour
         _level++;
         _isArrived = true;
         CheckLastLevel();
+    }
+
+    private void CheckAnyAdventurerAlive()
+    {
+        bool isAnyAlive = false;
+        for (int i = 0; i < _adventurerList.Length; i++)
+        {
+            if (_adventurerList[i].hp > 0)
+            {
+                isAnyAlive = true;
+                break;
+            }
+        }
+        if (!isAnyAlive)
+        {
+            SceneManager.LoadScene("SettlementScene");
+        }
     }
 
     private void CheckLastLevel()

@@ -15,6 +15,9 @@ public class EventController : MonoBehaviour
 
     [SerializeField]
     private GameObject _eventInfoPanel;
+
+    [SerializeField]
+    private GameObject _battleResultPanel;
     private StateManager _stateManager;
     private DungeonSceneController _dungeonSceneController;
 
@@ -81,6 +84,7 @@ public class EventController : MonoBehaviour
     {
         _eventInfo.SetActive(false);
         _eventInfoPanel.SetActive(false);
+        _battleResultPanel.SetActive(false);
         foreach (GameObject btn in _eventButtons)
         {
             btn.SetActive(false);
@@ -90,6 +94,36 @@ public class EventController : MonoBehaviour
     public bool IsEventFinished()
     {
         return !_eventInfo.activeSelf;
+    }
+
+    // Battle result
+    public void ShowBattleResult(float[] beforeHp, AdventurerInfo[] after)
+    {
+        _eventInfo.SetActive(true);
+        _battleResultPanel.SetActive(true);
+        for (int i = 0; i < after.Length; i++)
+        {
+            _battleResultPanel.transform
+                .Find("Adventurer" + i)
+                .Find("Name")
+                .GetComponent<TMP_Text>()
+                .text = after[i].name;
+            _battleResultPanel.transform
+                .Find("Adventurer" + i)
+                .Find("Img")
+                .GetComponent<Image>()
+                .sprite = after[i].img;
+            _battleResultPanel.transform
+                .Find("Adventurer" + i)
+                .Find("Before")
+                .GetComponent<TMP_Text>()
+                .text = beforeHp[i].ToString();
+            _battleResultPanel.transform
+                .Find("Adventurer" + i)
+                .Find("After")
+                .GetComponent<TMP_Text>()
+                .text = after[i].hp.ToString();
+        }
     }
 
     // Event to be called when the player click on the event button (good event)
