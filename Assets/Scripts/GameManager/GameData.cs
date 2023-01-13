@@ -7,12 +7,14 @@ public class GameData
 {
     public int day;
     public int balance;
-    public int additionalRatio;
+    public int adventurerBalance;
+    public int raiseRatio;
 
     public GameData()
     {
         day = 1;
         balance = 1000;
-        additionalRatio = 0;
+        adventurerBalance = 0;
+        raiseRatio = 30;
     }
 }

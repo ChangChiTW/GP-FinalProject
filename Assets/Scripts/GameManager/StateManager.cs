@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    private int _day = 1;
-    private int _balance = 1000;
-    private int _additionalRatio = 0;
-    private int _adventurerBalance = 0;
-    private int _raiseRatio = 30;
+    private GameData _gameData;
     private int _layer = 0;
     private int[] _debt = { 100, 300, 600, 1000, 1500, 2000, 10000 };
     private string _lastSceneToStageBookScene = "ShopScene";
-    private int[] _goldRatio = { 100, 125, 150, 200 };
     private int[] _settlement = { 0, 0, 0, 0, 0 };
     private int[] _expectedBalance = { 1500, 2100, 2760, 3416, 3965, 4345, -3000 };
     private int[] _monsterRatio = { 100, 100, 105, 110, 120 };
@@ -34,12 +29,12 @@ public class StateManager : MonoBehaviour
 
     public void AddDay()
     {
-        _day++;
+        _gameData.day++;
     }
 
     public int GetDay()
     {
-        return _day;
+        return _gameData.day;
     }
 
     private void ResetLayer()
@@ -59,28 +54,28 @@ public class StateManager : MonoBehaviour
 
     private void BalanceMinusDebt()
     {
-        _balance -= _debt[_day - 1];
+        _gameData.balance -= _debt[_gameData.day - 1];
     }
 
     public void SecretAddBalance(int balance)
     {
-        _balance += balance;
+        _gameData.balance += balance;
     }
 
     public void AddBalance(int balance)
     {
         _settlement[_layer] += balance;
-        _balance += balance;
+        _gameData.balance += balance;
     }
 
     public int GetBalance()
     {
-        return _balance;
+        return _gameData.balance;
     }
 
     public int GetDebt()
     {
-        return _debt[_day - 1];
+        return _debt[_gameData.day - 1];
     }
 
     private void ResetLastSceneToStageBookScene()
@@ -103,19 +98,24 @@ public class StateManager : MonoBehaviour
         return _monsterRatio[_layer];
     }
 
-    public int GetGoldRatio()
+    public int GetAdventurerBalance()
     {
-        return _goldRatio[_layer] + _additionalRatio;
+        return _gameData.adventurerBalance;
+    }
+
+    public void AddAdventurerBalance(int balance)
+    {
+        _gameData.adventurerBalance += balance;
     }
 
     public int GetRaiseRatio()
     {
-        return _raiseRatio;
+        return _gameData.raiseRatio;
     }
 
     public void AddRaiseRatio(int ratio)
     {
-        _raiseRatio += ratio;
+        _gameData.raiseRatio += ratio;
     }
 
     private void ResetSettlement()
@@ -138,23 +138,17 @@ public class StateManager : MonoBehaviour
 
     public int GetExpectedBalance()
     {
-        return _expectedBalance[_day - 1];
+        return _expectedBalance[_gameData.day - 1];
     }
 
     private void SetGameData(GameData gameData)
     {
-        _day = gameData.day;
-        _balance = gameData.balance;
-        _additionalRatio = gameData.additionalRatio;
+        _gameData = gameData;
     }
 
     public void SaveGame()
     {
-        GameData gameData = new GameData();
-        gameData.day = _day;
-        gameData.balance = _balance;
-        gameData.additionalRatio = _additionalRatio;
-        _fileDataHandler.Save(gameData);
+        _fileDataHandler.Save(_gameData);
     }
 
     public void NewGame()

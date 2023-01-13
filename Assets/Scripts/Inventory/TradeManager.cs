@@ -17,7 +17,6 @@ public class TradeManager : MonoBehaviour
     public Image itemPic;
     public Text itemPrice;
     public Text originalPrice;
-    public Text goldRatio;
     private StateManager _stateManager;
     public Text OwnMoney;
 
@@ -59,7 +58,7 @@ public class TradeManager : MonoBehaviour
 
     public static void AddNewItem()
     {
-        int ratio = instance._stateManager.GetGoldRatio();
+        int ratio = 200;
         instance._stateManager.AddBalance(
             System.Convert.ToInt32(System.Math.Floor(-1 * ratio * 0.01 * instance.chosenItem.price))
         );
@@ -93,8 +92,7 @@ public class TradeManager : MonoBehaviour
         instance.itemSpeed.text = "SPEED:  +" + SPD.ToString();
         instance.itemPic.sprite = itemImage;
         instance.originalPrice.text = (-1 * price).ToString();
-        int ratio = instance._stateManager.GetGoldRatio();
-        instance.goldRatio.text = ratio.ToString() + "%";
+        int ratio = 200;
         instance.itemPrice.text = "+" + (-1 * ratio * 0.01 * price).ToString();
     }
 
