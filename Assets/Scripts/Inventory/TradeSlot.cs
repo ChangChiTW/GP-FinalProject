@@ -14,6 +14,7 @@ public class TradeSlot : MonoBehaviour
     public void ItemOnClicked()
     {
         GameObject.Find("GameManager").GetComponent<AudioManager>().PlayBtnClick();
+        TradeManager.ChooseItem(slotItem);
         TradeManager.ShowDes();
         TradeManager.UpdateItemInfo(
             slotItem.itemName,
@@ -25,7 +26,6 @@ public class TradeSlot : MonoBehaviour
             slotItem.itemImage,
             slotItem.price
         );
-        TradeManager.ChooseItem(slotItem);
     }
 
     public void CloseDes()

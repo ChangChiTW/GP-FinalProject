@@ -157,7 +157,7 @@ public class InventoryManager : MonoBehaviour
         newItem.gameObject.transform.SetParent(instance.slotGrid.transform);
         newItem.slotItem = item;
         newItem.slotImage.sprite = item.itemImage;
-        newItem.slotNum.text = item.itemHeld.ToString();
+        //newItem.slotNum.text = item.itemHeld.ToString();
     }
 
     public static void CreateShopItem(Item item)

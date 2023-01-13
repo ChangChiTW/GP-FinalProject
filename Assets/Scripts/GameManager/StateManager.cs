@@ -103,6 +103,16 @@ public class StateManager : MonoBehaviour
         return _monsterRatio[_layer];
     }
 
+    public int GetAdventureBalance()
+    {
+        return _adventurerBalance;
+    }
+
+    public void AddAdventureBalance(int balance)
+    {
+        _adventurerBalance += balance;
+    }
+
     public int GetGoldRatio()
     {
         return _goldRatio[_layer] + _additionalRatio;

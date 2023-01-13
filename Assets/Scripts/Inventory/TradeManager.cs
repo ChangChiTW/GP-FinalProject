@@ -20,6 +20,7 @@ public class TradeManager : MonoBehaviour
     public Text raiseRatio;
     private StateManager _stateManager;
     public Text OwnMoney;
+    public Text AdventurerMoney;
 
     public GameObject itemDes;
     public Item chosenItem;
@@ -42,6 +43,7 @@ public class TradeManager : MonoBehaviour
     void Update()
     {
         instance.OwnMoney.text = "$" + instance._stateManager.GetBalance();
+        instance.AdventurerMoney.text = "$" + instance._stateManager.GetAdventureBalance();
     }
 
     public static void ShowDes()
@@ -74,6 +76,18 @@ public class TradeManager : MonoBehaviour
             instance._stateManager.AddBalance(
                 System.Convert.ToInt32(System.Math.Floor(-0.5 * instance.chosenItem.price))
             );
+        if(instance.chosenItem.itemRaise==0)
+            instance._stateManager.AddAdventureBalance(
+                System.Convert.ToInt32(System.Math.Floor(1.0 * instance.chosenItem.price))
+            );
+        else if(instance.chosenItem.itemRaise==1)
+            instance._stateManager.AddAdventureBalance(
+                System.Convert.ToInt32(System.Math.Floor(2.0 * instance.chosenItem.price))
+            );
+        else
+            instance._stateManager.AddAdventureBalance(
+                System.Convert.ToInt32(System.Math.Floor(0.5 * instance.chosenItem.price))
+            );
         /*instance._stateManager.AddBalance(
             System.Convert.ToInt32(System.Math.Floor(-1 * ratio * 0.01 * instance.chosenItem.price))
         );*/
@@ -100,7 +114,8 @@ public class TradeManager : MonoBehaviour
         int price
     )
     {
-        //instance.Raise.interactable = true;
+        if(instance.chosenItem.itemRaise==0)
+            instance.Raise.gameObject.SetActive(true);
         instance.itemName.text = itemName;
         instance.itemStrength.text = "HP:       +" + HP.ToString();
         instance.itemWisdom.text = "ATK:     +" + ATK.ToString();
@@ -111,7 +126,12 @@ public class TradeManager : MonoBehaviour
         int ratio = instance._stateManager.GetRaiseRatio();
         instance.raiseRatio.text = ratio.ToString() + "%";
         //instance.itemPrice.text = "+" + (-1 * ratio * 0.01 * price).ToString();
-        instance.itemPrice.text = "+" + (-1 * price).ToString();
+        if(instance.chosenItem.itemRaise==0)
+            instance.itemPrice.text = "+" + (-1 * price).ToString();
+        else if(instance.chosenItem.itemRaise==1)
+            instance.itemPrice.text = "+" + (-2 * price).ToString();
+        else
+            instance.itemPrice.text = "+" + (-0.5 * price).ToString();
     }
 
     public static void CreateNewItem(Item item)
@@ -124,7 +144,7 @@ public class TradeManager : MonoBehaviour
         newItem.gameObject.transform.SetParent(instance.slotGrid.transform);
         newItem.slotItem = item;
         newItem.slotImage.sprite = item.itemImage;
-        newItem.slotNum.text = item.itemHeld.ToString();
+        //newItem.slotNum.text = item.itemHeld.ToString();
     }
 
     public static void RefreshItem()
@@ -160,6 +180,6 @@ public class TradeManager : MonoBehaviour
             instance.chosenItem.itemRaise=2;
             instance.itemPrice.text = "+" + (-1 * 0.5 * instance.chosenItem.price).ToString();
         }
-        instance.Raise.interactable = false;
+        instance.Raise.gameObject.SetActive(false);
     }
 }
