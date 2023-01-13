@@ -15,6 +15,6 @@ public class GameData
         day = 1;
         balance = 1000;
         adventurerBalance = 0;
-        raiseRatio = 30;
+        raiseRatio = 50;
     }
 }

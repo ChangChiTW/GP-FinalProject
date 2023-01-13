@@ -16,6 +16,12 @@ public class DungeonSceneController : MonoBehaviour
     private GameObject[] _avatars = new GameObject[3];
 
     [SerializeField]
+    private GameObject _goldText;
+
+    [SerializeField]
+    private GameObject _raiseText;
+
+    [SerializeField]
     private Transform[] _team = new Transform[3];
     private AudioManager _audioManager;
     private StateManager _stateManager;
@@ -56,6 +62,11 @@ public class DungeonSceneController : MonoBehaviour
                 _team[i].GetComponent<SpriteRenderer>().sprite = null;
             }
         }
+
+        _goldText.GetComponent<Text>().text =
+            "Gold: " + _stateManager.GetAdventurerBalance().ToString();
+        _raiseText.GetComponent<Text>().text =
+            "Raise: " + _stateManager.GetRaiseRatio().ToString() + "%";
     }
 
     void Start()
@@ -189,6 +200,7 @@ public class DungeonSceneController : MonoBehaviour
         }
         yield return new WaitUntil(() => _eventController.IsEventFinished());
         _stateManager.AddAdventurerBalance(monster.gold);
+        _stateManager.AddRaiseRatio(monster.exp);
         _eventController.ShowBattleResult(monster.gold, adventurerHp, _adventurerList);
         yield return new WaitUntil(() => _eventController.IsEventFinished());
         _level++;

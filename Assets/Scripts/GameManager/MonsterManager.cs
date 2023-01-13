@@ -10,9 +10,19 @@ public class Monster
     public float def;
     public int speed;
     public int gold;
+    public int exp;
     public Sprite img;
 
-    public Monster(string name, float hp, float atk, float def, int speed, int gold, Sprite img)
+    public Monster(
+        string name,
+        float hp,
+        float atk,
+        float def,
+        int speed,
+        int gold,
+        int exp,
+        Sprite img
+    )
     {
         this.name = name;
         this.hp = hp;
@@ -20,6 +30,7 @@ public class Monster
         this.def = def;
         this.speed = speed;
         this.gold = gold;
+        this.exp = exp;
         this.img = img;
     }
 }
@@ -54,11 +65,12 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Slime",
-            20 * _ratio,
+            150 * _ratio,
             5 * _ratio,
             0,
             12,
-            200,
+            100,
+            1,
             Resources.Load<Sprite>("Monster/Slime")
         );
     }
@@ -67,11 +79,12 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Reptilian",
-            30 * _ratio,
+            200 * _ratio,
             9 * _ratio,
             1,
             12,
-            300,
+            150,
+            2,
             Resources.Load<Sprite>("Monster/Reptilian")
         );
     }
@@ -80,11 +93,12 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Goblin",
-            15 * _ratio,
+            100 * _ratio,
             7 * _ratio,
             0,
             18,
-            250,
+            125,
+            2,
             Resources.Load<Sprite>("Monster/Goblin")
         );
     }
@@ -93,11 +107,12 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Minotaur",
-            50 * _ratio,
+            500 * _ratio,
             11 * _ratio,
             2,
             9,
-            400,
+            200,
+            3,
             Resources.Load<Sprite>("Monster/Minotaur")
         );
     }
