@@ -51,6 +51,28 @@ public class StageBookSceneController : IntroBookSceneController
             }
             _pages.Add(page);
         }
+        Monster[] monsters = GameObject
+            .Find("GameManager")
+            .GetComponent<MonsterManager>()
+            .GetMonsterList();
+        for (int i = 0; i < monsters.Length; i++)
+        {
+            Monster monster = monsters[i];
+            _pages[1].transform.Find("Img" + i).GetComponent<Image>().sprite = monster.img;
+            _pages[1].transform.Find("Name" + i).GetComponent<TMP_Text>().text = monster.name;
+            _pages[1].transform.Find("HP" + i).transform.Find("Num").GetComponent<TMP_Text>().text =
+                monster.hp.ToString();
+            _pages[1].transform
+                .Find("ATK" + i)
+                .transform.Find("Num")
+                .GetComponent<TMP_Text>()
+                .text = monster.atk.ToString();
+            _pages[1].transform
+                .Find("DEF" + i)
+                .transform.Find("Num")
+                .GetComponent<TMP_Text>()
+                .text = monster.def.ToString();
+        }
     }
 
     public void OnNext()
