@@ -7,6 +7,8 @@ public class StateManager : MonoBehaviour
     private int _day = 1;
     private int _balance = 1000;
     private int _additionalRatio = 0;
+    private int _adventurerBalance = 0;
+    private int _raiseRatio = 30;
     private int _layer = 0;
     private int[] _debt = { 100, 300, 600, 1000, 1500, 2000, 10000 };
     private string _lastSceneToStageBookScene = "ShopScene";
@@ -104,6 +106,16 @@ public class StateManager : MonoBehaviour
     public int GetGoldRatio()
     {
         return _goldRatio[_layer] + _additionalRatio;
+    }
+
+    public int GetRaiseRatio()
+    {
+        return _raiseRatio;
+    }
+
+    public void AddRaiseRatio(int ratio)
+    {
+        _raiseRatio += ratio;
     }
 
     private void ResetSettlement()
