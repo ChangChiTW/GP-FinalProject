@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u9EC3\u91D1\u7BAD\u77E2"
   m_EditorClassIdentifier: 
   itemName: Golden Arrow
-  itemImage: {fileID: 21300000, guid: 2407427fa77a74840b629d160fab6e02, type: 3}
+  itemImage: {fileID: 21300000, guid: 850238fdcef63bd4cb70f23565f5f6e5, type: 3}
   itemHeld: 1
   itemInfo: "\u5E36\u6709\u9AD8\u984D\u50B7\u5BB3\u548C\u6C34\u679C\u53E3\u5473"
   equip: 0

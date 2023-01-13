@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u6728\u5F13"
   m_EditorClassIdentifier: 
   itemName: Wooden Bow
-  itemImage: {fileID: 21300000, guid: c1b177acaef5b422d86aa419910e208b, type: 3}
+  itemImage: {fileID: 21300000, guid: dd924c5eafeda7443a8a73da59d07ee6, type: 3}
   itemHeld: 1
   itemInfo: "\u7CDF\u7CD5\u7684\u6728\u5F13\uFF0C\u80FD\u4E0D\u80FD\u6253\u7375\u90FD\u4E0D\u66C9\u5F97"
   equip: 0

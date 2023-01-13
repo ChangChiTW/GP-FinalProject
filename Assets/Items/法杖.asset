@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: "\u6CD5\u6756"
   m_EditorClassIdentifier: 
   itemName: Magic Wand
-  itemImage: {fileID: 21300000, guid: 71e389d2b0a424f778955836b5ba4b80, type: 3}
+  itemImage: {fileID: 21300000, guid: 6cf21880e0a6f8645aee1f65d2eff99e, type: 3}
   itemHeld: 1
-  itemInfo: 
+  itemInfo: "\u62FF\u5230\u9019\u6839\u6CD5\u6756\u624D\u958B\u59CB\u6709\u6210\u70BA\u6CD5\u5E2B\u7684\u611F\u89BA"
   equip: 0
   HP: 0
   ATK: 15
