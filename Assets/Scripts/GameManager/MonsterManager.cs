@@ -65,7 +65,7 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Slime",
-            150 * _ratio,
+            150 * _ratio / 2,
             5 * _ratio,
             0,
             12,
@@ -79,7 +79,7 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Reptilian",
-            200 * _ratio,
+            200 * _ratio / 2,
             9 * _ratio,
             1,
             12,
@@ -93,7 +93,7 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Goblin",
-            100 * _ratio,
+            100 * _ratio / 2,
             7 * _ratio,
             0,
             18,
@@ -107,11 +107,11 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Minotaur",
-            500 * _ratio,
-            11 * _ratio,
-            2,
+            500 * _ratio / 2,
+            10 * _ratio,
+            1,
             9,
-            200,
+            500,
             3,
             Resources.Load<Sprite>("Monster/Minotaur")
         );

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -50,7 +51,6 @@ public class DungeonSceneController : MonoBehaviour
             _speed * Time.deltaTime
         );
 
-        // change _team image
         for (int i = 0; i < _adventurerList.Length; i++)
         {
             if (_adventurerList[i].hp > 0)
@@ -63,9 +63,9 @@ public class DungeonSceneController : MonoBehaviour
             }
         }
 
-        _goldText.GetComponent<Text>().text =
+        _goldText.GetComponent<TMP_Text>().text =
             "Gold: " + _stateManager.GetAdventurerBalance().ToString();
-        _raiseText.GetComponent<Text>().text =
+        _raiseText.GetComponent<TMP_Text>().text =
             "Raise: " + _stateManager.GetRaiseRatio().ToString() + "%";
     }
 
