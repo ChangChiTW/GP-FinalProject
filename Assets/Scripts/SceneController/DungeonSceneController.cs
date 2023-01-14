@@ -51,11 +51,18 @@ public class DungeonSceneController : MonoBehaviour
             _speed * Time.deltaTime
         );
 
-        for (int i = 0; i < _adventurerList.Length; i++)
+        for (int i = 0; i < _avatars.Length; i++)
         {
-            if (_adventurerList[i].hp > 0)
+            if (_adventurerList.Length > i)
             {
-                _team[i].GetComponent<SpriteRenderer>().sprite = _adventurerList[i].img;
+                if (_adventurerList[i].hp > 0)
+                {
+                    _team[i].GetComponent<SpriteRenderer>().sprite = _adventurerList[i].img;
+                }
+                else
+                {
+                    _team[i].GetComponent<SpriteRenderer>().sprite = null;
+                }
             }
             else
             {
@@ -196,15 +203,40 @@ public class DungeonSceneController : MonoBehaviour
                         .UpdateAdventurer(_adventurerList[i]);
                 }
             }
-            CheckAnyAdventurerAlive();
+            // check if all adventurers are dead => break
+            if (monsterHp <= 0)
+            {
+                break;
+            }
+            bool isAllDead = true;
+            for (int i = 0; i < _adventurerList.Length; i++)
+            {
+                if (_adventurerList[i].hp > 0)
+                {
+                    isAllDead = false;
+                    break;
+                }
+            }
+            if (isAllDead)
+            {
+                break;
+            }
         }
         yield return new WaitUntil(() => _eventController.IsEventFinished());
-        _stateManager.AddAdventurerBalance(monster.gold);
-        _stateManager.AddRaiseRatio(monster.exp);
-        _eventController.ShowBattleResult(monster.gold, adventurerHp, _adventurerList);
+        bool isWin = monsterHp <= 0;
+        if (isWin)
+        {
+            _stateManager.AddAdventurerBalance(monster.gold);
+            _stateManager.AddRaiseRatio(monster.exp);
+        }
+        _eventController.ShowBattleResult(monster.gold, adventurerHp, _adventurerList, isWin);
         yield return new WaitUntil(() => _eventController.IsEventFinished());
         _level++;
         _isArrived = true;
+        if (!isWin)
+        {
+            _level = 9;
+        }
         CheckLastLevel();
     }
 
@@ -216,26 +248,6 @@ public class DungeonSceneController : MonoBehaviour
         _level++;
         _isArrived = true;
         CheckLastLevel();
-    }
-
-    private void CheckAnyAdventurerAlive()
-    {
-        bool isAnyAlive = false;
-        for (int i = 0; i < _adventurerList.Length; i++)
-        {
-            if (_adventurerList[i].hp > 0)
-            {
-                isAnyAlive = true;
-                break;
-            }
-        }
-        if (!isAnyAlive)
-        {
-            _level = 9;
-            _isArrived = true;
-            CheckLastLevel();
-            SceneManager.LoadScene("SettlementScene");
-        }
     }
 
     private void CheckLastLevel()

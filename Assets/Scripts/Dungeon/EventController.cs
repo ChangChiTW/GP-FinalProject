@@ -47,12 +47,22 @@ public class EventController : MonoBehaviour
         return !_eventInfo.activeSelf;
     }
 
-    public void ShowBattleResult(int gold, float[] beforeHp, AdventurerInfo[] after)
+    public void ShowBattleResult(int gold, float[] beforeHp, AdventurerInfo[] after, bool isWin)
     {
         _eventInfo.SetActive(true);
         _battleResultPanel.SetActive(true);
-        _battleResultPanel.transform.Find("Gold").GetComponent<TMP_Text>().text =
-            "Gold +" + gold.ToString();
+        if (isWin)
+        {
+            _battleResultPanel.transform.Find("Title").GetComponent<TMP_Text>().text = "Victory!";
+            _battleResultPanel.transform.Find("Gold").GetComponent<TMP_Text>().text =
+                "Gold +" + gold.ToString();
+        }
+        else
+        {
+            _battleResultPanel.transform.Find("Title").GetComponent<TMP_Text>().text = "Defeat!";
+            _battleResultPanel.transform.Find("Title").GetComponent<TMP_Text>().color = Color.red;
+            _battleResultPanel.transform.Find("Gold").GetComponent<TMP_Text>().text = "Gold +0";
+        }
         for (int i = 0; i < after.Length; i++)
         {
             _battleResultPanel.transform
@@ -65,16 +75,70 @@ public class EventController : MonoBehaviour
                 .Find("Img")
                 .GetComponent<Image>()
                 .sprite = after[i].img;
-            _battleResultPanel.transform
-                .Find("Adventurer" + i)
-                .Find("Before")
-                .GetComponent<TMP_Text>()
-                .text = beforeHp[i].ToString("0");
-            _battleResultPanel.transform
-                .Find("Adventurer" + i)
-                .Find("After")
-                .GetComponent<TMP_Text>()
-                .text = after[i].hp.ToString("0");
+            if (after[i].hp == 0)
+            {
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("Dead")
+                    .gameObject.SetActive(true);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("down")
+                    .gameObject.SetActive(false);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("HPBefore")
+                    .gameObject.SetActive(false);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("HPAfter")
+                    .gameObject.SetActive(false);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("Before")
+                    .gameObject.SetActive(false);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("After")
+                    .gameObject.SetActive(false);
+            }
+            else
+            {
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("Dead")
+                    .gameObject.SetActive(false);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("down")
+                    .gameObject.SetActive(true);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("HPBefore")
+                    .gameObject.SetActive(true);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("HPAfter")
+                    .gameObject.SetActive(true);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("Before")
+                    .gameObject.SetActive(true);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("After")
+                    .gameObject.SetActive(true);
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("Before")
+                    .GetComponent<TMP_Text>()
+                    .text = beforeHp[i].ToString("0");
+                _battleResultPanel.transform
+                    .Find("Adventurer" + i)
+                    .Find("After")
+                    .GetComponent<TMP_Text>()
+                    .text = after[i].hp.ToString("0");
+            }
         }
     }
 
@@ -570,8 +634,8 @@ public class EventController : MonoBehaviour
         CloseDescription();
         _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "-400g，又花了400g，但還是慘賠，全隊攻擊+1，全隊速度+1";
-        _stateManager.AddAdventurerBalance(-800);
+            "-100g，又花了100g，但還是慘賠，全隊攻擊+1，全隊速度+1";
+        _stateManager.AddAdventurerBalance(-200);
         _dungeonSceneController.AnotherOrder();
     }
 
@@ -579,8 +643,8 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "-400g，全隊攻擊+1";
-        _stateManager.AddAdventurerBalance(-400);
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "-100g，全隊攻擊+1";
+        _stateManager.AddAdventurerBalance(-100);
         _dungeonSceneController.IdiotGame();
     }
 
