@@ -69,12 +69,12 @@ public class EventController : MonoBehaviour
                 .Find("Adventurer" + i)
                 .Find("Before")
                 .GetComponent<TMP_Text>()
-                .text = beforeHp[i].ToString();
+                .text = beforeHp[i].ToString("0");
             _battleResultPanel.transform
                 .Find("Adventurer" + i)
                 .Find("After")
                 .GetComponent<TMP_Text>()
-                .text = after[i].hp.ToString();
+                .text = after[i].hp.ToString("0");
         }
     }
 

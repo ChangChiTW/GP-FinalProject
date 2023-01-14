@@ -231,6 +231,9 @@ public class DungeonSceneController : MonoBehaviour
         }
         if (!isAnyAlive)
         {
+            _level = 9;
+            _isArrived = true;
+            CheckLastLevel();
             SceneManager.LoadScene("SettlementScene");
         }
     }

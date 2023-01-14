@@ -65,8 +65,8 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Slime",
-            150 * _ratio / 2,
-            5 * _ratio,
+            150 * _ratio / 2 / 2,
+            5 * _ratio - 2,
             0,
             12,
             100,
@@ -79,8 +79,8 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Reptilian",
-            200 * _ratio / 2,
-            9 * _ratio,
+            200 * _ratio / 2 / 2,
+            9 * _ratio - 2,
             1,
             12,
             150,
@@ -93,8 +93,8 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Goblin",
-            100 * _ratio / 2,
-            7 * _ratio,
+            100 * _ratio / 2 / 2,
+            7 * _ratio - 2,
             0,
             18,
             125,
@@ -107,8 +107,8 @@ public class MonsterManager : MonoBehaviour
     {
         return new Monster(
             "Minotaur",
-            500 * _ratio / 2,
-            10 * _ratio,
+            500 * _ratio / 2 / 2,
+            10 * _ratio - 2,
             1,
             9,
             500,
