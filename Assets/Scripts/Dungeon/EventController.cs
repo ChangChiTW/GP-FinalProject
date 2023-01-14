@@ -91,8 +91,7 @@ public class EventController : MonoBehaviour
                 ObtrusiveTreasureChestEvent();
                 break;
             case 2:
-                // CannedSpinachEvent();
-                MiniDrinkEvent();
+                CannedSpinachEvent();
                 break;
             case 3:
                 MagicConchEvent();
@@ -157,7 +156,8 @@ public class EventController : MonoBehaviour
         _description.GetComponent<TMP_Text>().text =
             "在狹長的道路上" + adventurer.name + "踩到了陷阱，右側石門打開後出現一塊巨石朝著" + adventurer.name + "高速滾動";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "向前衝刺";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -165,7 +165,8 @@ public class EventController : MonoBehaviour
             });
 
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "往後翻滾";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -179,14 +180,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "突兀的寶箱";
         _description.GetComponent<TMP_Text>().text = "在一個空曠的房間中，一個與周圍格格不入的寶箱顯眼的擺在房間中央";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "打開它";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 OpenChestResult();
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "無視他";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -200,14 +203,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "菠菜罐頭";
         _description.GetComponent<TMP_Text>().text = "撿到一個菠菜罐頭，上面還印著卜派的頭像，該怎麼吃呢?";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "直接吃掉";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 EatDirectlyResult();
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "將其做成菜餚";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -221,14 +226,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "神奇海螺";
         _description.GetComponent<TMP_Text>().text = "冒險者們撿到一個海螺";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "問";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 AskForAdviceResult();
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "不問";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -242,14 +249,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "領取飆股";
         _description.GetComponent<TMP_Text>().text = "出現一個奇怪的老師，聲稱只要買他指定的道具就會發家致富，要跟著老師一起起飛嗎？";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "信他一把";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 TrustTeacherResult();
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "撥打165專線";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -263,14 +272,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "新年快樂";
         _description.GetComponent<TMP_Text>().text = "年關將近，來到雜貨店否放一下";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "買刮刮樂";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 BuyScratchCardsResult();
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "買沖天炮";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -284,14 +295,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "決鬥";
         _description.GetComponent<TMP_Text>().text = "冒險者們來到一個房間，站在前方 的正是武藤遊戲，武藤遊戲對冒險者發出了決鬥!";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "使用究極大法師牌組";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 UseUltimateMageDeckResult();
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "使用黑魔導牌組";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -305,14 +318,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "非洲酋長";
         _description.GetComponent<TMP_Text>().text = "遇到一台可以玩的拉霸機，但是玩了200次都沒中大獎";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "再來一單";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 AnotherOrderResult();
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "白痴遊戲";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -327,14 +342,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "八門神器";
         _description.GetComponent<TMP_Text>().text = "這個腳本讓你攻擊速度血量+10，保證無毒，絕對安全";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "我還不用爆";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 UseEightArtifactsResult(adventurer.name);
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "垃圾遊戲";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -349,14 +366,16 @@ public class EventController : MonoBehaviour
         _eventName.GetComponent<TMP_Text>().text = "地雷飲料";
         _description.GetComponent<TMP_Text>().text = adventurer.name + "發現一家可愛的飲料店販賣不同的飲料";
         _optionA.transform.Find("Name").GetComponent<TMP_Text>().text = "烏魚子奶蓋烏龍";
-        _optionA
+        _optionA.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 OolongCoveredWithMulletRoeResult(adventurer.name);
             });
         _optionB.transform.Find("Name").GetComponent<TMP_Text>().text = "珍珠奶茶";
-        _optionB
+        _optionB.transform
+            .Find("Btn")
             .GetComponent<Button>()
             .onClick.AddListener(() =>
             {
@@ -394,7 +413,7 @@ public class EventController : MonoBehaviour
     private void RollBackResult(string adventurer)
     {
         CloseDescription();
-        _eventInfoPanel.SetActive(false);
+        _eventInfoPanel.SetActive(true);
         _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
             adventurer + "在驚險地躲過巨石後，與他的隊伍撞成一團，全隊受到5點傷害";
         _dungeonSceneController.RollBack();
@@ -587,8 +606,7 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
-            "意外的很好喝，+3血量+1速度(註:http://dadaochen.com，真的好喝)";
+        _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text = "意外的很好喝，+3血量+1速度";
         _dungeonSceneController.OolongCoveredWithMulletRoe(adventurer);
     }
 

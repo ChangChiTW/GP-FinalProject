@@ -117,6 +117,15 @@ public class StateManager : MonoBehaviour
     public void AddAdventurerBalance(int balance)
     {
         _gameData.adventurerBalance += balance;
+        if (_gameData.adventurerBalance <= 0)
+        {
+            _gameData.adventurerBalance = 0;
+        }
+    }
+
+    public void ResetAdventurerBalance()
+    {
+        _gameData.adventurerBalance = 0;
     }
 
     public int GetRaiseRatio()
@@ -127,6 +136,11 @@ public class StateManager : MonoBehaviour
     public void AddRaiseRatio(int ratio)
     {
         _gameData.raiseRatio += ratio;
+    }
+
+    public void ResetRaiseRatio()
+    {
+        _gameData.raiseRatio = 50;
     }
 
     private void ResetSettlement()
@@ -188,6 +202,8 @@ public class StateManager : MonoBehaviour
         BalanceMinusDebt();
         AddDay();
         ResetLayer();
+        ResetRaiseRatio();
+        ResetAdventurerBalance();
         ResetSettlement();
         ResetLastSceneToStageBookScene();
     }

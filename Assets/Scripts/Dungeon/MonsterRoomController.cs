@@ -51,7 +51,7 @@ public class MonsterRoomController : MonoBehaviour
     {
         this.GetComponent<Button>().onClick.AddListener(() => OnClick());
         _nameText.text = _monster.name;
-        _hpText.text = _monster.hp.ToString();
+        _hpText.text = _monster.hp.ToString("0");
         _atkText.text = _monster.atk.ToString();
         _defText.text = _monster.def.ToString();
         _speedText.text = _monster.speed.ToString();

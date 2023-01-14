@@ -61,8 +61,23 @@ public class TradeManager : MonoBehaviour
         instance.chosenItem = pointedItem;
     }
 
-    public static void AddNewItem()
+    public static bool AddNewItem()
     {
+        if (instance.chosenItem.itemRaise == 0)
+        {
+            if (instance._stateManager.GetAdventurerBalance() < -1.0 * instance.chosenItem.price)
+                return false;
+        }
+        else if (instance.chosenItem.itemRaise == 1)
+        {
+            if (instance._stateManager.GetAdventurerBalance() < -2.0 * instance.chosenItem.price)
+                return false;
+        }
+        else
+        {
+            if (instance._stateManager.GetAdventurerBalance() < -0.5 * instance.chosenItem.price)
+                return false;
+        }
         if (instance.chosenItem.itemRaise == 0)
             instance._stateManager.AddBalance(
                 System.Convert.ToInt32(System.Math.Floor(-1.0 * instance.chosenItem.price))
@@ -97,6 +112,7 @@ public class TradeManager : MonoBehaviour
             instance.chosenItem.itemHeld -= 1;
         }
         RefreshItem();
+        return true;
     }
 
     public static void UpdateItemInfo(

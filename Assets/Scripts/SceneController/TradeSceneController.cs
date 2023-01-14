@@ -150,28 +150,30 @@ public class TradeSceneController : MonoBehaviour
     public void SellToAdventurer()
     {
         _audioManager.PlayBtnClick();
-        Item item = TradeManager.GetChosenItem();
-        if (_adventurerList[_adventurerIndex].preferenceImgs.Contains(item.itemImage))
+        if (TradeManager.AddNewItem())
         {
-            AdjustAdventurerInfo(
-                item.HP * 1.1f,
-                item.ATK * 1.1f,
-                item.DEF * 1.1f,
-                item.SPEED,
-                item.itemImage
-            );
+            Item item = TradeManager.GetChosenItem();
+            if (_adventurerList[_adventurerIndex].preferenceImgs.Contains(item.itemImage))
+            {
+                AdjustAdventurerInfo(
+                    item.HP * 1.1f,
+                    item.ATK * 1.1f,
+                    item.DEF * 1.1f,
+                    item.SPEED,
+                    item.itemImage
+                );
+            }
+            else
+            {
+                AdjustAdventurerInfo(item.HP, item.ATK, item.DEF, item.SPEED, item.itemImage);
+            }
         }
-        else
-        {
-            AdjustAdventurerInfo(item.HP, item.ATK, item.DEF, item.SPEED, item.itemImage);
-        }
-        TradeManager.AddNewItem();
         TradeManager.CloseDes();
     }
 
     public void RaisePrice()
     {
-        _audioManager.PlayBtnClick();        
+        _audioManager.PlayBtnClick();
         TradeManager.RaisePrice();
     }
 }

@@ -288,6 +288,10 @@ public class DungeonSceneController : MonoBehaviour
         {
             if (_adventurerList[i].name == adventurer)
             {
+                if (_adventurerList[i].hp < 0)
+                {
+                    continue;
+                }
                 _adventurerList[i].speed -= 3;
                 if (_adventurerList[i].speed < 0)
                 {
@@ -303,6 +307,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].hp -= 5;
             if (_adventurerList[i].hp < 0)
             {
@@ -321,6 +329,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].hp -= 10;
             _adventurerList[i].atk += 3;
             if (_adventurerList[i].hp < 0)
@@ -335,6 +347,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].hp += 5;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
@@ -344,6 +360,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].hp += 5;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
@@ -353,6 +373,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].atk += 1;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
@@ -362,6 +386,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].hp -= 10;
             if (_adventurerList[i].hp < 0)
             {
@@ -375,6 +403,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].hp -= 5;
             if (_adventurerList[i].hp < 0)
             {
@@ -388,6 +420,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].atk += 1;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
@@ -397,6 +433,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].atk += 1;
             _adventurerList[i].speed += 1;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
@@ -407,6 +447,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].atk += 1;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
@@ -418,6 +462,10 @@ public class DungeonSceneController : MonoBehaviour
         {
             if (_adventurerList[i].name == adventurer)
             {
+                if (_adventurerList[i].hp < 0)
+                {
+                    continue;
+                }
                 _adventurerList[i].hp += 10;
                 _adventurerList[i].atk += 10;
                 _adventurerList[i].speed += 10;
@@ -431,6 +479,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].speed += 1;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
@@ -442,6 +494,10 @@ public class DungeonSceneController : MonoBehaviour
         {
             if (_adventurerList[i].name == adventurer)
             {
+                if (_adventurerList[i].hp < 0)
+                {
+                    continue;
+                }
                 _adventurerList[i].hp += 3;
                 _adventurerList[i].speed += 1;
                 _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
@@ -456,6 +512,10 @@ public class DungeonSceneController : MonoBehaviour
         {
             if (_adventurerList[i].name == adventurer)
             {
+                if (_adventurerList[i].hp < 0)
+                {
+                    continue;
+                }
                 _adventurerList[i].atk += 2;
                 _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
                 break;
@@ -467,6 +527,10 @@ public class DungeonSceneController : MonoBehaviour
     {
         for (int i = 0; i < _adventurerList.Length; i++)
         {
+            if (_adventurerList[i].hp < 0)
+            {
+                continue;
+            }
             _adventurerList[i].hp += 15;
             _avatars[i].GetComponent<AvatarController>().UpdateAdventurer(_adventurerList[i]);
         }
