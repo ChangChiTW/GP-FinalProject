@@ -91,7 +91,8 @@ public class EventController : MonoBehaviour
                 ObtrusiveTreasureChestEvent();
                 break;
             case 2:
-                CannedSpinachEvent();
+                // CannedSpinachEvent();
+                MiniDrinkEvent();
                 break;
             case 3:
                 MagicConchEvent();
@@ -403,7 +404,7 @@ public class EventController : MonoBehaviour
     {
         CloseDescription();
         _eventInfoPanel.SetActive(true);
-        if (Random.Range(0, 100) < 25)
+        if (Random.Range(0, 100) < 100)
         {
             _eventInfoPanel.transform.Find("Des").GetComponent<TMP_Text>().text =
                 "寶箱裝滿金幣，團隊獲得500金幣";

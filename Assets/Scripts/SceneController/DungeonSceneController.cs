@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,12 @@ public class DungeonSceneController : MonoBehaviour
 
     [SerializeField]
     private GameObject[] _avatars = new GameObject[3];
+
+    [SerializeField]
+    private GameObject _goldText;
+
+    [SerializeField]
+    private GameObject _raiseText;
 
     [SerializeField]
     private Transform[] _team = new Transform[3];
@@ -44,7 +51,6 @@ public class DungeonSceneController : MonoBehaviour
             _speed * Time.deltaTime
         );
 
-        // change _team image
         for (int i = 0; i < _adventurerList.Length; i++)
         {
             if (_adventurerList[i].hp > 0)
@@ -56,6 +62,11 @@ public class DungeonSceneController : MonoBehaviour
                 _team[i].GetComponent<SpriteRenderer>().sprite = null;
             }
         }
+
+        _goldText.GetComponent<TMP_Text>().text =
+            "Gold: " + _stateManager.GetAdventurerBalance().ToString();
+        _raiseText.GetComponent<TMP_Text>().text =
+            "Raise: " + _stateManager.GetRaiseRatio().ToString() + "%";
     }
 
     void Start()
@@ -189,6 +200,7 @@ public class DungeonSceneController : MonoBehaviour
         }
         yield return new WaitUntil(() => _eventController.IsEventFinished());
         _stateManager.AddAdventurerBalance(monster.gold);
+        _stateManager.AddRaiseRatio(monster.exp);
         _eventController.ShowBattleResult(monster.gold, adventurerHp, _adventurerList);
         yield return new WaitUntil(() => _eventController.IsEventFinished());
         _level++;
